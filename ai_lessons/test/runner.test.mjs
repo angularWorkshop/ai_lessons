@@ -16,9 +16,10 @@ function cleanup(directory) {
   fs.rmSync(directory, { recursive: true });
 }
 
-test('saving an answer reruns checks and changes runner status from NOT COMPLETED to COMPLETED', async () => {
+for (const id of ['01-task-boundaries', '30-structured-results']) test(`${id}: saving an answer changes runner status from NOT COMPLETED to COMPLETED`, async () => {
+  const lab = labs.find(l => l.id === id);
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'edutec-ai-test-'));
-  fs.cpSync(path.join(root, 'generated/01-task-boundaries/starter'), directory, { recursive: true });
+  fs.cpSync(path.join(root, 'generated', id, 'starter'), directory, { recursive: true });
   const child = spawn(process.execPath, ['scripts/stackblitz-status.mjs'], { cwd: directory, stdio: ['ignore', 'pipe', 'pipe'] });
   try {
     await new Promise((resolve, reject) => {
@@ -30,8 +31,8 @@ test('saving an answer reruns checks and changes runner status from NOT COMPLETE
         text += chunk;
         if (!saved && text.includes('ASSIGNMENT STATUS: NOT COMPLETED')) {
           saved = true;
-          const file = path.join(directory, 'src/policy.json');
-          fs.writeFileSync(file + '.next', JSON.stringify(labs[0].answer));
+          const file = path.join(directory, 'src', lab.file);
+          fs.writeFileSync(file + '.next', lab.executable ? lab.answer : JSON.stringify(lab.answer));
           fs.renameSync(file + '.next', file);
         }
         if (saved && /ASSIGNMENT STATUS: COMPLETED/.test(text)) { clearTimeout(timer); resolve(); }
