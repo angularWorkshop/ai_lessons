@@ -1,9 +1,0 @@
-{
-  "routes": {
-    "investigate": "developer",
-    "implement": "developer",
-    "verify": "developer",
-    "review": "developer"
-  },
-  "fallback": "developer"
-}
