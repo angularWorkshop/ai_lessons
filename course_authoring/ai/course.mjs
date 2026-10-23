@@ -1,7 +1,7 @@
 import { extensionLessons, extensionSections } from './extension.mjs';
 
 export const course = {
-  type: 'AI_ASSISTANTS', slug: 'ai', status: 'draft', version: 2,
+  type: 'AI_ASSISTANTS', slug: 'ai', status: 'publishing', version: 2,
   title: { RU: 'ИИ-ассистенты: от настройки до оркестрации', EN: 'AI assistants: from setup to orchestration' },
   audience: {
     RU: 'Разработчики, тестировщики и технические специалисты, которые хотят поручать ИИ проверяемые задачи, а не просто получать ответы в чате.',

@@ -13,13 +13,19 @@ const write = (file, content) => { fs.mkdirSync(path.dirname(file), { recursive:
 
 
 export function build() {
+  const publicationFile = path.join(root, 'course_authoring/ai/publication.json');
+  const publication = fs.existsSync(publicationFile) ? JSON.parse(fs.readFileSync(publicationFile, 'utf8')) : {
+    ready: false, blockers: ['No publication registry supplied'], repository: null, exercises: {},
+  };
   const manifest = {
     ...course,
-    publication: { ready: false, blockers: ['No remote lesson repository assigned', 'AI_ASSISTANTS is not registered in production API', 'Course entitlement and release review pending'], repository: null },
+    publication,
     sections: course.sections.map((section, i) => ({ ...section, order: i + 1, topics: lessons.filter(l => l.section === section.id).map(lesson => ({
       key: lesson.id, order: lessons.indexOf(lesson) + 1, title: { RU: lesson.RU.title, EN: lesson.EN.title },
       requires: lessons.indexOf(lesson) ? [lessons[lessons.indexOf(lesson) - 1].id] : [],
-      exercises: [{ key: lesson.id, isPublic: false, translations: ['RU', 'EN'].map(lang => renderLesson(lesson, lang)), exerciseRepositoryUrl: null, solutionUrl: null }],
+      exercises: [{ key: lesson.id, isPublic: lessons.indexOf(lesson) === 0, translations: ['RU', 'EN'].map(lang => renderLesson(lesson, lang)),
+        exerciseRepositoryUrl: publication.exercises[lesson.id]?.exerciseRepositoryUrl ?? null,
+        solutionUrl: publication.exercises[lesson.id]?.solutionUrl ?? null }],
     })) })),
   };
   write(path.join(root, 'course_authoring/ai/course-manifest.json'), json(manifest));

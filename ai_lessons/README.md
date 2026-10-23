@@ -1,6 +1,8 @@
 # AI assistants: from setup to orchestration
 
-Локальный черновик курса Edutec: 13 разделов, 26 уроков на RU/EN и 26 пар starter/answer. Это **не опубликованный курс**. Браузер проверяет конфигурации; отдельный CPU-проект действительно обучает модель и обслуживает локальный inference.
+Курс Edutec: 13 разделов, 26 уроков на RU/EN и 26 пар starter/answer. Браузер проверяет конфигурации; отдельный CPU-проект действительно обучает модель и обслуживает локальный inference.
+
+Платформа: [курс ИИ-ассистентов](https://courses.edutec.it.com/ai/home). Учебные ветки: [angularWorkshop/ai_lessons](https://github.com/angularWorkshop/ai_lessons). Статус конкретного релиза и границы проверки описаны в [RELEASE.md](../course_authoring/ai/RELEASE.md).
 
 ## Preview / Просмотр
 
@@ -46,7 +48,7 @@ npm run start:dev
 - `ADVANCED_ACCEPTANCE.md`: раздельная приёмка симулятора, CPU- и LLM-проектов.
 
 - `../course_authoring/ai/course.mjs`: оригинальная теория, примеры, практика и перенос RU/EN.
-- `../course_authoring/ai/course-manifest.json`: структурированный черновик; `content` и `stackBlitzContent` заполнены отдельно.
+- `../course_authoring/ai/course-manifest.json`: структурированный курс; `content` и `stackBlitzContent` заполнены отдельно.
 - `labs.mjs`: конфигурации и поведенческие сценарии (точное число в verification.json).
 - `runtime.mjs`: детерминированный учебный симулятор, без выполнения команд и сетевых запросов.
 - `generated/<lesson>/{starter,answer}`: самостоятельные проекты с одинаковыми тестами и runner.
@@ -58,4 +60,4 @@ npm run start:dev
 
 ## Publication boundary
 
-Remote-репозиторий для нового курса не задан. В манифесте нет выдуманных URL, а `publication.ready` остаётся `false`. Тип `AI_ASSISTANTS` и маршрут `/ai` являются предложением для интеграции, не существующим production-контрактом. Порядок безопасного запуска описан в `../course_authoring/ai/RELEASE.md`.
+Тип курса в API: `AI_ASSISTANTS`; маршрут приложения: `/ai`. В `publication.json` сохранены реальные идентификаторы опубликованных уроков и проверенные ссылки на starter/answer. Первый урок открыт гостям; полный курс входит в PRO/LIFETIME и доступен ADMIN. Выбор фреймворков Base/Standard не изменён. Локальная лаборатория не отправляет прогресс на платформу.

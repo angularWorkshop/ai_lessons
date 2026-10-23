@@ -19,6 +19,13 @@ for (const section of manifest.sections) {
   assert.ok(section.topics.length > 0);
   for (const topic of section.topics) {
     const lesson = lessons.find(l => l.id === topic.key);
+    assert.equal(topic.exercises[0].isPublic, lessons.indexOf(lesson) === 0);
+    if (manifest.publication.repository) {
+      const { exerciseRepositoryUrl, solutionUrl } = topic.exercises[0];
+      assert.match(exerciseRepositoryUrl, /^https:\/\/github\.com\/angularWorkshop\/ai_lessons\/tree\/lesson-topic-/);
+      assert.match(solutionUrl, /^https:\/\/github\.com\/angularWorkshop\/ai_lessons\/tree\/answer-topic-/);
+      assert.notEqual(exerciseRepositoryUrl, solutionUrl);
+    }
     assert.ok(topic.requires.every(id => lessons.findIndex(l => l.id === id) < lessons.indexOf(lesson)));
     for (const translation of topic.exercises[0].translations) {
       assert.ok(translation.content.startsWith('<div class="container">'));

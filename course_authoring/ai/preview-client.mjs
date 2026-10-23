@@ -16,11 +16,11 @@ function render() {
   const lesson = lessons[index];
   const lab = labs[index];
   document.documentElement.lang = language.toLowerCase();
-  document.title = course.title[language] + ' · Edutec draft';
+  document.title = course.title[language] + ' · Edutec local lab';
   byId('course-title').textContent = course.title[language];
   byId('audience').textContent = course.audience[language];
   byId('prerequisites').textContent = course.prerequisites[language];
-  byId('draft-note').textContent = t('Локальный черновик · не опубликован на платформе', 'Local draft · not published on the platform');
+  byId('draft-note').textContent = t('Локальная лаборатория · прогресс не отправляется на платформу', 'Local lab · progress is not sent to the platform');
   byId('overview').textContent = t(`${lessons.length} уроков / ${course.sections.length} разделов / без платного API`, `${lessons.length} lessons / ${course.sections.length} sections / no paid API required`);
   updateProgress();
   byId('curriculum').replaceChildren();
