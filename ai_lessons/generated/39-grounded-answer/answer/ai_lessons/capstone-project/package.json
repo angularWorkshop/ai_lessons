@@ -1,0 +1,7 @@
+{
+  "name": "edutec-ai-capstone-task",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test tests/tags.test.mjs" },
+  "engines": { "node": ">=20" }
+}

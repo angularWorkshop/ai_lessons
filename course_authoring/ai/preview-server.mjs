@@ -7,8 +7,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const routes = new Map([
   ['/', 'ai-course.html'],
   ['/ai-course.html', 'ai-course.html'],
-  ...['preview-client.mjs', 'render-browser.mjs', 'lesson-html.mjs', 'course.mjs', 'extension.mjs'].map(file => [`/course_authoring/ai/${file}`, `course_authoring/ai/${file}`]),
-  ...['runtime.mjs', 'labs.mjs', 'extension-runtime.mjs', 'extension-labs.mjs'].map(file => [`/ai_lessons/${file}`, `ai_lessons/${file}`]),
+  ...['preview-client.mjs', 'render-browser.mjs', 'lesson-html.mjs', 'course.mjs', 'extension.mjs', 'depth.mjs', 'walkthroughs.mjs'].map(file => [`/course_authoring/ai/${file}`, `course_authoring/ai/${file}`]),
+  ...['runtime.mjs', 'labs.mjs', 'extension-runtime.mjs', 'extension-labs.mjs', 'depth-labs.mjs'].map(file => [`/ai_lessons/${file}`, `ai_lessons/${file}`]),
   ...['LOCAL_MODELS.md', 'TRAINING.md', 'FINETUNING.md', 'ADVANCED_ACCEPTANCE.md', 'agent-os-example/README.md'].map(file => [`/ai_lessons/${file}`, `ai_lessons/${file}`]),
 ]);
 const server = http.createServer((req, res) => {

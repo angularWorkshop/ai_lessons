@@ -1,0 +1,73 @@
+[
+  [
+    "every claim needs an available source",
+    {
+      "retrieved": [
+        "doc1"
+      ],
+      "claims": [
+        {
+          "text": "A",
+          "sources": [
+            "doc1"
+          ]
+        }
+      ]
+    },
+    {
+      "accepted": true
+    }
+  ],
+  [
+    "a plausible invented citation is not evidence",
+    {
+      "retrieved": [
+        "doc1"
+      ],
+      "claims": [
+        {
+          "text": "A",
+          "sources": [
+            "doc9"
+          ]
+        }
+      ]
+    },
+    {
+      "accepted": false
+    }
+  ],
+  [
+    "one unsupported claim blocks the response",
+    {
+      "retrieved": [
+        "doc1"
+      ],
+      "claims": [
+        {
+          "text": "A",
+          "sources": [
+            "doc1"
+          ]
+        },
+        {
+          "text": "B",
+          "sources": []
+        }
+      ]
+    },
+    {
+      "accepted": false
+    }
+  ],
+  [
+    "no answer is not a verified answer",
+    {
+      "retrieved": [],
+      "claims": []
+    },
+    {
+      "accepted": false
+    }
+  ]
+]

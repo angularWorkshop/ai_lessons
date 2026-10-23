@@ -1,0 +1,56 @@
+[
+  [
+    "transient read failure",
+    {
+      "status": 503,
+      "attempt": 1,
+      "idempotent": true
+    },
+    "retry-with-backoff"
+  ],
+  [
+    "do not repeat a payment after an ambiguous response",
+    {
+      "status": 503,
+      "attempt": 1,
+      "idempotent": false
+    },
+    "stop"
+  ],
+  [
+    "permission denial needs a person, not retries",
+    {
+      "status": 403,
+      "attempt": 1,
+      "idempotent": true
+    },
+    "human"
+  ],
+  [
+    "bounded attempts",
+    {
+      "status": 429,
+      "attempt": 3,
+      "idempotent": true
+    },
+    "stop"
+  ],
+  [
+    "bad input is not transient",
+    {
+      "status": 400,
+      "attempt": 1,
+      "idempotent": true
+    },
+    "stop"
+  ],
+  [
+    "successful request",
+    {
+      "status": 200,
+      "attempt": 1,
+      "idempotent": true
+    },
+    "accept"
+  ]
+]

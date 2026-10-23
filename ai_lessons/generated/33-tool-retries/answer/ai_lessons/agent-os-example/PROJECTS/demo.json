@@ -1,0 +1,8 @@
+{
+  "id": "demo",
+  "root": "../capstone-project",
+  "verification": ["node --test"],
+  "allowedWrite": ["src/tags.mjs"],
+  "cloudFallback": false,
+  "productionWrites": false
+}

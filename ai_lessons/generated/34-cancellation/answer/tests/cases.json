@@ -1,0 +1,74 @@
+[
+  [
+    "a delta is not completion",
+    [
+      {
+        "type": "delta",
+        "text": "Hi"
+      }
+    ],
+    {
+      "text": "Hi",
+      "state": "incomplete"
+    }
+  ],
+  [
+    "stop consuming after cancellation",
+    [
+      {
+        "type": "delta",
+        "text": "A"
+      },
+      {
+        "type": "cancel"
+      },
+      {
+        "type": "delta",
+        "text": "B"
+      },
+      {
+        "type": "done"
+      }
+    ],
+    {
+      "text": "A",
+      "state": "cancelled"
+    }
+  ],
+  [
+    "server failure preserves partial text without claiming success",
+    [
+      {
+        "type": "delta",
+        "text": "A"
+      },
+      {
+        "type": "error"
+      }
+    ],
+    {
+      "text": "A",
+      "state": "failed"
+    }
+  ],
+  [
+    "normal completion",
+    [
+      {
+        "type": "delta",
+        "text": "A"
+      },
+      {
+        "type": "delta",
+        "text": "B"
+      },
+      {
+        "type": "done"
+      }
+    ],
+    {
+      "text": "AB",
+      "state": "complete"
+    }
+  ]
+]

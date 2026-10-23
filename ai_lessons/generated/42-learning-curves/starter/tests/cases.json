@@ -1,0 +1,50 @@
+[
+  [
+    "training improves while validation worsens",
+    [
+      {
+        "train": 1,
+        "validation": 1
+      },
+      {
+        "train": 0.1,
+        "validation": 2
+      }
+    ],
+    "possible-overfit"
+  ],
+  [
+    "both improve",
+    [
+      {
+        "train": 1,
+        "validation": 1
+      },
+      {
+        "train": 0.6,
+        "validation": 0.8
+      }
+    ],
+    "improving"
+  ],
+  [
+    "one epoch proves no trend",
+    [
+      {
+        "train": 1,
+        "validation": 1
+      }
+    ],
+    "more-evidence"
+  ],
+  [
+    "nonfinite loss needs investigation before selection",
+    [
+      {
+        "train": null,
+        "validation": 1
+      }
+    ],
+    "invalid"
+  ]
+]

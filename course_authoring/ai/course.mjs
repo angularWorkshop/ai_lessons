@@ -1,30 +1,34 @@
+import { depthLessons, depthSections, lessonOrder } from './depth.mjs';
+import { deepenExisting } from './walkthroughs.mjs';
 import { extensionLessons, extensionSections } from './extension.mjs';
 
 export const course = {
-  type: 'AI_ASSISTANTS', slug: 'ai', status: 'published', version: 2,
-  title: { RU: 'ИИ-ассистенты: от настройки до оркестрации', EN: 'AI assistants: from setup to orchestration' },
+  type: 'AI_ASSISTANTS', slug: 'ai', status: 'published', version: 3,
+  title: { RU: 'ИИ на практике: ассистенты, агенты и локальные модели', EN: 'Practical AI: assistants, agents, and local models' },
   audience: {
     RU: 'Разработчики, тестировщики и технические специалисты, которые хотят поручать ИИ проверяемые задачи, а не просто получать ответы в чате.',
     EN: 'Developers, testers, and technical specialists who want to delegate verifiable work to AI rather than just chat with it.',
   },
   prerequisites: {
-    RU: 'Уметь открыть проект, изменить JSON-файл, выполнить команду в терминале и прочитать простой Git diff. Angular или React не требуются. Для CPU-обучения нужен Python 3.10+; GPU-маршрут LoRA дополнительный. Если терминал и Git незнакомы, начните с README.',
-    EN: 'Open a project, edit JSON, run a terminal command, and read a simple Git diff. Angular and React are not required. CPU training needs Python 3.10+; GPU LoRA is optional. Start with README onboarding if Git or the terminal is unfamiliar.',
+    RU: 'Уметь открыть проект, изменить JSON-файл, выполнить команду в терминале и прочитать простой Git diff. Для 18 заданий с кодом нужны функции, объекты и массивы JavaScript; перед ними есть CODING_PRIMER.md. Angular или React не требуются. Для CPU-обучения нужен Python 3.10+; GPU-маршрут LoRA дополнительный. Если терминал и Git незнакомы, начните с README.',
+    EN: 'Open a project, edit JSON, run a terminal command, and read a simple Git diff. The 18 code exercises need basic JavaScript functions, objects, and arrays; CODING_PRIMER.md bridges these skills. Angular and React are not required. CPU training needs Python 3.10+; GPU LoRA is optional. Start with README onboarding if Git or the terminal is unfamiliar.',
   },
   outcome: {
     RU: 'Переносимый workflow ассистента и агентной ОС, локальный inference, выбор prompt/RAG/дообучения, настоящая CPU-модель и план LoRA. Итог — воспроизводимый локальный проект с baseline, holdout, отказами и rollback; симуляция и реальная приёмка разделены.',
     EN: 'A portable assistant/agent-OS workflow, local inference, a prompt/RAG/fine-tuning decision, a real CPU model, and a LoRA plan. Finish with a reproducible local project, baseline, holdout, failure checks, and rollback; simulation and real acceptance remain separate.',
   },
   sections: [
-    { id: 'foundations', title: { RU: 'Задача до инструмента', EN: 'The task before the tool' } },
+    { id: 'foundations', title: { RU: 'Начало работы: модель, клиент и задача', EN: 'Getting started: model, client, and task' } },
     { id: 'context', title: { RU: 'Контекст и инструкции', EN: 'Context and instructions' } },
     { id: 'safety', title: { RU: 'Инструменты и границы доверия', EN: 'Tools and trust boundaries' } },
     { id: 'workflow', title: { RU: 'Рабочий цикл и диагностика', EN: 'Working loop and debugging' } },
     { id: 'integration', title: { RU: 'Контракты инструментов и передача работы', EN: 'Tool contracts and handoffs' } },
-    { id: 'quality', title: { RU: 'Стоимость и качество', EN: 'Cost and quality' } },
+    { id: 'quality', title: { RU: 'Качество, стоимость и диагностика запусков', EN: 'Quality, cost, and run diagnostics' } },
     { id: 'team', title: { RU: 'Несколько ролей без хаоса', EN: 'Multiple roles without chaos' } },
     { id: 'capstone', title: { RU: 'Оркестратор: проект базового трека', EN: 'Orchestrator: core-track project' } },
-    ...extensionSections,
+    ...extensionSections.slice(0, 3),
+    ...depthSections,
+    ...extensionSections.slice(3),
   ],
   sources: [
     ['Edaxon public learning and mentor demo', 'https://edaxon.com/'],
@@ -42,7 +46,7 @@ export const course = {
 };
 
 // Each pair is authored separately. Examples are teaching examples, not vendor configuration schemas.
-export const lessons = [
+const existingLessons = [
   {
     id: '01-task-boundaries', section: 'foundations', concepts: ['assistant', 'workflow', 'approval'],
     RU: {
@@ -479,3 +483,12 @@ export const lessons = [
   },
   ...extensionLessons,
 ];
+
+deepenExisting(existingLessons);
+const all = [...existingLessons, ...depthLessons];
+export const lessons = lessonOrder.map(id => {
+  const item = all.find(l => l.id === id);
+  if (!item) throw new Error('Unknown lesson ' + id);
+  return item;
+});
+if (new Set(lessonOrder).size !== all.length) throw new Error('Incomplete lesson order');

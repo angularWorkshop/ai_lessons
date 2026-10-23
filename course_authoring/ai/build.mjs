@@ -37,13 +37,19 @@ export function build() {
         scripts: { test: 'node --test tests/assignment.test.mjs', 'start:dev': 'node scripts/stackblitz-status.mjs' },
         engines: { node: '>=20' }, stackblitz: { startCommand: 'npm run start:dev' } }));
       write(path.join(dir, '.stackblitzrc'), json({ startCommand: 'npm run start:dev' }));
-      write(path.join(dir, `src/${lab.file}`), json(lab[mode]));
+      write(path.join(dir, `src/${lab.file}`), lab.executable ? lab[mode] : json(lab[mode]));
       write(path.join(dir, 'tests/cases.json'), json(lab.cases));
-      write(path.join(dir, 'tests/assignment.test.mjs'), `import assert from 'node:assert/strict';\nimport { test } from 'node:test';\nimport fs from 'node:fs';\nimport { runLab } from '../runtime.mjs';\nconst config = JSON.parse(fs.readFileSync(new URL('../src/${lab.file}', import.meta.url)));\nconst cases = JSON.parse(fs.readFileSync(new URL('./cases.json', import.meta.url)));\nfor (const [name, input, expected] of cases) test(name, () => {\n  assert.deepEqual(runLab('${lab.id}', config, input), expected);\n});\n`);
+      write(path.join(dir, 'tests/assignment.test.mjs'), lab.executable ? `import assert from 'node:assert/strict';
+import { test } from 'node:test';
+import fs from 'node:fs';
+import { solve } from '../src/${lab.file}';
+const cases = JSON.parse(fs.readFileSync(new URL('./cases.json', import.meta.url)));
+for (const [name, input, expected] of cases) test(name, () => assert.deepEqual(solve(input), expected));
+` : `import assert from 'node:assert/strict';\nimport { test } from 'node:test';\nimport fs from 'node:fs';\nimport { runLab } from '../runtime.mjs';\nconst config = JSON.parse(fs.readFileSync(new URL('../src/${lab.file}', import.meta.url)));\nconst cases = JSON.parse(fs.readFileSync(new URL('./cases.json', import.meta.url)));\nfor (const [name, input, expected] of cases) test(name, () => {\n  assert.deepEqual(runLab('${lab.id}', config, input), expected);\n});\n`);
       write(path.join(dir, 'runtime.mjs'), fs.readFileSync(path.join(root, 'ai_lessons/runtime.mjs')));
       write(path.join(dir, 'extension-runtime.mjs'), fs.readFileSync(path.join(root, 'ai_lessons/extension-runtime.mjs')));
       write(path.join(dir, 'scripts/stackblitz-status.mjs'), fs.readFileSync(path.join(root, 'ai_lessons/scripts/stackblitz-status.mjs')));
-      for (const resource of ['SETUP.md', 'LOCAL_MODELS.md', 'TRAINING.md', 'FINETUNING.md', 'ADVANCED_ACCEPTANCE.md',
+      for (const resource of ['CODING_PRIMER.md', 'SETUP.md', 'LOCAL_MODELS.md', 'TRAINING.md', 'FINETUNING.md', 'ADVANCED_ACCEPTANCE.md',
         'local-smoke.mjs', 'extension-runtime.mjs', 'agent-os-example', 'capstone-project', 'capstone-pack', 'local-training']) {
         fs.cpSync(path.join(root, 'ai_lessons', resource), path.join(dir, 'ai_lessons', resource), {
           recursive: true,
@@ -53,7 +59,7 @@ export function build() {
       write(path.join(dir, 'README.md'), ['# ' + lesson.EN.title, '', 'Edit `src/' + lab.file + '`. Do not change the tests or runtime.',
         '', '## English', ...lesson.EN.tasks.map(task => '- ' + task), '', '## Русский', ...lesson.RU.tasks.map(task => '- ' + task),
         '', '## Check', '`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).',
-        '', 'The runner reports automated configuration status. Real-assistant transfer is a separate manual check.',
+        '', 'The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.',
         '', 'Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.',
         '', '## Transfer / Перенос', lesson.EN.transfer, '', lesson.RU.transfer, ''].join('\n'));
     }

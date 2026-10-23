@@ -1,0 +1,78 @@
+[
+  [
+    "do not demonstrate a held-out answer",
+    {
+      "task": "triage",
+      "limit": 2,
+      "examples": [
+        {
+          "id": "a",
+          "task": "triage",
+          "score": 9,
+          "split": "test",
+          "approved": true
+        },
+        {
+          "id": "b",
+          "task": "triage",
+          "score": 7,
+          "split": "train",
+          "approved": true
+        }
+      ]
+    },
+    [
+      "b"
+    ]
+  ],
+  [
+    "choose relevant approved examples in score order",
+    {
+      "task": "triage",
+      "limit": 1,
+      "examples": [
+        {
+          "id": "a",
+          "task": "rewrite",
+          "score": 10,
+          "split": "train",
+          "approved": true
+        },
+        {
+          "id": "b",
+          "task": "triage",
+          "score": 2,
+          "split": "train",
+          "approved": true
+        },
+        {
+          "id": "c",
+          "task": "triage",
+          "score": 8,
+          "split": "train",
+          "approved": true
+        }
+      ]
+    },
+    [
+      "c"
+    ]
+  ],
+  [
+    "unreviewed examples stay out",
+    {
+      "task": "triage",
+      "limit": 3,
+      "examples": [
+        {
+          "id": "x",
+          "task": "triage",
+          "score": 10,
+          "split": "train",
+          "approved": false
+        }
+      ]
+    },
+    []
+  ]
+]

@@ -1,0 +1,44 @@
+[
+  [
+    "catching everything can still create false alarms",
+    [
+      {
+        "actual": true,
+        "predicted": true
+      },
+      {
+        "actual": false,
+        "predicted": true
+      }
+    ],
+    {
+      "precision": 0.5,
+      "recall": 1
+    }
+  ],
+  [
+    "a missed issue lowers recall",
+    [
+      {
+        "actual": true,
+        "predicted": true
+      },
+      {
+        "actual": true,
+        "predicted": false
+      }
+    ],
+    {
+      "precision": 1,
+      "recall": 0.5
+    }
+  ],
+  [
+    "empty denominator has an explicit policy",
+    [],
+    {
+      "precision": 0,
+      "recall": 0
+    }
+  ]
+]

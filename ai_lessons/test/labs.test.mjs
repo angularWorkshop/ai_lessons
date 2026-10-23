@@ -4,12 +4,16 @@ import { labs } from '../labs.mjs';
 import { runLab, orchestrate } from '../runtime.mjs';
 
 for (const lab of labs) {
+  const answer = lab.executable ? (await import(`data:text/javascript,${encodeURIComponent(lab.answer)}`)).solve :
+    input => runLab(lab.id, structuredClone(lab.answer), input);
+  const starter = lab.executable ? (await import(`data:text/javascript,${encodeURIComponent(lab.starter)}`)).solve :
+    input => runLab(lab.id, structuredClone(lab.starter), input);
   for (const [name, input, expected] of lab.cases) test(`${lab.id}: ${name}`, () => {
-    assert.deepEqual(runLab(lab.id, structuredClone(lab.answer), structuredClone(input)), expected);
+    assert.deepEqual(answer(structuredClone(input)), expected);
   });
   test(`${lab.id}: starter is observably incomplete, not a broken test environment`, () => {
     assert.ok(lab.cases.some(([, input, expected]) => {
-      try { assert.deepEqual(runLab(lab.id, structuredClone(lab.starter), structuredClone(input)), expected); return false; }
+      try { assert.deepEqual(starter(structuredClone(input)), expected); return false; }
       catch (error) { assert.equal(error.code, 'ERR_ASSERTION'); return true; }
     }));
   });

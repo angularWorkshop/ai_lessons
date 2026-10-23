@@ -14,6 +14,13 @@ for (const file of ['LOCAL_MODELS.md', 'TRAINING.md', 'FINETUNING.md', 'ADVANCED
 }
 assert.equal(new Set(lessons.map(l => l.id)).size, lessons.length);
 assert.deepEqual(lessons.map(l => l.id), labs.map(l => l.id));
+assert.deepEqual(manifest.sections.flatMap(s => s.topics.map(t => t.key)), lessons.map(l => l.id), 'Sections must not scramble the learning sequence');
+assert.equal(labs.filter(l => l.executable).length, 18);
+for (const lesson of lessons) for (const lang of ['RU', 'EN']) {
+  assert.ok([...lesson[lang].theory, ...(lesson[lang].walkthrough ?? []).flatMap(b => b.paragraphs)].join(' ').length >= 800, `${lesson.id} ${lang}: insufficient explanation`);
+  assert.ok(lesson[lang].example.length > 50);
+  assert.ok(lesson[lang].transfer.length > 80);
+}
 const report = { course: manifest.type, lessons: lessons.length, sections: manifest.sections.length, scenarios: 0, pairs: [], publicationReady: manifest.publication.ready };
 for (const section of manifest.sections) {
   assert.ok(section.topics.length > 0);

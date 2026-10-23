@@ -43,13 +43,13 @@ function render() {
   byId('practice').innerHTML = html.stackBlitzContent;
   byId('file-label').textContent = `src/${lab.file}`;
   byId('config').setAttribute('aria-label', t('Конфигурация упражнения', 'Exercise configuration'));
-  byId('config').value = drafts.get(key()) ?? JSON.stringify(lab.starter, null, 2);
+  byId('config').value = drafts.get(key()) ?? (lab.executable ? lab.starter : JSON.stringify(lab.starter, null, 2));
   byId('run').textContent = t('Проверить условия', 'Check conditions');
   byId('reset').textContent = t('Вернуть стартовый файл', 'Reset starter');
   byId('solution-title').textContent = t('Посмотреть правильную конфигурацию', 'Inspect the answer configuration');
-  byId('answer').textContent = JSON.stringify(lab.answer, null, 2);
+  byId('answer').textContent = (lab.executable ? lab.answer : JSON.stringify(lab.answer, null, 2));
   byId('solution').open = false;
-  byId('status').textContent = t('Задание ещё не проверено. Измените JSON и запустите проверку.', 'Not checked yet. Edit the JSON, then run the checks.');
+  byId('status').textContent = t('Задание ещё не проверено. Для JSON запустите проверку здесь; задания с кодом проверяются через npm test.', 'Not checked yet. Check JSON here; run code exercises with npm test.');
   byId('results').replaceChildren();
   byId('next').textContent = t('Следующий урок', 'Next lesson');
   byId('next').disabled = index === lessons.length - 1;
@@ -64,6 +64,7 @@ byId('run').addEventListener('click', () => {
   remember();
   byId('results').replaceChildren();
   const lab = labs[index];
+  if (lab.executable) { byId('status').textContent = t('Это задание с кодом: запустите npm test в соответствующем generated-проекте или StackBlitz. Этот просмотр не исполняет JavaScript из редактора.', 'Code exercise: run npm test in its generated project or StackBlitz. This preview does not execute editor JavaScript.'); return; }
   let config;
   try { config = JSON.parse(byId('config').value); }
   catch { byId('status').textContent = t('Некорректный JSON: проверьте кавычки, запятые и скобки.', 'Invalid JSON: check quotes, commas, and brackets.'); return; }

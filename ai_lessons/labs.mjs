@@ -1,6 +1,8 @@
+import { lessonOrder } from '../course_authoring/ai/depth.mjs';
+import { depthLabs } from './depth-labs.mjs';
 import { extensionLabs } from './extension-labs.mjs';
 // Fixtures use invented documents and prices, never customer data or real credentials.
-export const labs = [
+const originalLabs = [
   {
     id: '01-task-boundaries', file: 'policy.json',
     answer: { allow: ['format', 'explain'], approval: ['deploy', 'delete'], deny: ['export-secrets'], unknown: 'deny' },
@@ -191,3 +193,5 @@ export const labs = [
   },
   ...extensionLabs,
 ];
+
+export const labs = [...originalLabs, ...depthLabs].sort((a, b) => lessonOrder.indexOf(a.id) - lessonOrder.indexOf(b.id));

@@ -1,6 +1,8 @@
 {
-  "ready": true,
-  "blockers": [],
+  "ready": false,
+  "blockers": [
+    "Expanded curriculum not yet published"
+  ],
   "repository": "https://github.com/angularWorkshop/ai_lessons.git",
   "courseUrl": "https://courses.edutec.it.com/ai/home",
   "release": "20261023-ai-course-02",
@@ -212,6 +214,78 @@
       "order": 26,
       "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-26-exercise-01-local-capstone",
       "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-26-exercise-01-local-capstone"
+    },
+    "27-context-window": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-27-exercise-01-context-window",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-27-exercise-01-context-window"
+    },
+    "28-client-preflight": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-28-exercise-01-client-preflight",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-28-exercise-01-client-preflight"
+    },
+    "29-example-selection": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-29-exercise-01-example-selection",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-29-exercise-01-example-selection"
+    },
+    "30-structured-results": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-30-exercise-01-structured-results",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-30-exercise-01-structured-results"
+    },
+    "31-git-checkpoint": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-31-exercise-01-git-checkpoint",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-31-exercise-01-git-checkpoint"
+    },
+    "32-mcp-discovery": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-32-exercise-01-mcp-discovery",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-32-exercise-01-mcp-discovery"
+    },
+    "33-tool-retries": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-33-exercise-01-tool-retries",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-33-exercise-01-tool-retries"
+    },
+    "34-cancellation": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-34-exercise-01-cancellation",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-34-exercise-01-cancellation"
+    },
+    "35-evaluation-metrics": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-35-exercise-01-evaluation-metrics",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-35-exercise-01-evaluation-metrics"
+    },
+    "36-trace-summary": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-36-exercise-01-trace-summary",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-36-exercise-01-trace-summary"
+    },
+    "37-document-chunks": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-37-exercise-01-document-chunks",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-37-exercise-01-document-chunks"
+    },
+    "38-retrieval-ranking": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-38-exercise-01-retrieval-ranking",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-38-exercise-01-retrieval-ranking"
+    },
+    "39-grounded-answer": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-39-exercise-01-grounded-answer",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-39-exercise-01-grounded-answer"
+    },
+    "40-generation-request": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-40-exercise-01-generation-request",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-40-exercise-01-generation-request"
+    },
+    "41-inference-speed": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-41-exercise-01-inference-speed",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-41-exercise-01-inference-speed"
+    },
+    "42-learning-curves": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-42-exercise-01-learning-curves",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-42-exercise-01-learning-curves"
+    },
+    "43-experiment-selection": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-43-exercise-01-experiment-selection",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-43-exercise-01-experiment-selection"
+    },
+    "44-adapter-preflight": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-44-exercise-01-adapter-preflight",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-44-exercise-01-adapter-preflight"
     }
   },
   "publishedAt": "2026-10-23T12:46:34.274Z",
