@@ -1,9 +1,0 @@
-{
-  "routes": {
-    "format": "fine-tune",
-    "fresh-facts": "fine-tune",
-    "stable-behavior": "fine-tune",
-    "from-scratch": "fine-tune"
-  },
-  "fallback": "fine-tune"
-}

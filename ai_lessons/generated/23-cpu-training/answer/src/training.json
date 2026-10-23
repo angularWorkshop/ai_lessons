@@ -1,5 +1,0 @@
-{
-  "requireWeightsChanged": true,
-  "minLossDrop": 0.05,
-  "selectionSplit": "validation"
-}
