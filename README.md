@@ -1,9 +1,25 @@
-# Practical AI: assistants, agents, and local models
+# Why a model forgets: tokens and the context window
 
-44 RU/EN lessons in 14 sections. 26 policy labs and 18 executable JavaScript labs, plus real CPU training and optional local inference / GPU transfer.
+Edit `src/exercise.mjs`. Do not change the tests or runtime.
 
-Course: https://courses.edutec.it.com/ai/home
+## English
+- Compute remaining in solve(input) after all reservations.
+- Compute fits from the original remainder, not the clamped value.
+- Check the exact boundary and history that already exceeds the window.
 
-See [lab instructions](ai_lessons/README.md), [JavaScript bridge](ai_lessons/CODING_PRIMER.md), and [release boundaries](course_authoring/ai/RELEASE.md).
+## Русский
+- В solve(input) вычислите remaining после всех резервов.
+- Возвращайте fits по исходному остатку, не по обрезанному до нуля.
+- Проверьте точную границу и случай, когда одна история уже переполняет окно.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. No paid API or automatic weight download in browser labs.
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Find context or usage information in your client. Compare a short task with the same task plus a large log. Do not treat the exercise numbers as a real model limit.
+
+В своём клиенте найдите счётчик контекста или usage запроса. Сравните короткую задачу с той же задачей и большим логом. Не используйте вымышленные числа из упражнения как лимит реальной модели.
