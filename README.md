@@ -1,9 +1,25 @@
-# Practical AI: assistants, agents, and local models
+# Serve a local model: queues, compatibility, and safe switching
 
-50 RU/EN lessons in 14 sections. 26 policy labs and 24 executable JavaScript labs, plus real CPU training and optional local inference / GPU transfer.
+Edit `src/exercise.mjs`. Do not change the tests or runtime.
 
-Course: https://courses.edutec.it.com/ai/home
+## English
+- Require schema and embeddingModel to match active.
+- Require strict true for health, qualityPassed, failureChecksPassed, and rollbackAvailable.
+- Return the selected version and switched; preserve active on any failure.
 
-See [lab instructions](ai_lessons/README.md), [JavaScript bridge](ai_lessons/CODING_PRIMER.md), and [release boundaries](course_authoring/ai/RELEASE.md).
+## Русский
+- Проверьте совпадение schema и embeddingModel с active.
+- Требуйте строго true для health, qualityPassed, failureChecksPassed и rollbackAvailable.
+- Верните выбранную version и switched; при любом отказе оставьте active.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. No paid API or automatic weight download in browser labs.
+## Check
+`npm test` or `npm run start:dev` (Node 20.19+; no dependencies or paid API required).
+
+The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+On the CPU path, check /health and /predict using ADVANCED_ACCEPTANCE.md, then reproduce an invalid request and artifact reload. For an LLM, separately measure warm inference and verify client settings without exposing a public port.
+
+В CPU-маршруте проверьте /health и /predict по ADVANCED_ACCEPTANCE.md, затем повторите ошибочный запрос и reload артефакта. Для LLM отдельно измерьте прогретый inference и проверьте конфигурацию клиента без публичного открытия порта.
