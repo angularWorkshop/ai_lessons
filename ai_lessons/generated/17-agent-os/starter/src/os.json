@@ -1,7 +1,0 @@
-{
-  "required": [
-    "AGENTS.md",
-    "ENGINEERING_WORKFLOW.md",
-    "AGENTS/worker.md"
-  ]
-}
