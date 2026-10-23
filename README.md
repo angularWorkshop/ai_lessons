@@ -1,9 +1,25 @@
-# Practical AI: assistants, agents, and local models
+# How an LLM builds an answer, and why confidence can be wrong
 
-50 RU/EN lessons in 14 sections. 26 policy labs and 24 executable JavaScript labs, plus real CPU training and optional local inference / GPU transfer.
+Edit `src/exercise.mjs`. Do not change the tests or runtime.
 
-Course: https://courses.edutec.it.com/ai/home
+## English
+- Normalize finite nonnegative weight values in solve(input), preserving token order.
+- Return probability as a ratio. Return [] for empty input, negative weights, or zero total mass.
+- Do not claim a probability proves that a token is correct.
 
-See [lab instructions](ai_lessons/README.md), [JavaScript bridge](ai_lessons/CODING_PRIMER.md), and [release boundaries](course_authoring/ai/RELEASE.md).
+## Русский
+- Нормируйте неотрицательные конечные weight в solve(input), сохраняя порядок token.
+- Возвращайте probability как долю, не проценты. При пустом входе, отрицательном весе или нулевой сумме верните [].
+- Не добавляйте к вероятности утверждение о правильности токена.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. No paid API or automatic weight download in browser labs.
+## Check
+`npm test` or `npm run start:dev` (Node 20.19+; no dependencies or paid API required).
+
+The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Compare a question about a fictional unknown product with the same question plus a short document you wrote. Mark unsupported details even when the answer sounds confident. Use no private data.
+
+Сравните вопрос о неизвестном вымышленном продукте с тем же вопросом и коротким собственным документом. Отметьте неподтверждённые детали, даже если ответ звучит уверенно. Не используйте личные данные.
