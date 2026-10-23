@@ -1,9 +1,25 @@
-# Practical AI: assistants, agents, and local models
+# Answer from evidence, or say what is missing
 
-44 RU/EN lessons in 14 sections. 26 policy labs and 18 executable JavaScript labs, plus real CPU training and optional local inference / GPU transfer.
+Edit `src/exercise.mjs`. Do not change the tests or runtime.
 
-Course: https://courses.edutec.it.com/ai/home
+## English
+- Return accepted only for nonempty claims.
+- Require at least one source id per claim.
+- Every id must exist in retrieved; do not pretend a regex proves semantic support.
 
-See [lab instructions](ai_lessons/README.md), [JavaScript bridge](ai_lessons/CODING_PRIMER.md), and [release boundaries](course_authoring/ai/RELEASE.md).
+## Русский
+- Верните accepted только для непустого claims.
+- У каждого claim.sources должен быть хотя бы один id.
+- Каждый id должен существовать в retrieved; не оценивайте смысл текста регулярным выражением.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. No paid API or automatic weight download in browser labs.
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Test a known fact, an absent fact, and an outdated rule. Open every cited source manually. Report reference integrity separately from semantic grounding.
+
+Проверьте ответ на известный факт, отсутствующий факт и устаревшее правило. Для каждого утверждения вручную откройте источник. Отметьте ссылочную и смысловую проверку отдельно.
