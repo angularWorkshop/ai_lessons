@@ -1,8 +1,0 @@
-{
-  "required": [
-    "goal",
-    "scope",
-    "acceptance"
-  ],
-  "onMissing": "clarify"
-}

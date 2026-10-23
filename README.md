@@ -1,7 +1,25 @@
-# Edutec AI assistants
+# Give each role a clear responsibility
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/roles.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- Configure the four routes in roles.json as shown.
+- Use fallback: human for an unknown kind.
+- Confirm that review never returns developer.
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- Настройте четыре маршрута в roles.json по примеру.
+- Для неизвестного kind используйте fallback: human.
+- Проверьте, что review не возвращает developer.
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Solve a small task with one worker. Give a separate reviewer session only the brief, diff, and evidence. Compare findings with the cost of the extra step.
+
+Решите маленькую задачу одним исполнителем, затем дайте отдельной сессии ревьюера только постановку, diff и доказательства. Сравните найденные проблемы со стоимостью дополнительного шага.
