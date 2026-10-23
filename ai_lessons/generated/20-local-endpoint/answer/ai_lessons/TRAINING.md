@@ -2,7 +2,7 @@
 
 ## RU
 
-Урок 23 не требует GPU, PyTorch, ключей или облака. Нужен Python 3.10+ из
+CPU-урок не требует GPU, PyTorch, ключей или облака. Нужен Python 3.10+ из
 официального источника. Это **маленький классификатор**, не языковая модель и не
 замена ассистенту. Задача: по тексту определить bugfix или docs. Все примеры вымышлены.
 
@@ -55,7 +55,7 @@ Invoke-RestMethod http://127.0.0.1:8765/predict -Method Post -ContentType applic
 
 ## EN
 
-Lesson 23 trains a small binary text classifier, **not an LLM**. It uses Python 3.10+
+The CPU lesson trains a small binary text classifier, **not an LLM**. It uses Python 3.10+
 and the standard library only. Run the commands above from the workspace root.
 The dataset is invented, with no customer or private data. No API or GPU is needed.
 

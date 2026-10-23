@@ -22,7 +22,11 @@ export function renderLesson(lesson, language) {
       `<h3 class="container__subtitle">${heading[4]}</h3><p class="container__text">` +
       (language === 'RU' ? 'Запустите npm test или npm run start:dev. После сохранения runner повторяет все сценарии. COMPLETED означает успех автоматической проверки задания, не проверку настоящей модели. Не меняйте тесты ради зелёного статуса.' :
         'Run npm test or npm run start:dev. Saving reruns every scenario. COMPLETED means this exercise passes automated checks, not that a real model was verified. Do not edit tests to obtain a green result.') +
-      `</p><h3 class="container__subtitle">${heading[5]}</h3><p class="container__text">${escape(text.transfer)}</p></div>`,
+      `</p>` + (text.handsOn ? `<h3 class="container__subtitle">${escape(text.handsOn.title)}</h3>` +
+        `<p class="container__text">${escape(text.handsOn.intro)}</p>` +
+        `<div class="code-block"><pre class="code-block__pre" data-lang="plaintext">${escape(text.handsOn.command)}</pre></div>` +
+        `<p class="container__text">${escape(text.handsOn.expected)}</p>` : '') +
+      `<h3 class="container__subtitle">${heading[5]}</h3><p class="container__text">${escape(text.transfer)}</p></div>`,
   };
 }
 

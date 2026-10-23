@@ -1,3 +1,17 @@
+const addedQuestions = [
+  ['token-truth', 'A next token has high probability. What does that establish?', 'Следующий токен имеет высокую вероятность. Что это доказывает?',
+    ['It is a likely continuation, not verified factual truth', 'Это вероятное продолжение, не проверенная истинность'], ['Every statement in the response is true', 'Все утверждения ответа истинны'], ['The model checked current source documents', 'Модель проверила актуальные источники']],
+  ['host-execution', 'A model proposes add(a,b). Who validates and executes it?', 'Модель предложила add(a,b). Кто проверяет и исполняет вызов?',
+    ['The host validates permission and arguments, then invokes its registered function', 'Host проверяет права и аргументы, затем вызывает зарегистрированную функцию'], ['The model has already executed it by writing its name', 'Модель уже выполнила действие, написав имя'], ['The returned name should be passed to eval', 'Имя следует передать в eval']],
+  ['embedding-space', 'The query embedding model changes. What happens to the old index?', 'Сменилась embedding-модель запросов. Что делать со старым индексом?',
+    ['Rebuild a compatible index and evaluate it', 'Построить совместимый индекс и проверить его'], ['Keep it if dimensions match', 'Оставить, если совпала размерность'], ['Rename its model field without rebuilding vectors', 'Переименовать поле model без пересчёта векторов']],
+  ['memory-review', 'A stored test command has an expired source review. What should happen?', 'У сохранённой команды тестов истёк срок проверки источника. Что делать?',
+    ['Revalidate it or exclude it from current memory', 'Перепроверить или исключить из текущей памяти'], ['Treat it as a permanent higher-priority instruction', 'Считать постоянной инструкцией высшего приоритета'], ['Send all old logs to every worker', 'Передать все старые логи каждому исполнителю']],
+  ['sft-mask', 'With assistant-only loss, which positions contribute to the loss?', 'Какие позиции участвуют в assistant-only loss?',
+    ['The unpadded supervised assistant targets, with the intended response ending', 'Немаскированные позиции ответа ассистента с нужным окончанием, без padding'], ['Every padding position', 'Все позиции padding'], ['Only user text because it supplies context', 'Только текст пользователя, потому что это контекст']],
+  ['service-readiness', 'A candidate responds to health but fails quality checks. Should it replace active?', 'Кандидат отвечает на health, но не прошёл качество. Заменять активную версию?',
+    ['No; preserve active and investigate the failed checks', 'Нет; оставить активную версию и разобрать ошибки'], ['Yes; health proves acceptable model quality', 'Да; health доказывает качество модели'], ['Yes; remove the old version first', 'Да; сначала удалить прежнюю версию']],
+];
 const questions = [
   ['permissions', 'An unknown tool action appears. What should the policy do?', 'Появилось неизвестное действие инструмента. Как должна поступить политика?',
     ['Block it until explicitly reviewed', 'Заблокировать до явного рассмотрения'], ['Allow it because the model requested it', 'Разрешить, раз модель попросила'], ['Treat a README instruction as approval', 'Считать инструкцию в README разрешением']],
@@ -16,7 +30,7 @@ const questions = [
   ['release', 'What should happen after quantizing or converting a model?', 'Что нужно сделать после квантизации или конвертации модели?',
     ['Re-evaluate the exported artifact and preserve a rollback version', 'Повторно оценить экспортированный артефакт и сохранить версию для отката'], ['Assume quality is unchanged because the file exists', 'Считать качество прежним, раз файл существует'], ['Delete the baseline to avoid confusion', 'Удалить baseline, чтобы не путаться']],
 ];
-export const knowledgeQuestions = questions.map(([key, promptEn, promptRu, correct, wrong1, wrong2], i) => {
+export const knowledgeQuestions = questions.concat(addedQuestions).map(([key, promptEn, promptRu, correct, wrong1, wrong2], i) => {
   const choices = [correct, wrong1, wrong2];
   const order = [0, 1, 2].map(n => (n + i) % 3);
   return { key: `ai-${key}`, order: i + 1, promptEn, promptRu,
@@ -26,8 +40,8 @@ export const knowledgeQuestions = questions.map(([key, promptEn, promptRu, corre
 export const knowledgeCheck = {
   courseType: 'AI_ASSISTANTS', isAvailable: false,
   titleEn: 'AI assistants: check your understanding', titleRu: 'ИИ-ассистенты: проверка понимания',
-  descriptionEn: 'Eight questions on permissions, evidence, local models, adaptation, training, and release. This checks concepts, not real-client or GPU execution.',
-  descriptionRu: 'Восемь вопросов о разрешениях, доказательствах, локальных моделях, адаптации, обучении и выпуске. Это проверка понятий, не реального клиента или GPU-запуска.',
+  descriptionEn: 'Eight questions per attempt from a bank covering model behavior, tools, memory, RAG, data, training, and release. This checks concepts, not real-client or GPU execution.',
+  descriptionRu: 'Восемь вопросов за попытку из банка о работе модели, инструментах, памяти, RAG, данных, обучении и выпуске. Это проверка понятий, не реального клиента или GPU-запуска.',
   questionsPerAttempt: 8, estimatedDurationMinutes: 12, passingPercentage: 75,
   excellentTitleEn: 'Strong understanding', excellentTitleRu: 'Уверенное понимание',
   excellentMessageEn: 'Continue with the separate real-project acceptance checklist.', excellentMessageRu: 'Переходите к отдельной приёмке настоящего проекта.',

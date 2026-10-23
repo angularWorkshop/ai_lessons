@@ -1,8 +1,8 @@
 {
   "course": "AI_ASSISTANTS",
-  "lessons": 44,
+  "lessons": 50,
   "sections": 14,
-  "scenarios": 185,
+  "scenarios": 215,
   "pairs": [
     {
       "id": "01-task-boundaries",
@@ -13,7 +13,7 @@
       "scenarios": 4
     },
     {
-      "id": "27-context-window",
+      "id": "28-client-preflight",
       "starterFails": true,
       "answerPasses": true,
       "copiedAnswerPasses": true,
@@ -21,7 +21,15 @@
       "scenarios": 3
     },
     {
-      "id": "28-client-preflight",
+      "id": "45-model-mechanics",
+      "starterFails": true,
+      "answerPasses": true,
+      "copiedAnswerPasses": true,
+      "identicalTests": true,
+      "scenarios": 5
+    },
+    {
+      "id": "27-context-window",
       "starterFails": true,
       "answerPasses": true,
       "copiedAnswerPasses": true,
@@ -115,6 +123,14 @@
       "copiedAnswerPasses": true,
       "identicalTests": true,
       "scenarios": 5
+    },
+    {
+      "id": "46-tool-call-loop",
+      "starterFails": true,
+      "answerPasses": true,
+      "copiedAnswerPasses": true,
+      "identicalTests": true,
+      "scenarios": 7
     },
     {
       "id": "32-mcp-discovery",
@@ -221,6 +237,14 @@
       "scenarios": 4
     },
     {
+      "id": "48-reviewed-memory",
+      "starterFails": true,
+      "answerPasses": true,
+      "copiedAnswerPasses": true,
+      "identicalTests": true,
+      "scenarios": 4
+    },
+    {
       "id": "18-local-routing",
       "starterFails": true,
       "answerPasses": true,
@@ -293,6 +317,14 @@
       "scenarios": 3
     },
     {
+      "id": "47-vector-search",
+      "starterFails": true,
+      "answerPasses": true,
+      "copiedAnswerPasses": true,
+      "identicalTests": true,
+      "scenarios": 5
+    },
+    {
       "id": "39-grounded-answer",
       "starterFails": true,
       "answerPasses": true,
@@ -325,6 +357,14 @@
       "scenarios": 3
     },
     {
+      "id": "49-sft-labels",
+      "starterFails": true,
+      "answerPasses": true,
+      "copiedAnswerPasses": true,
+      "identicalTests": true,
+      "scenarios": 5
+    },
+    {
       "id": "24-lora",
       "starterFails": true,
       "answerPasses": true,
@@ -349,6 +389,14 @@
       "scenarios": 6
     },
     {
+      "id": "50-serving-rollout",
+      "starterFails": true,
+      "answerPasses": true,
+      "copiedAnswerPasses": true,
+      "identicalTests": true,
+      "scenarios": 4
+    },
+    {
       "id": "26-local-capstone",
       "starterFails": true,
       "answerPasses": true,
@@ -357,5 +405,5 @@
       "scenarios": 4
     }
   ],
-  "publicationReady": true
+  "publicationReady": false
 }

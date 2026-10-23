@@ -1,8 +1,8 @@
 # Before the JavaScript exercises / Перед заданиями с кодом
 
-The 26 policy labs use JSON. The 18 code labs require basic JavaScript functions, objects, arrays, and modules. They do not require React or Angular. If this is new, read the examples below and try them in a disposable `demo.mjs` with `node demo.mjs`. Our JavaScript course covers the prerequisites in depth.
+The 26 policy labs use JSON. The 24 code labs require basic JavaScript functions, objects, arrays, and modules. They do not require React or Angular. If this is new, read the examples below and try them in a disposable `demo.mjs` with `node demo.mjs`. Our JavaScript course covers the prerequisites in depth.
 
-26 заданий используют JSON-политики, ещё 18 — функции JavaScript. Для них нужны объекты, массивы и модули, но не Angular или React. Если это незнакомо, выполните примеры в отдельном `demo.mjs`: `node demo.mjs`. Полная база есть в курсе JavaScript; здесь только мост к лабораторным.
+26 заданий используют JSON-политики, ещё 24 — функции JavaScript. Для них нужны объекты, массивы и модули, но не Angular или React. Если это незнакомо, выполните примеры в отдельном `demo.mjs`: `node demo.mjs`. Полная база есть в курсе JavaScript; здесь только мост к лабораторным.
 
 ## Function, input, result / Функция, вход, результат
 

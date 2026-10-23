@@ -35,7 +35,7 @@ export function build() {
       const dir = path.join(out, lab.id, mode);
       write(path.join(dir, 'package.json'), json({ name: `edutec-ai-${lab.id}`, private: true, type: 'module',
         scripts: { test: 'node --test tests/assignment.test.mjs', 'start:dev': 'node scripts/stackblitz-status.mjs' },
-        engines: { node: '>=20' }, stackblitz: { startCommand: 'npm run start:dev' } }));
+        engines: { node: '>=20.19.0' }, stackblitz: { startCommand: 'npm run start:dev' } }));
       write(path.join(dir, '.stackblitzrc'), json({ startCommand: 'npm run start:dev' }));
       write(path.join(dir, `src/${lab.file}`), lab.executable ? lab[mode] : json(lab[mode]));
       write(path.join(dir, 'tests/cases.json'), json(lab.cases));
@@ -50,15 +50,17 @@ for (const [name, input, expected] of cases) test(name, () => assert.deepEqual(s
       write(path.join(dir, 'extension-runtime.mjs'), fs.readFileSync(path.join(root, 'ai_lessons/extension-runtime.mjs')));
       write(path.join(dir, 'scripts/stackblitz-status.mjs'), fs.readFileSync(path.join(root, 'ai_lessons/scripts/stackblitz-status.mjs')));
       for (const resource of ['CODING_PRIMER.md', 'SETUP.md', 'LOCAL_MODELS.md', 'TRAINING.md', 'FINETUNING.md', 'ADVANCED_ACCEPTANCE.md',
-        'local-smoke.mjs', 'extension-runtime.mjs', 'agent-os-example', 'capstone-project', 'capstone-pack', 'local-training']) {
+        'local-smoke.mjs', 'extension-runtime.mjs', 'agent-os-example', 'capstone-project', 'capstone-pack', 'local-training', 'workbench', 'mcp-demo']) {
         fs.cpSync(path.join(root, 'ai_lessons', resource), path.join(dir, 'ai_lessons', resource), {
           recursive: true,
-          filter: source => !['__pycache__', 'model.json'].includes(path.basename(source)),
+          filter: source => !['__pycache__', 'model.json', 'node_modules', '.env', '.git'].includes(path.basename(source)),
         });
       }
       write(path.join(dir, 'README.md'), ['# ' + lesson.EN.title, '', 'Edit `src/' + lab.file + '`. Do not change the tests or runtime.',
         '', '## English', ...lesson.EN.tasks.map(task => '- ' + task), '', '## Русский', ...lesson.RU.tasks.map(task => '- ' + task),
-        '', '## Check', '`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).',
+        ...['EN', 'RU'].flatMap(lang => lesson[lang].handsOn ? ['', '## ' + lesson[lang].handsOn.title, lesson[lang].handsOn.intro,
+          '```sh', lesson[lang].handsOn.command, '```', lesson[lang].handsOn.expected] : []),
+        '', '## Check', '`npm test` or `npm run start:dev` (Node 20.19+; no dependencies or paid API required).',
         '', 'The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.',
         '', 'Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.',
         '', '## Transfer / Перенос', lesson.EN.transfer, '', lesson.RU.transfer, ''].join('\n'));

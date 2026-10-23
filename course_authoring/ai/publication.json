@@ -1,6 +1,8 @@
 {
-  "ready": true,
-  "blockers": [],
+  "ready": false,
+  "blockers": [
+    "Completeness revision pending publication"
+  ],
   "repository": "https://github.com/angularWorkshop/ai_lessons.git",
   "courseUrl": "https://courses.edutec.it.com/ai/home",
   "release": "20261023-ai-depth-03",
@@ -356,6 +358,30 @@
       "order": 42,
       "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-44-exercise-01-adapter-preflight",
       "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-44-exercise-01-adapter-preflight"
+    },
+    "45-model-mechanics": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-45-exercise-01-model-mechanics",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-45-exercise-01-model-mechanics"
+    },
+    "46-tool-call-loop": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-46-exercise-01-tool-call-loop",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-46-exercise-01-tool-call-loop"
+    },
+    "47-vector-search": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-47-exercise-01-vector-search",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-47-exercise-01-vector-search"
+    },
+    "48-reviewed-memory": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-48-exercise-01-reviewed-memory",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-48-exercise-01-reviewed-memory"
+    },
+    "49-sft-labels": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-49-exercise-01-sft-labels",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-49-exercise-01-sft-labels"
+    },
+    "50-serving-rollout": {
+      "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-50-exercise-01-serving-rollout",
+      "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-50-exercise-01-serving-rollout"
     }
   },
   "publishedAt": "2026-10-23T12:46:34.274Z",

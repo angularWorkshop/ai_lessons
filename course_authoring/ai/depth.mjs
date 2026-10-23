@@ -112,7 +112,7 @@ export const depthLessons = [
     pitfall: 'git reset --hard is not a safe undo button in a shared working tree.',
   }),
   lesson('32-mcp-discovery', 'integration', {
-    title: 'MCP без магии: обнаружить инструмент и проверить права',
+    title: 'MCP на практике: сервер, клиент и вызов инструмента',
     theory: [
       'MCP связывает приложение-хост, клиент и сервер, который предоставляет возможности. Это способ описать и вызвать инструменты, а не новая модель и не система прав сама по себе. Сервер документации может дать чтение, а сервер задач — создание записей. Подключение каждого меняет поверхность доступа.',
       'Разберите одну операцию по шагам: клиент получает список инструментов, показывает имя и схему, отправляет аргументы, сервер проверяет доступ и возвращает результат. Пользователь должен понимать, к какому сервису уйдут данные. Не подключайте неизвестный сервер с рабочими ключами и не считайте описание readOnly техническим доказательством отсутствия записи.',
@@ -122,7 +122,7 @@ export const depthLessons = [
     transfer: 'Нарисуйте цепочку выбранной интеграции: клиент, сервер, данные, учётная запись. Перед подключением прочитайте схему одного инструмента и опишите его побочные эффекты. Не вводите рабочие ключи для этой проверки.',
     pitfall: 'MCP не отменяет авторизацию сервера и не делает сторонний инструмент доверенным.',
   }, {
-    title: 'MCP without magic: discover a tool and review access',
+    title: 'MCP in practice: server, client, and tool execution',
     theory: [
       'MCP connects a host application, a client, and a server exposing capabilities. It describes tool discovery and invocation; it is not a new model or an access-control system on its own. A documentation server may provide reading, while a task server may create records. Each connection changes the access surface.',
       'Trace one operation: the client discovers tools, displays a name and schema, sends arguments, and the server validates access and returns a result. Know which service receives the data. Do not attach an unknown server using work credentials, or treat a readOnly description as proof that writing is impossible.',
@@ -387,16 +387,16 @@ export const depthLessons = [
 ];
 
 export const lessonOrder = [
-  '01-task-boundaries', '27-context-window', '28-client-preflight', '02-task-brief',
+  '01-task-boundaries', '28-client-preflight', '45-model-mechanics', '27-context-window', '02-task-brief',
   '03-context-packet', '04-project-instructions', '29-example-selection', '30-structured-results',
   '05-tool-permissions', '06-untrusted-context',
   '31-git-checkpoint', '07-verification-evidence', '08-debugging',
-  '09-tool-contract', '32-mcp-discovery', '33-tool-retries', '34-cancellation', '10-handoff',
+  '09-tool-contract', '46-tool-call-loop', '32-mcp-discovery', '33-tool-retries', '34-cancellation', '10-handoff',
   '11-budget', '12-evaluation', '35-evaluation-metrics', '36-trace-summary',
   '13-role-routing', '14-parallel-work', '15-review-loop', '16-orchestrator',
-  '17-agent-os', '18-local-routing', '19-model-capacity', '20-local-endpoint',
+  '17-agent-os', '48-reviewed-memory', '18-local-routing', '19-model-capacity', '20-local-endpoint',
   '40-generation-request', '41-inference-speed', '21-adaptation-choice', '22-dataset-splits',
-  '37-document-chunks', '38-retrieval-ranking', '39-grounded-answer',
-  '23-cpu-training', '42-learning-curves', '43-experiment-selection', '24-lora', '44-adapter-preflight',
-  '25-model-release', '26-local-capstone',
+  '37-document-chunks', '38-retrieval-ranking', '47-vector-search', '39-grounded-answer',
+  '23-cpu-training', '42-learning-curves', '43-experiment-selection', '49-sft-labels', '24-lora', '44-adapter-preflight',
+  '25-model-release', '50-serving-rollout', '26-local-capstone',
 ];

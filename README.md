@@ -1,6 +1,6 @@
 # Practical AI: assistants, agents, and local models
 
-44 RU/EN lessons in 14 sections. 26 policy labs and 18 executable JavaScript labs, plus real CPU training and optional local inference / GPU transfer.
+50 RU/EN lessons in 14 sections. 26 policy labs and 24 executable JavaScript labs, plus real CPU training and optional local inference / GPU transfer.
 
 Course: https://courses.edutec.it.com/ai/home
 

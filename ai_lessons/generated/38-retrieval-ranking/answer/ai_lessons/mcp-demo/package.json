@@ -1,0 +1,17 @@
+{
+  "name": "edutec-mcp-add-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "node --test client.test.mjs",
+    "start": "node server.mjs"
+  },
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "zod": "4.6.7"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

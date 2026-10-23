@@ -1,17 +1,19 @@
 import { depthLessons, depthSections, lessonOrder } from './depth.mjs';
 import { deepenExisting } from './walkthroughs.mjs';
+import { completenessLessons } from './completeness.mjs';
+import { deepenKeyLessons } from './deepening.mjs';
 import { extensionLessons, extensionSections } from './extension.mjs';
 
 export const course = {
-  type: 'AI_ASSISTANTS', slug: 'ai', status: 'published', version: 3,
+  type: 'AI_ASSISTANTS', slug: 'ai', status: 'published', version: 4,
   title: { RU: 'ИИ на практике: ассистенты, агенты и локальные модели', EN: 'Practical AI: assistants, agents, and local models' },
   audience: {
     RU: 'Разработчики, тестировщики и технические специалисты, которые хотят поручать ИИ проверяемые задачи, а не просто получать ответы в чате.',
     EN: 'Developers, testers, and technical specialists who want to delegate verifiable work to AI rather than just chat with it.',
   },
   prerequisites: {
-    RU: 'Уметь открыть проект, изменить JSON-файл, выполнить команду в терминале и прочитать простой Git diff. Для 18 заданий с кодом нужны функции, объекты и массивы JavaScript; перед ними есть CODING_PRIMER.md. Angular или React не требуются. Для CPU-обучения нужен Python 3.10+; GPU-маршрут LoRA дополнительный. Если терминал и Git незнакомы, начните с README.',
-    EN: 'Open a project, edit JSON, run a terminal command, and read a simple Git diff. The 18 code exercises need basic JavaScript functions, objects, and arrays; CODING_PRIMER.md bridges these skills. Angular and React are not required. CPU training needs Python 3.10+; GPU LoRA is optional. Start with README onboarding if Git or the terminal is unfamiliar.',
+    RU: 'Уметь открыть проект, изменить JSON-файл, выполнить команду в терминале и прочитать простой Git diff. Для 24 заданий с кодом нужны функции, объекты и массивы JavaScript; перед ними есть CODING_PRIMER.md. Angular или React не требуются. Для CPU-обучения нужен Python 3.10+; GPU-маршрут LoRA дополнительный. Если терминал и Git незнакомы, начните с README.',
+    EN: 'Open a project, edit JSON, run a terminal command, and read a simple Git diff. The 24 code exercises need basic JavaScript functions, objects, and arrays; CODING_PRIMER.md bridges these skills. Angular and React are not required. CPU training needs Python 3.10+; GPU LoRA is optional. Start with README onboarding if Git or the terminal is unfamiliar.',
   },
   outcome: {
     RU: 'Переносимый workflow ассистента и агентной ОС, локальный inference, выбор prompt/RAG/дообучения, настоящая CPU-модель и план LoRA. Итог — воспроизводимый локальный проект с baseline, holdout, отказами и rollback; симуляция и реальная приёмка разделены.',
@@ -485,7 +487,8 @@ const existingLessons = [
 ];
 
 deepenExisting(existingLessons);
-const all = [...existingLessons, ...depthLessons];
+const all = [...existingLessons, ...depthLessons, ...completenessLessons];
+deepenKeyLessons(all);
 export const lessons = lessonOrder.map(id => {
   const item = all.find(l => l.id === id);
   if (!item) throw new Error('Unknown lesson ' + id);

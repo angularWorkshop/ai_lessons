@@ -1,6 +1,6 @@
 # Practical AI: assistants, agents, and local models
 
-Курс Edutec: 14 разделов, 44 урока на RU/EN и 44 пары starter/answer. В браузере 26 заданий с политиками и 18 заданий с исполняемым JavaScript; отдельный CPU-проект действительно обучает модель и обслуживает локальный inference.
+Курс Edutec: 14 разделов, 50 уроков на RU/EN и 50 пар starter/answer. В браузере 26 заданий с политиками и 24 задания с исполняемым JavaScript; отдельный CPU-проект действительно обучает модель и обслуживает локальный inference.
 
 Платформа: [курс ИИ-ассистентов](https://courses.edutec.it.com/ai/home). Учебные ветки: [angularWorkshop/ai_lessons](https://github.com/angularWorkshop/ai_lessons). Статус конкретного релиза и границы проверки описаны в [RELEASE.md](../course_authoring/ai/RELEASE.md).
 
@@ -20,7 +20,7 @@ Read [CODING_PRIMER.md](CODING_PRIMER.md): functions, arrays, modules, JSON pars
 
 ## Onboarding / Если терминал и Git незнакомы
 
-1. Установите Node.js 20+ из официального источника; убедитесь, что `node --version` работает.
+1. Установите Node.js 20.19+ из официального источника; убедитесь, что `node --version` работает.
 2. Откройте терминал в каталоге выбранного проекта. Команда `pwd` показывает текущий путь.
 3. JSON состоит из объектов `{}`, массивов `[]`, строк в двойных кавычках, чисел и `true`/`false`. Комментарии и завершающие запятые не допускаются.
 4. В каталоге starter откройте файл `src/*.json или src/exercise.mjs`. Изменяйте только его; затем выполните `npm test`.
@@ -30,7 +30,7 @@ Read [CODING_PRIMER.md](CODING_PRIMER.md): functions, arrays, modules, JSON pars
 
 Подробный первый запуск в клиенте: `SETUP.md`. Для итогового переноса есть настоящий небольшой проект `capstone-project`, а не только JSON-симуляция.
 
-English: install Node 20+, open a terminal in a generated starter folder, edit its `src/*.json`, and run `npm test`. JSON uses double-quoted keys and strings, arrays, numbers, and booleans; no comments or trailing commas. Use `npm run start:dev` for checks after saving. Never edit tests to make an assignment pass. Use a disposable project and inspect `git diff` before real assistant work.
+English: install Node 20.19+, open a terminal in a generated starter folder, edit its `src/*.json`, and run `npm test`. JSON uses double-quoted keys and strings, arrays, numbers, and booleans; no comments or trailing commas. Use `npm run start:dev` for checks after saving. Never edit tests to make an assignment pass. Use a disposable project and inspect `git diff` before real assistant work.
 
 ## Commands
 
@@ -65,3 +65,7 @@ npm run start:dev
 ## Publication boundary
 
 Тип курса в API: `AI_ASSISTANTS`; маршрут приложения: `/ai`. В `publication.json` сохранены реальные идентификаторы опубликованных уроков и проверенные ссылки на starter/answer. Первый урок открыт гостям; полный курс входит в PRO/LIFETIME и доступен ADMIN. Выбор фреймворков Base/Standard не изменён. Локальная лаборатория не отправляет прогресс на платформу.
+
+## Worked systems
+
+See [workbench/README.md](workbench/README.md) for executable agent, RAG, and gradient examples. The optional [MCP SDK demo](mcp-demo/README.md) has its own pinned dependencies and a real stdio integration test. Main exercise tests need no dependency installation.
