@@ -1,7 +1,0 @@
-{
-  "actions": {
-    "compile": "inspect-types",
-    "test": "reproduce-assertion",
-    "runtime": "inspect-trace"
-  }
-}
