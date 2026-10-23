@@ -1,7 +1,25 @@
-# Edutec AI assistants
+# Choose instructions, RAG, or weight updates
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/adaptation.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- Configure the four theory routes in adaptation.json.
+- Do not route fresh facts to fine-tuning or call foundation pretraining ordinary assistant setup.
+- An unknown task type must clarify rather than trigger training.
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- В adaptation.json настройте четыре маршрута из теории.
+- Не отправляйте обновление фактов в fine-tune и не называйте обучение с нуля обычной настройкой ассистента.
+- Неизвестный тип задачи должен дать clarify, а не автоматическое обучение.
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Choose a task and write the exact behavior to change. Compare prompting and retrieval before choosing training. TRAINING.md provides a real small classification baseline.
+
+Выберите собственную задачу и запишите, какое поведение хотите изменить. Сравните prompt и retrieval до решения об обучении. В TRAINING.md есть настоящий маленький baseline для классификации.
