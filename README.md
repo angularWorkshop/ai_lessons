@@ -1,7 +1,25 @@
-# Edutec AI assistants
+# Routing, memory, and the local/cloud boundary
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/routing.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- Enable localOnly and set fallback: block in routing.json.
+- Reject a cloud endpoint and a local proxy with an external upstream.
+- Allow a declared local model route; block an unknown role.
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- В routing.json включите localOnly и оставьте fallback: block.
+- Проверьте, что облачный endpoint и локальный прокси с внешним upstream отклоняются.
+- Локальный маршрут с моделью разрешается; неизвестная роль не получает случайную модель.
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Use LOCAL_MODELS.md to map the real client-to-model chain. Do not start the original router with an external key or modify a user-owned kilo.jsonc for this exercise.
+
+По LOCAL_MODELS.md нарисуйте реальную цепочку клиента до модели. Не запускайте исходный .agents/router с внешним ключом ради этой проверки и не меняйте пользовательский kilo.jsonc.
