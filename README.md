@@ -14,8 +14,24 @@ Edit `src/orchestrator.json`. Do not change the tests or runtime.
 - Проверьте уточнение, отказ, успешный проход, исправление со второй попытки и остановку после двух ошибок.
 - Соберите реальные артефакты по capstone-pack/ACCEPTANCE.md. Автотесты симулятора и ручной перенос отмечаются отдельно.
 
+## Run the worked system
+This worked system is included in the branch. Run from its root; the main exercise checks remain separate.
+```sh
+node ai_lessons/workbench/demo.mjs agent
+node --test ai_lessons/workbench/workbench.test.mjs
+```
+Expect answered, result 5, and one actual add in the trace. The provider is explicitly an offline stub. Check unknown-tool denial and exhausted budget.
+
+## Сквозной разбор с исполняемым кодом
+Дополнительный разбор уже включён в ветку. Выполните команды из её корня; автопроверка основного задания остаётся отдельной.
+```sh
+node ai_lessons/workbench/demo.mjs agent
+node --test ai_lessons/workbench/workbench.test.mjs
+```
+Ожидайте answered, результат 5 и один фактический add в trace. Provider здесь явно обозначен как offline stub. Проверьте отказ неизвестному инструменту и исчерпание бюджета.
+
 ## Check
-`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+`npm test` or `npm run start:dev` (Node 20.19+; no dependencies or paid API required).
 
 The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.
 
