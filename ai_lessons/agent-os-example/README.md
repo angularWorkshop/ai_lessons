@@ -29,9 +29,9 @@ point and verify that it was loaded. Configure file, tool, and network access
 separately in the client; a written rule is not a security boundary.
 
 RU: Настоящий `.agents/PLUGINS/model-router` может слушать localhost, но передавать
-запрос провайдеру. Такой proxy не означает локальный inference. Для урока 18
+запрос провайдеру. Такой proxy не означает локальный inference. Для урока о локальном роутинге
 явно проверьте upstream; при сомнении блокируйте, а не подставляйте облако.
 
 EN: The real `.agents/PLUGINS/model-router` may listen on localhost and still
 forward requests to a provider. Such a proxy is not local inference. Check the
-upstream explicitly in lesson 18; block rather than silently fall back to cloud.
+upstream explicitly in the local-routing lesson; block rather than silently fall back to cloud.
