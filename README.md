@@ -1,7 +1,27 @@
-# Edutec AI assistants
+# Core project: assemble and transfer an orchestrator
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/orchestrator.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- In orchestrator.json, use planner, developer, tester, and reviewer; implementation and review must differ.
+- Set maxAttempts: 2 and maxCalls: 8: at most two attempts with four role invocations each.
+- Verify clarification, denial, success, second-attempt repair, and stopping after two failures.
+- Collect real artifacts using capstone-pack/ACCEPTANCE.md. Record simulator tests and manual transfer separately.
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- В orchestrator.json задайте роли planner, developer, tester, reviewer; исполнитель и ревьюер различаются.
+- Установите maxAttempts: 2 и maxCalls: 8: максимум две попытки по четыре обращения к ролям.
+- Проверьте уточнение, отказ, успешный проход, исправление со второй попытки и остановку после двух ошибок.
+- Соберите реальные артефакты по capstone-pack/ACCEPTANCE.md. Автотесты симулятора и ручной перенос отмечаются отдельно.
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Complete capstone-pack/ACCEPTANCE.md in your chosen assistant. Do not describe a green simulation as a verified client connection or a tested real model.
+
+Выполните всю проверку capstone-pack/ACCEPTANCE.md в выбранном ассистенте. Не выдавайте зелёный симулятор за успешное подключение клиента или проверку настоящей модели.
