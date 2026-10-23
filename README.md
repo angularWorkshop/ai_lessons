@@ -1,9 +1,25 @@
-# Practical AI: assistants, agents, and local models
+# Beyond accuracy: misses, false alarms, and error cost
 
-44 RU/EN lessons in 14 sections. 26 policy labs and 18 executable JavaScript labs, plus real CPU training and optional local inference / GPU transfer.
+Edit `src/exercise.mjs`. Do not change the tests or runtime.
 
-Course: https://courses.edutec.it.com/ai/home
+## English
+- Count TP, FP, and FN from boolean fields.
+- Return precision and recall as ratios, not percentages.
+- Return zero for an empty denominator.
 
-See [lab instructions](ai_lessons/README.md), [JavaScript bridge](ai_lessons/CODING_PRIMER.md), and [release boundaries](course_authoring/ai/RELEASE.md).
+## Русский
+- Посчитайте TP, FP, FN по boolean-полям.
+- Верните precision и recall, не проценты.
+- При пустом знаменателе верните 0; не делите на ноль.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. No paid API or automatic weight download in browser labs.
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Label a small approved set with routine and critical cases. Show a confusion matrix and baseline. Do not present a tiny learning set as proof of market-wide quality.
+
+Разметьте небольшой разрешённый набор: обычные и критичные случаи. Покажите матрицу ошибок и baseline. Не используйте этот учебный размер как доказательство качества на всём рынке.
