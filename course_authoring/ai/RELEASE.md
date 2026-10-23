@@ -1,8 +1,10 @@
 # AI course release boundary
 
-Release: `20261023-ai-course-01`. Course type: `AI_ASSISTANTS`; path: `/ai` in the existing application, not a new subdomain. The production API contains 13 sections, 26 topics/exercises, and an eight-question bilingual knowledge check. All 52 practice branches are published in the public [course repository](https://github.com/angularWorkshop/ai_lessons).
+Status: published on 2026-10-23. Final release: `20261023-ai-course-02`. Course type: `AI_ASSISTANTS`; path: `/ai` in the existing application, not a new subdomain. The production API contains 13 sections, 26 topics/exercises, and an eight-question bilingual knowledge check. All 52 practice branches are published in the public [course repository](https://github.com/angularWorkshop/ai_lessons).
 
-The machine-readable `publication.json` records the exact API IDs, URLs, and readiness state. Frontend/landing deployment and real browser verification must pass before `ready` is set to `true`.
+Open the [published course](https://courses.edutec.it.com/ai/home). Backend `aab83ad`, frontend application bundle `9890a89`, landing `6150d32`. The final frontend sitemap asset comes from `b54039b`; the application JavaScript did not need recompilation for that XML-only change. Deployment was direct SSH, not a successful GitLab pipeline.
+
+The machine-readable `publication.json` records the exact API IDs, URLs, and verified release state. Frontend, landing, API, public repository visibility, and the first browser exercise were checked before marking the release ready.
 
 ## Prepared
 

@@ -1,11 +1,9 @@
 {
-  "ready": false,
-  "blockers": [
-    "Frontend and landing deployment verification pending"
-  ],
+  "ready": true,
+  "blockers": [],
   "repository": "https://github.com/angularWorkshop/ai_lessons.git",
   "courseUrl": "https://courses.edutec.it.com/ai/home",
-  "release": "20261023-ai-course-01",
+  "release": "20261023-ai-course-02",
   "exercises": {
     "01-task-boundaries": {
       "id": "40b602f8-5718-410c-b840-5ff11feeadd0",
@@ -215,5 +213,12 @@
       "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-26-exercise-01-local-capstone",
       "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-26-exercise-01-local-capstone"
     }
+  },
+  "publishedAt": "2026-10-23T12:46:34.274Z",
+  "components": {
+    "backend": "aab83ad",
+    "frontend": "9890a89",
+    "landing": "6150d32",
+    "sitemap": "b54039b"
   }
 }
