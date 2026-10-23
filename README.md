@@ -1,7 +1,25 @@
-# Edutec AI assistants
+# Connect a tool with an explicit contract
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/tools.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- Allow only readDoc inside docs.
+- Its required and allowed fields must contain only path; set effect to read-only.
+- Check missing and extra arguments, an unknown tool, and an out-of-scope path.
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- Разрешите только readDoc в roots: docs.
+- Для него required и allowed должны содержать только path; effect: read-only.
+- Проверьте отсутствующее поле, лишний аргумент, неизвестное имя и путь вне docs.
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Find the tools/MCP settings in your client without installing a random server. Use official documentation to record source, permissions, authentication, disconnection, and a denial test. Use only a trusted read-only tool for a real connection.
+
+В выбранном клиенте найдите раздел инструментов/MCP, не устанавливая случайный сервер. По официальной документации составьте карточку подключения: источник, права, тип авторизации, отключение и тест отказа. Для реального запуска используйте только доверенный read-only инструмент.
