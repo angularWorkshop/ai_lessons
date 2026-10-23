@@ -1,9 +1,25 @@
-# Practical AI: assistants, agents, and local models
+# Choose an experiment without peeking at the final test
 
-44 RU/EN lessons in 14 sections. 26 policy labs and 18 executable JavaScript labs, plus real CPU training and optional local inference / GPU transfer.
+Edit `src/exercise.mjs`. Do not change the tests or runtime.
 
-Course: https://courses.edutec.it.com/ai/home
+## English
+- Keep split: validation with finite numeric loss.
+- Choose the lowest loss, breaking ties alphabetically by id.
+- Return the id or null if no valid measurements exist.
 
-See [lab instructions](ai_lessons/README.md), [JavaScript bridge](ai_lessons/CODING_PRIMER.md), and [release boundaries](course_authoring/ai/RELEASE.md).
+## Русский
+- Оставьте split: validation и конечные числовые loss.
+- Выберите минимальный loss, при равенстве — id по алфавиту.
+- Верните id или null, если подходящих измерений нет.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. No paid API or automatic weight download in browser labs.
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Create experiments.json for two CPU runs. Choose one on validation and explain the decision before inspecting final test results.
+
+Создайте experiments.json для двух CPU-запусков. Выберите один по validation и объясните выбор до просмотра итогового test.
