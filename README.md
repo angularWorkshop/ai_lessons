@@ -1,7 +1,25 @@
-# Edutec AI assistants
+# Hand off work so someone can continue it
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/handoff.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- Require owner, status, summary, and evidence.
+- Allow only ready and blocked.
+- Reject empty evidence, a missing owner, and an uncertain status.
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- Требуйте owner, status, summary и evidence.
+- Разрешите только ready и blocked.
+- Отвергайте пустые доказательства, отсутствующего владельца и неопределённый статус.
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Finish a small task with a handoff file. Start a new session with only that file and the project. Check whether the assistant can identify the next step without the old chat.
+
+Закончите короткую задачу handoff-файлом и откройте новую сессию только с ним и проектом. Проверьте, сможет ли ассистент назвать следующий шаг без старого чата.
