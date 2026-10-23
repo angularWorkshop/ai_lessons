@@ -1,9 +1,25 @@
-# Practical AI: assistants, agents, and local models
+# Inspect a run through its trace, not its final answer
 
-44 RU/EN lessons in 14 sections. 26 policy labs and 18 executable JavaScript labs, plus real CPU training and optional local inference / GPU transfer.
+Edit `src/exercise.mjs`. Do not change the tests or runtime.
 
-Course: https://courses.edutec.it.com/ai/home
+## English
+- Return calls, total durationMs, and failed ids in input order.
+- An empty run gives zero counts and an empty array.
+- Exclude prompt and all other extra fields from the summary.
 
-See [lab instructions](ai_lessons/README.md), [JavaScript bridge](ai_lessons/CODING_PRIMER.md), and [release boundaries](course_authoring/ai/RELEASE.md).
+## Русский
+- Верните calls, сумму durationMs и failed id в исходном порядке.
+- Пустой запуск должен дать нули и пустой массив.
+- Не переносите prompt и другие лишние поля в сводку.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. No paid API or automatic weight download in browser labs.
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Capture a safe event log for one learning task. Find its most expensive step and one ineffective retry. Remove request contents that diagnosis does not need.
+
+Сохраните безопасный журнал одной учебной задачи. Найдите самый дорогой шаг и повтор, который не помог. Удалите содержимое запросов, если оно не нужно для диагностики.
