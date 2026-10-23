@@ -1,7 +1,25 @@
-# Edutec AI assistants
+# Persistent project instructions and local rules
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/instructions.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- Set precedence to project, then directory in instructions.json.
+- Lock secretPolicy and deploymentPolicy.
+- Confirm that a local test command changes while security boundaries remain unchanged.
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- В instructions.json задайте порядок project, затем directory.
+- Зафиксируйте secretPolicy и deploymentPolicy через locked.
+- Убедитесь, что локальная команда test меняется, но ограничения безопасности остаются прежними.
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Add AGENTS.md to a disposable project if your client supports it. Give an exact test command and prohibit publication. In a fresh session, verify discovery and ask which restrictions apply.
+
+Создайте AGENTS.md в учебной копии проекта, если клиент его поддерживает. Укажите точную команду тестов и запрет публикации. В новой сессии проверьте обнаружение файла и попросите назвать действующие ограничения.
