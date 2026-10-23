@@ -1,7 +1,25 @@
-# Edutec AI assistants
+# Grant only the tools a task needs
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/permissions.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- Keep roots limited to src and tests; allow read and edit there.
+- Require approval for delete and deny deploy.
+- Verify an unknown tool, a similar directory prefix, and a path containing .. .
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- Оставьте roots: src и tests; read и edit разрешены внутри них.
+- Для delete требуйте approval, deploy запретите.
+- Проверьте неизвестный инструмент, похожий префикс каталога и путь с .. .
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Restrict your chosen assistant to a disposable directory. Check that it cannot read a neighboring dummy file; do not test with genuine secrets.
+
+В настройках выбранного ассистента ограничьте работу учебным каталогом. Проверьте отказ на чтение соседнего тестового файла, не используя настоящие секреты.
