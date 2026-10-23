@@ -13,7 +13,7 @@ Edit `src/release.json`. Do not change the tests or runtime.
 - Проверьте отсутствие rollback и превышение задержки. Сам gate ничего не публикует.
 
 ## Check
-`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+`npm test` or `npm run start:dev` (Node 20.19+; no dependencies or paid API required).
 
 The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.
 
