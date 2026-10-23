@@ -1,9 +1,25 @@
-# Practical AI: assistants, agents, and local models
+# MCP without magic: discover a tool and review access
 
-44 RU/EN lessons in 14 sections. 26 policy labs and 18 executable JavaScript labs, plus real CPU training and optional local inference / GPU transfer.
+Edit `src/exercise.mjs`. Do not change the tests or runtime.
 
-Course: https://courses.edutec.it.com/ai/home
+## English
+- Keep approved names with readOnly: true.
+- Return names in alphabetical order.
+- Exclude unfamiliar tools and a previously approved tool that now writes.
 
-See [lab instructions](ai_lessons/README.md), [JavaScript bridge](ai_lessons/CODING_PRIMER.md), and [release boundaries](course_authoring/ai/RELEASE.md).
+## Русский
+- Оставьте только approved-имена с readOnly: true.
+- Верните имена в алфавитном порядке.
+- Незнакомый инструмент и изменившаяся возможность записи должны исчезнуть из результата.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. No paid API or automatic weight download in browser labs.
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated exercise status. Real-assistant transfer is a separate manual check. Executable labs test JavaScript behavior; policy labs test educational configurations.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Draw the client, server, data, and account for one integration. Read a tool schema and describe its side effects before connecting. No work credentials are needed for this review.
+
+Нарисуйте цепочку выбранной интеграции: клиент, сервер, данные, учётная запись. Перед подключением прочитайте схему одного инструмента и опишите его побочные эффекты. Не вводите рабочие ключи для этой проверки.
