@@ -1,7 +1,25 @@
-# Edutec AI assistants
+# Write a task with a verifiable outcome
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/brief-policy.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- Require goal, scope, and acceptance in brief-policy.json.
+- Return clarify, not guess, for a missing field or empty array.
+- A complete brief must proceed to plan with an empty missing list.
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- В brief-policy.json сделайте goal, scope и acceptance обязательными.
+- При пропуске поля или пустом массиве возвращайте clarify, не guess.
+- Полная постановка должна переходить в plan с пустым missing.
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Rewrite a vague task of your own into these three fields. First give the assistant a version without acceptance: it should ask for criteria instead of editing files.
+
+Перепишите собственную размытую задачу в три поля. Дайте её ассистенту сначала без acceptance: он должен запросить критерии, а не начать менять файлы.
