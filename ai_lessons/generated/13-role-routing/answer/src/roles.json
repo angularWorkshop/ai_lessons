@@ -1,9 +1,0 @@
-{
-  "routes": {
-    "investigate": "researcher",
-    "implement": "developer",
-    "verify": "tester",
-    "review": "reviewer"
-  },
-  "fallback": "human"
-}
