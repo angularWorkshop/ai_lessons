@@ -1,7 +1,25 @@
-# Edutec AI assistants
+# Prepare data without leaking into evaluation
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/dataset.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- Enable requireProvenance and rejectOverlap in dataset.json.
+- Overlapping groups or normalized text across splits must reject the dataset.
+- Check missing source permission and a clean split.
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- В dataset.json включите requireProvenance и rejectOverlap.
+- Пересечение групп или одинаковый текст в разных split должны блокировать accepted.
+- Проверьте пропущенное разрешение источника и чистое разбиение.
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Inspect local-training/dataset.json. Run the loader tests and introduce a group overlap in a copy to observe rejection. Restore the copy afterward.
+
+Изучите dataset.json в local-training. Запустите тесты загрузчика и намеренно добавьте в копии пересечение групп. Верните данные после наблюдения ошибки.
