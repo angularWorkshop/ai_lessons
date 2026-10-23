@@ -1,8 +1,8 @@
 # Advanced Acceptance / Приёмка итогового проекта
 
-RU: SUCCESS в браузере означает только прохождение сценариев конфигурации.
+RU: SUCCESS в браузере означает прохождение автоматических сценариев конкретного задания.
 Настоящий итог оценивается отдельно. Выберите CPU или LLM, не смешивая их доказательства.
-EN: Browser SUCCESS proves configuration scenarios only. Evaluate the real project
+EN: Browser SUCCESS proves the supplied automated exercise scenarios only. Evaluate the real project
 separately; choose the CPU or LLM route and do not substitute one route's evidence.
 
 ## Common / Общее
