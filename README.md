@@ -1,7 +1,25 @@
-# Edutec AI assistants
+# Actually train a small model on the CPU
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/training.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- Set requireWeightsChanged: true, minLossDrop: 0.05, and selectionSplit: validation.
+- A lower loss without changed weights is insufficient; test-based selection is rejected.
+- After configuration, run the real CPU lab and its unittest using TRAINING.md.
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- В training.json задайте requireWeightsChanged: true, minLossDrop: 0.05 и selectionSplit: validation.
+- Падение loss без изменения весов не засчитывается; подбор по test отклоняется.
+- После конфигурации отдельно выполните реальную CPU-лабораторию и её unittest по TRAINING.md.
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+Train the model, save the JSON artifact, and repeat with the same data. Verify reproducibility, changed weights, and separate test metrics. Do not describe this as an LLM fine-tune.
+
+Обучите модель, сохраните JSON-артефакт и повторите запуск с теми же данными. Проверьте воспроизводимость, изменение весов и метрики на отдельном test. Не называйте этот результат дообученной LLM.
