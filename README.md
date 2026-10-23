@@ -1,7 +1,25 @@
-# Edutec AI assistants
+# What to delegate and what to keep human
 
-26 RU/EN lessons across 13 sections: assistant setup, agent OS, orchestration, local models, data, real CPU training, and optional LoRA/QLoRA.
+Edit `src/policy.json`. Do not change the tests or runtime.
 
-Run `npm test --prefix ai_lessons` and `node course_authoring/ai/verify.mjs`. Preview: `node course_authoring/ai/preview-server.mjs`. See [lab instructions](ai_lessons/README.md).
+## English
+- In policy.json, allow format and explain.
+- Require approval for deploy and delete; deny export-secrets.
+- Return deny for unknown actions. Verify all four scenarios, not just harmless formatting.
 
-Every topic has matching lesson/answer branches with identical checks. Automated configuration status and actual model/client acceptance are separate. No paid API or automatic model download is required for the Node labs.
+## Русский
+- В policy.json разрешите format и explain.
+- Для deploy и delete требуйте approval; export-secrets запретите.
+- Неизвестные действия должны возвращать deny. Проверьте все четыре сценария, а не только безопасное форматирование.
+
+## Check
+`npm test` or `npm run start:dev` (Node 20+; no dependencies or paid API required).
+
+The runner reports automated configuration status. Real-assistant transfer is a separate manual check.
+
+Transfer guides and runnable CPU/local-model resources are in [ai_lessons](./ai_lessons). Python training runs on your PC, not in a Node-only browser terminal. No weights are downloaded automatically.
+
+## Transfer / Перенос
+In a disposable project copy, ask the assistant to explain one file without editing. Inspect the tools actually available and reject unexpected writes. Record how a written rule differs from a client-enforced restriction.
+
+В копии небольшого проекта попросите ассистента только объяснить файл. Посмотрите, какие инструменты реально доступны, и откажите в любой неожиданной записи. Зафиксируйте разницу между разрешением в инструкции и ограничением в настройках клиента.
