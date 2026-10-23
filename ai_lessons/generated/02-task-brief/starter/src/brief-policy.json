@@ -1,6 +1,0 @@
-{
-  "required": [
-    "goal"
-  ],
-  "onMissing": "guess"
-}
