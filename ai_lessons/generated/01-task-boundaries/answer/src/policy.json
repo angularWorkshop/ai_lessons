@@ -1,0 +1,14 @@
+{
+  "allow": [
+    "format",
+    "explain"
+  ],
+  "approval": [
+    "deploy",
+    "delete"
+  ],
+  "deny": [
+    "export-secrets"
+  ],
+  "unknown": "deny"
+}

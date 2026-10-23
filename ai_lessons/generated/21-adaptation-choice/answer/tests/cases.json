@@ -1,0 +1,37 @@
+[
+  [
+    "format starts simple",
+    {
+      "need": "format"
+    },
+    "prompt"
+  ],
+  [
+    "current facts need sources",
+    {
+      "need": "fresh-facts"
+    },
+    "rag"
+  ],
+  [
+    "behavior specialization",
+    {
+      "need": "stable-behavior"
+    },
+    "fine-tune"
+  ],
+  [
+    "foundation training is separate",
+    {
+      "need": "from-scratch"
+    },
+    "research"
+  ],
+  [
+    "unknown task needs clarification",
+    {
+      "need": "unknown"
+    },
+    "clarify"
+  ]
+]

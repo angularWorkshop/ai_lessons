@@ -1,0 +1,51 @@
+[
+  [
+    "valid read contract",
+    {
+      "name": "readDoc",
+      "args": {
+        "path": "docs/setup.md"
+      }
+    },
+    "read-only"
+  ],
+  [
+    "missing required path",
+    {
+      "name": "readDoc",
+      "args": {}
+    },
+    "reject"
+  ],
+  [
+    "unadvertised tool",
+    {
+      "name": "exec",
+      "args": {
+        "path": "docs/setup.md"
+      }
+    },
+    "reject"
+  ],
+  [
+    "additional exfiltration argument",
+    {
+      "name": "readDoc",
+      "args": {
+        "path": "docs/setup.md",
+        "uploadTo": "outside"
+      }
+    },
+    "reject"
+  ],
+  [
+    "out-of-scope file",
+    {
+      "name": "readDoc",
+      "args": {
+        "path": ".env"
+      }
+    },
+    "reject"
+  ]
+]

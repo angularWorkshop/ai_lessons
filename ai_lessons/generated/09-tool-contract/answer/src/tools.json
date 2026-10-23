@@ -1,0 +1,16 @@
+{
+  "roots": [
+    "docs"
+  ],
+  "tools": {
+    "readDoc": {
+      "required": [
+        "path"
+      ],
+      "allowed": [
+        "path"
+      ],
+      "effect": "read-only"
+    }
+  }
+}

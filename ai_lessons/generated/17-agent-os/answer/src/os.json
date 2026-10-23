@@ -1,0 +1,10 @@
+{
+  "required": [
+    "AGENTS.md",
+    "ENGINEERING_WORKFLOW.md",
+    "AGENTS/worker.md",
+    "SKILLS/verify.md",
+    "PROJECTS/demo.json",
+    "KNOWLEDGE/projects/demo/README.md"
+  ]
+}

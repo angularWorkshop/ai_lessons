@@ -1,0 +1,10 @@
+{
+  "commands": [
+    "npm test",
+    "npm run lint"
+  ],
+  "roots": [
+    "src",
+    "tests"
+  ]
+}

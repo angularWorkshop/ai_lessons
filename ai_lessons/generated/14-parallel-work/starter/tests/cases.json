@@ -1,0 +1,82 @@
+[
+  [
+    "independent file owners",
+    [
+      {
+        "paths": [
+          "src/a.ts"
+        ]
+      },
+      {
+        "paths": [
+          "tests/a.test.ts"
+        ]
+      }
+    ],
+    "parallel"
+  ],
+  [
+    "same file is not independent",
+    [
+      {
+        "paths": [
+          "src/a.ts"
+        ]
+      },
+      {
+        "paths": [
+          "src/a.ts"
+        ]
+      }
+    ],
+    "serialize"
+  ],
+  [
+    "directory ownership overlaps files",
+    [
+      {
+        "paths": [
+          "src"
+        ]
+      },
+      {
+        "paths": [
+          "src/a.ts"
+        ]
+      }
+    ],
+    "serialize"
+  ],
+  [
+    "bounded workers",
+    [
+      {
+        "paths": [
+          "a"
+        ]
+      },
+      {
+        "paths": [
+          "b"
+        ]
+      },
+      {
+        "paths": [
+          "c"
+        ]
+      }
+    ],
+    "queue"
+  ],
+  [
+    "invalid path cannot be scheduled",
+    [
+      {
+        "paths": [
+          "../private"
+        ]
+      }
+    ],
+    "invalid"
+  ]
+]

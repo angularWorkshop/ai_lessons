@@ -1,0 +1,4 @@
+{
+  "onConflict": "parallel",
+  "maxWorkers": 20
+}

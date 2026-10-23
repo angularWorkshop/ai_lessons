@@ -1,0 +1,54 @@
+[
+  [
+    "weight updates and independent selection",
+    {
+      "weightsChanged": true,
+      "lossBefore": 0.7,
+      "lossAfter": 0.5,
+      "selectionSplit": "validation",
+      "splitDisjoint": true
+    },
+    {
+      "accepted": true
+    }
+  ],
+  [
+    "no weight updates",
+    {
+      "weightsChanged": false,
+      "lossBefore": 0.7,
+      "lossAfter": 0.5,
+      "selectionSplit": "validation",
+      "splitDisjoint": true
+    },
+    {
+      "accepted": false
+    }
+  ],
+  [
+    "test is not for checkpoint selection",
+    {
+      "weightsChanged": true,
+      "lossBefore": 0.7,
+      "lossAfter": 0.5,
+      "selectionSplit": "test",
+      "splitDisjoint": true
+    },
+    {
+      "accepted": false
+    }
+  ],
+  [
+    "tiny loss change is insufficient",
+    {
+      "weightsChanged": true,
+      "lossBefore": 0.7,
+      "lossAfter": 0.69,
+      "selectionSplit": "validation",
+      "splitDisjoint": true
+    },
+    {
+      "accepted": false
+    }
+  ]
+]

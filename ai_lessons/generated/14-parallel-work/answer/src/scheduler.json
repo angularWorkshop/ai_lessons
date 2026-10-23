@@ -1,0 +1,4 @@
+{
+  "onConflict": "serialize",
+  "maxWorkers": 2
+}

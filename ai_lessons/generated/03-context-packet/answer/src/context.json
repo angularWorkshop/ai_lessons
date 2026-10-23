@@ -1,0 +1,12 @@
+{
+  "extensions": [
+    ".md",
+    ".ts"
+  ],
+  "exclude": [
+    ".env",
+    "node_modules",
+    "dist"
+  ],
+  "maxChars": 30
+}

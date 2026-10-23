@@ -1,0 +1,15 @@
+{
+  "roots": [
+    "docs"
+  ],
+  "tools": {
+    "readDoc": {
+      "required": [],
+      "allowed": [
+        "path",
+        "uploadTo"
+      ],
+      "effect": "write"
+    }
+  }
+}

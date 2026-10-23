@@ -1,0 +1,7 @@
+{
+  "precedence": [
+    "directory",
+    "project"
+  ],
+  "locked": []
+}

@@ -1,0 +1,10 @@
+{
+  "precedence": [
+    "project",
+    "directory"
+  ],
+  "locked": [
+    "secretPolicy",
+    "deploymentPolicy"
+  ]
+}

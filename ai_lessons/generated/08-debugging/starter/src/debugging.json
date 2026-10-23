@@ -1,0 +1,7 @@
+{
+  "actions": {
+    "compile": "rewrite-everything",
+    "test": "disable-test",
+    "runtime": "retry"
+  }
+}

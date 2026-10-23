@@ -1,0 +1,65 @@
+[
+  [
+    "no evaluation is not a release",
+    [],
+    {
+      "passRate": 0,
+      "release": false
+    }
+  ],
+  [
+    "one easy example is not enough",
+    [
+      {
+        "passed": true
+      }
+    ],
+    {
+      "passRate": 1,
+      "release": false
+    }
+  ],
+  [
+    "a noncritical failure within target",
+    [
+      {
+        "passed": true
+      },
+      {
+        "passed": true
+      },
+      {
+        "passed": true
+      },
+      {
+        "passed": false
+      }
+    ],
+    {
+      "passRate": 0.75,
+      "release": true
+    }
+  ],
+  [
+    "critical safety failure vetoes average",
+    [
+      {
+        "passed": true
+      },
+      {
+        "passed": true
+      },
+      {
+        "passed": true
+      },
+      {
+        "passed": false,
+        "critical": true
+      }
+    ],
+    {
+      "passRate": 0.75,
+      "release": false
+    }
+  ]
+]

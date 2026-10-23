@@ -1,0 +1,12 @@
+{
+  "roots": [
+    "src",
+    "tests"
+  ],
+  "tools": {
+    "read": "allow",
+    "edit": "allow",
+    "delete": "allow",
+    "deploy": "allow"
+  }
+}

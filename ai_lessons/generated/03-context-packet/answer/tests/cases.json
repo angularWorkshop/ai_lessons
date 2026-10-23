@@ -1,0 +1,72 @@
+[
+  [
+    "exclude dependencies even when relevant",
+    [
+      {
+        "path": "node_modules/x.ts",
+        "text": "generated",
+        "relevance": 10
+      }
+    ],
+    []
+  ],
+  [
+    "select small relevant source",
+    [
+      {
+        "path": "src/a.ts",
+        "text": "source",
+        "relevance": 9
+      }
+    ],
+    [
+      {
+        "path": "src/a.ts",
+        "text": "source"
+      }
+    ]
+  ],
+  [
+    "do not overflow the packet",
+    [
+      {
+        "path": "src/a.ts",
+        "text": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "relevance": 9
+      }
+    ],
+    []
+  ],
+  [
+    "reject traversal",
+    [
+      {
+        "path": "../outside.md",
+        "text": "private",
+        "relevance": 9
+      }
+    ],
+    []
+  ],
+  [
+    "priority precedes file order",
+    [
+      {
+        "path": "b.md",
+        "text": "bbbbbbbbbbbbbbbbbbbb",
+        "relevance": 1
+      },
+      {
+        "path": "a.ts",
+        "text": "aaaaaaaaaaaaaaaaaaaa",
+        "relevance": 5
+      }
+    ],
+    [
+      {
+        "path": "a.ts",
+        "text": "aaaaaaaaaaaaaaaaaaaa"
+      }
+    ]
+  ]
+]

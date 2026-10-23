@@ -1,0 +1,107 @@
+[
+  [
+    "tests alone do not prove completion",
+    {
+      "checks": [
+        {
+          "command": "npm test",
+          "exitCode": 0
+        }
+      ],
+      "changed": [
+        "src/a.ts"
+      ]
+    },
+    {
+      "completed": false
+    }
+  ],
+  [
+    "failed lint blocks completion",
+    {
+      "checks": [
+        {
+          "command": "npm test",
+          "exitCode": 0
+        },
+        {
+          "command": "npm run lint",
+          "exitCode": 1
+        }
+      ],
+      "changed": [
+        "src/a.ts"
+      ]
+    },
+    {
+      "completed": false
+    }
+  ],
+  [
+    "all evidence and scoped changes",
+    {
+      "checks": [
+        {
+          "command": "npm test",
+          "exitCode": 0
+        },
+        {
+          "command": "npm run lint",
+          "exitCode": 0
+        }
+      ],
+      "changed": [
+        "src/a.ts"
+      ]
+    },
+    {
+      "completed": true
+    }
+  ],
+  [
+    "passing checks cannot justify unrelated changes",
+    {
+      "checks": [
+        {
+          "command": "npm test",
+          "exitCode": 0
+        },
+        {
+          "command": "npm run lint",
+          "exitCode": 0
+        }
+      ],
+      "changed": [
+        "billing/price.ts"
+      ]
+    },
+    {
+      "completed": false
+    }
+  ],
+  [
+    "latest failed check supersedes old green evidence",
+    {
+      "checks": [
+        {
+          "command": "npm test",
+          "exitCode": 0
+        },
+        {
+          "command": "npm run lint",
+          "exitCode": 0
+        },
+        {
+          "command": "npm test",
+          "exitCode": 1
+        }
+      ],
+      "changed": [
+        "src/a.ts"
+      ]
+    },
+    {
+      "completed": false
+    }
+  ]
+]

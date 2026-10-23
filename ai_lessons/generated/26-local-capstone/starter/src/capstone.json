@@ -1,0 +1,12 @@
+{
+  "required": [
+    "localHealth"
+  ],
+  "methods": [
+    "classifier",
+    "rag",
+    "lora",
+    "qlora",
+    "unknown"
+  ]
+}

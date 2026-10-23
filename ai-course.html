@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Учебный черновик Edutec: настройка ИИ-ассистентов, безопасные инструменты, проверка результата и оркестрация ролей.">
+  <title>ИИ-ассистенты: от настройки до оркестрации · Edutec draft</title>
+  <style>
+    :root{color-scheme:dark;--bg:#10171d;--panel:#17222b;--ink:#e8f0ed;--muted:#a6bcb7;--accent:#6be0bc;--line:#30464b;--warning:#f2c580}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 90% 0,#1b3d39,transparent 45%),var(--bg);color:var(--ink);font:1rem/1.65 "Trebuchet MS",sans-serif}
+    button,textarea{font:inherit}button{cursor:pointer;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:.65rem;padding:.65rem 1rem}button:hover{border-color:var(--accent)}button:focus-visible,summary:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:4px}button:disabled{opacity:.45;cursor:default}
+    .top{max-width:90rem;margin:auto;padding:1.5rem 2rem;display:flex;justify-content:space-between;gap:1rem;align-items:center}.brand{font-weight:bold;letter-spacing:.1em}.draft{font-size:.8rem;color:var(--warning)}.hero{max-width:90rem;margin:auto;padding:2rem 2rem 3rem}.eyebrow{color:var(--accent);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}h1{font-family:Georgia,serif;font-size:clamp(2rem,5vw,4.3rem);line-height:1.1;max-width:60rem;font-weight:normal;margin:1rem 0 1.5rem}.hero p{max-width:65rem;color:var(--muted)}#prerequisites{font-size:.9rem;border-left:2px solid var(--accent);padding-left:1rem}
+    .layout{max-width:90rem;margin:auto;display:grid;grid-template-columns:18rem minmax(0,1fr);gap:2.5rem;padding:0 2rem 3rem}aside{min-width:0}aside h3{font-size:.78rem;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 .5rem}aside button{display:block;width:100%;text-align:left;border-color:transparent;background:transparent;font-size:.9rem;padding:.6rem .8rem}aside [aria-current="step"]{background:#203e39;color:var(--accent);border-color:#375f53}#progress{color:var(--accent);font-size:.85rem}main{min-width:0}.container__title{font-family:Georgia,serif;font-weight:normal;font-size:2rem;line-height:1.25;margin-top:0}.container__subtitle{font-size:1.15rem;margin-top:1.6rem}.container__text{color:#c4d4d0}.container__highlight{border-left:2px solid var(--warning);padding:1rem;background:#282b28;color:var(--warning)}.code-block,pre{background:#0b1319;border:1px solid var(--line);border-radius:.7rem}pre{overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1.2rem;font:.88rem/1.6 Consolas,monospace}.code-block pre{border:0;margin:0}#practice{margin-top:3rem;border-top:1px solid var(--line);padding-top:2rem}li{margin:.5rem 0}code{color:var(--accent)}.editor{padding:1.25rem;border:1px solid var(--line);border-radius:1rem;background:var(--panel);margin-top:2rem}.editor label{display:block;color:var(--accent);margin-bottom:.7rem}textarea{resize:vertical;width:100%;min-height:19rem;border:1px solid var(--line);border-radius:.6rem;background:#0b1319;color:var(--ink);font:.88rem/1.6 Consolas,monospace;padding:1rem}.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0}#run{background:var(--accent);color:#10231e;font-weight:bold}#status{min-height:2rem}#results{padding-left:1.2rem;font-size:.9rem}.pass{color:var(--accent)}.fail{color:var(--warning)}summary{cursor:pointer;color:var(--muted);padding:.75rem 0}#boundary{font-size:.85rem;color:var(--muted)}footer{border-top:1px solid var(--line);padding-top:1.5rem;margin-top:2rem;display:flex;justify-content:flex-end}#theory:focus{outline:none}
+    a{color:var(--accent);text-underline-offset:.2em}
+    @media(max-width:50rem){.layout{grid-template-columns:1fr;gap:1.5rem;padding:0 1rem 2rem}.top,.hero{padding-left:1rem;padding-right:1rem}aside{max-height:18rem;overflow-y:auto;border:1px solid var(--line);border-radius:.8rem;padding:.7rem}h1{font-size:2.7rem}.top{align-items:flex-start}.draft{max-width:14rem}.container__title{font-size:1.75rem}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="top"><span class="brand">EDUTEC / LAB</span><span class="draft" id="draft-note">Локальный черновик</span><button type="button" id="language" aria-label="Switch language RU / EN">RU / EN</button></header>
+  <section class="hero"><span class="eyebrow" id="overview">ИИ-ассистенты / локальные модели / обучение</span><h1 id="course-title">ИИ-ассистенты: от настройки до оркестрации</h1><p id="audience"></p><p id="prerequisites"></p><p><a href="/ai_lessons/LOCAL_MODELS.md">Local models · RU/EN</a> / <a href="/ai_lessons/TRAINING.md">CPU training · RU/EN</a> / <a href="/ai_lessons/FINETUNING.md">LoRA · RU/EN</a> / <a href="/ai_lessons/ADVANCED_ACCEPTANCE.md">Acceptance · RU/EN</a></p></section>
+  <div class="layout">
+    <aside><div id="progress" aria-live="polite"></div><nav id="curriculum" aria-label="Curriculum"></nav></aside>
+    <main><article id="theory" tabindex="-1"></article><section id="practice"></section>
+      <section class="editor"><label id="file-label" for="config">Configuration</label><textarea id="config" spellcheck="false"></textarea><div class="actions"><button type="button" id="run">Проверить условия</button><button type="button" id="reset">Вернуть стартовый файл</button></div><p id="status" role="status"></p><ul id="results"></ul><details id="solution"><summary id="solution-title">Правильная конфигурация</summary><pre id="answer"></pre></details><p id="boundary"></p></section>
+      <footer><button id="next" type="button">Следующий урок</button></footer>
+    </main>
+  </div>
+  <noscript>Для интерактивной практики нужен JavaScript. Полный контент RU/EN доступен в course_authoring/ai/course-manifest.json.</noscript>
+  <script type="module" src="/course_authoring/ai/preview-client.mjs"></script>
+</body>
+</html>

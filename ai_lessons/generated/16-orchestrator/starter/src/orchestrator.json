@@ -1,0 +1,10 @@
+{
+  "roles": {
+    "plan": "planner",
+    "implement": "developer",
+    "test": "tester",
+    "review": "developer"
+  },
+  "maxAttempts": 10,
+  "maxCalls": 40
+}

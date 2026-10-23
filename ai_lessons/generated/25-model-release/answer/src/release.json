@@ -1,0 +1,5 @@
+{
+  "requireHeldout": true,
+  "requireRollback": true,
+  "maxLatencyMs": 3000
+}

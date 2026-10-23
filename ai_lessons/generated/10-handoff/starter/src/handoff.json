@@ -1,0 +1,10 @@
+{
+  "required": [
+    "summary"
+  ],
+  "statuses": [
+    "ready",
+    "blocked",
+    "probably-ready"
+  ]
+}

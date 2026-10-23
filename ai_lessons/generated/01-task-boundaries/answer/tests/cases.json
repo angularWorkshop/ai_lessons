@@ -1,0 +1,30 @@
+[
+  [
+    "format a local file",
+    {
+      "kind": "format"
+    },
+    "allow"
+  ],
+  [
+    "deployment needs a person",
+    {
+      "kind": "deploy"
+    },
+    "approval"
+  ],
+  [
+    "secrets never leave the project",
+    {
+      "kind": "export-secrets"
+    },
+    "deny"
+  ],
+  [
+    "unknown actions fail closed",
+    {
+      "kind": "new-tool"
+    },
+    "deny"
+  ]
+]

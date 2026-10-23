@@ -1,0 +1,9 @@
+{
+  "routes": {
+    "format": "prompt",
+    "fresh-facts": "rag",
+    "stable-behavior": "fine-tune",
+    "from-scratch": "research"
+  },
+  "fallback": "clarify"
+}

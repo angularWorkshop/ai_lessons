@@ -1,0 +1,74 @@
+[
+  [
+    "validated local candidate",
+    {
+      "heldout": true,
+      "rollback": true,
+      "candidateScore": 0.9,
+      "baselineScore": 0.8,
+      "criticalFailures": 0,
+      "latencyMs": 2000
+    },
+    "ready-for-local-use"
+  ],
+  [
+    "missing holdout",
+    {
+      "heldout": false,
+      "rollback": true,
+      "candidateScore": 0.9,
+      "baselineScore": 0.8,
+      "criticalFailures": 0,
+      "latencyMs": 2000
+    },
+    "blocked"
+  ],
+  [
+    "no rollback",
+    {
+      "heldout": true,
+      "rollback": false,
+      "candidateScore": 0.9,
+      "baselineScore": 0.8,
+      "criticalFailures": 0,
+      "latencyMs": 2000
+    },
+    "blocked"
+  ],
+  [
+    "slow candidate",
+    {
+      "heldout": true,
+      "rollback": true,
+      "candidateScore": 0.9,
+      "baselineScore": 0.8,
+      "criticalFailures": 0,
+      "latencyMs": 4000
+    },
+    "blocked"
+  ],
+  [
+    "critical regression",
+    {
+      "heldout": true,
+      "rollback": true,
+      "candidateScore": 0.9,
+      "baselineScore": 0.8,
+      "criticalFailures": 1,
+      "latencyMs": 2000
+    },
+    "blocked"
+  ],
+  [
+    "worse than baseline",
+    {
+      "heldout": true,
+      "rollback": true,
+      "candidateScore": 0.7,
+      "baselineScore": 0.8,
+      "criticalFailures": 0,
+      "latencyMs": 2000
+    },
+    "blocked"
+  ]
+]

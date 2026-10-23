@@ -1,0 +1,81 @@
+[
+  [
+    "verified independent review",
+    {
+      "review": {
+        "passed": true,
+        "author": "reviewer"
+      },
+      "implementer": "developer",
+      "checksPassed": true,
+      "attempts": 1
+    },
+    "complete"
+  ],
+  [
+    "failed checks require repair",
+    {
+      "review": {
+        "passed": true,
+        "author": "reviewer"
+      },
+      "implementer": "developer",
+      "checksPassed": false,
+      "attempts": 1
+    },
+    "repair"
+  ],
+  [
+    "self-review is insufficient",
+    {
+      "review": {
+        "passed": true,
+        "author": "developer"
+      },
+      "implementer": "developer",
+      "checksPassed": true,
+      "attempts": 1
+    },
+    "repair"
+  ],
+  [
+    "attempt limit stops the loop",
+    {
+      "review": {
+        "passed": false,
+        "author": "reviewer"
+      },
+      "implementer": "developer",
+      "checksPassed": false,
+      "attempts": 2
+    },
+    "human"
+  ],
+  [
+    "high risk is escalated",
+    {
+      "review": {
+        "passed": false,
+        "risk": "high"
+      },
+      "implementer": "developer",
+      "checksPassed": false,
+      "attempts": 0
+    },
+    "human"
+  ],
+  [
+    "high risk vetoes otherwise passing evidence",
+    {
+      "review": {
+        "passed": true,
+        "author": "reviewer",
+        "risk": "high"
+      },
+      "implementer": "developer",
+      "checksPassed": true,
+      "attempts": 1
+    },
+    "human"
+  ]
+]

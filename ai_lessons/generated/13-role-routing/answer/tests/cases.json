@@ -1,0 +1,37 @@
+[
+  [
+    "investigate before editing",
+    {
+      "kind": "investigate"
+    },
+    "researcher"
+  ],
+  [
+    "implementation owner",
+    {
+      "kind": "implement"
+    },
+    "developer"
+  ],
+  [
+    "independent reviewer",
+    {
+      "kind": "review"
+    },
+    "reviewer"
+  ],
+  [
+    "verification owner",
+    {
+      "kind": "verify"
+    },
+    "tester"
+  ],
+  [
+    "unknown work is escalated",
+    {
+      "kind": "purchase"
+    },
+    "human"
+  ]
+]

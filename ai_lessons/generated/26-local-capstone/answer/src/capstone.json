@@ -1,0 +1,15 @@
+{
+  "required": [
+    "osDoctor",
+    "localHealth",
+    "baseline",
+    "heldout",
+    "rollback"
+  ],
+  "methods": [
+    "classifier",
+    "rag",
+    "lora",
+    "qlora"
+  ]
+}

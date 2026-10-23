@@ -1,0 +1,72 @@
+[
+  [
+    "complete minimal OS",
+    {
+      "files": [
+        "AGENTS.md",
+        "ENGINEERING_WORKFLOW.md",
+        "AGENTS/worker.md",
+        "SKILLS/verify.md",
+        "PROJECTS/demo.json",
+        "KNOWLEDGE/projects/demo/README.md"
+      ]
+    },
+    {
+      "ready": true,
+      "missing": []
+    }
+  ],
+  [
+    "missing verification skill",
+    {
+      "files": [
+        "AGENTS.md",
+        "ENGINEERING_WORKFLOW.md",
+        "AGENTS/worker.md",
+        "PROJECTS/demo.json",
+        "KNOWLEDGE/projects/demo/README.md"
+      ]
+    },
+    {
+      "ready": false,
+      "missing": [
+        "SKILLS/verify.md"
+      ]
+    }
+  ],
+  [
+    "missing knowledge",
+    {
+      "files": [
+        "AGENTS.md",
+        "ENGINEERING_WORKFLOW.md",
+        "AGENTS/worker.md",
+        "SKILLS/verify.md",
+        "PROJECTS/demo.json"
+      ]
+    },
+    {
+      "ready": false,
+      "missing": [
+        "KNOWLEDGE/projects/demo/README.md"
+      ]
+    }
+  ],
+  [
+    "an empty folder is not an agent OS",
+    {
+      "files": []
+    },
+    {
+      "ready": false,
+      "missing": [
+        "AGENTS.md",
+        "ENGINEERING_WORKFLOW.md",
+        "AGENTS/worker.md",
+        "SKILLS/verify.md",
+        "PROJECTS/demo.json",
+        "KNOWLEDGE/projects/demo/README.md"
+      ]
+    }
+  ]
+]

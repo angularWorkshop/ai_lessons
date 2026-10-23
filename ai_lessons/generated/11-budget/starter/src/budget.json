@@ -1,0 +1,5 @@
+{
+  "maxCost": 100,
+  "maxCalls": 30,
+  "timeoutMs": 10000
+}
