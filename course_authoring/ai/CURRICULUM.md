@@ -1,116 +1,101 @@
-# ИИ на практике: программа после расширения
+# ИИ на практике: программа курса
 
-44 урока, 14 разделов. +18 отдельных занятий вместо объединения больших предметов в один обзор. Стабильные ключи и опубликованные ID прежних 26 упражнений сохранены.
+50 уроков в 14 разделах. В этой редакции добавлены 6 уроков, углублён 21 существующий. Прежние ID сохранены. Номер в названии Git-ветки — стабильный ключ, а не позиция урока в программе.
+
+Практика: 26 заданий на политику/конфигурацию и 24 задания с исполняемой функцией. Для реальной системы есть отдельные сквозные проекты: CPU-обучение, агентный цикл, поиск источников и MCP-клиент/сервер. SUCCESS основного задания не означает, что на ПК ученика уже проверены GPU или локальная LLM.
 
 ## Начало работы: модель, клиент и задача
 
-1. Ассистент, агент и workflow: кто за что отвечает / Assistant, agent, workflow: who does what? [расширен, политика + отдельный перенос]
-2. Почему модель забывает: токены и контекстное окно / Why a model forgets: tokens and the context window [новый, исполняемый JavaScript]
-3. Первый запуск: клиент, модель, папка и проверка / First setup: client, model, workspace, and a check [новый, исполняемый JavaScript]
-4. Как поставить задачу, которую можно проверить / Write a task you can actually verify [расширен, политика + отдельный перенос]
+1. Ассистент, агент и workflow: кто за что отвечает / Assistant, agent, workflow: who does what? [сохранён после проверки; политика/конфигурация]
+2. Первый запуск: клиент, модель, папка и проверка / First setup: client, model, workspace, and a check [углублён; код]
+3. Как LLM строит ответ и почему может уверенно ошибаться / How an LLM builds an answer, and why confidence can be wrong [новый урок; код]
+4. Почему модель забывает: токены и контекстное окно / Why a model forgets: tokens and the context window [углублён; код]
+5. Как поставить задачу, которую можно проверить / Write a task you can actually verify [сохранён после проверки; политика/конфигурация]
 
 ## Контекст и инструкции
 
-5. Как дать модели нужные файлы и убрать лишнее / Choose the files a model actually needs [расширен, политика + отдельный перенос]
-6. Правила проекта: что хранить в AGENTS.md / Project rules: what belongs in AGENTS.md [расширен, политика + отдельный перенос]
-7. Показать образец: примеры вместо длинных запретов / Show the format: examples instead of long prohibitions [новый, исполняемый JavaScript]
-8. Получить JSON, который можно безопасно обработать / Get JSON that your application can safely handle [новый, исполняемый JavaScript]
+6. Как дать модели нужные файлы и убрать лишнее / Choose the files a model actually needs [сохранён после проверки; политика/конфигурация]
+7. Правила проекта: что хранить в AGENTS.md / Project rules: what belongs in AGENTS.md [углублён; политика/конфигурация]
+8. Показать образец: примеры вместо длинных запретов / Show the format: examples instead of long prohibitions [сохранён после проверки; код]
+9. Получить JSON, который можно безопасно обработать / Get JSON that your application can safely handle [сохранён после проверки; код]
 
 ## Инструменты и границы доверия
 
-9. Права ассистента: чтение, запись, терминал и сеть / Assistant permissions: files, terminal, and network [расширен, политика + отдельный перенос]
-10. Prompt injection: когда данные притворяются командами / Prompt injection: when data pretends to be instructions [расширен, политика + отдельный перенос]
+10. Права ассистента: чтение, запись, терминал и сеть / Assistant permissions: files, terminal, and network [сохранён после проверки; политика/конфигурация]
+11. Prompt injection: когда данные притворяются командами / Prompt injection: when data pretends to be instructions [сохранён после проверки; политика/конфигурация]
 
 ## Рабочий цикл и диагностика
 
-11. До первой правки: ветка, исходный diff и точка возврата / Before editing: a branch, baseline diff, and recovery point [новый, исполняемый JavaScript]
-12. Проверка результата: тесты, diff и честный отчёт / Verify the result: tests, diff, and an honest report [расширен, политика + отдельный перенос]
-13. Как найти причину ошибки и не переписать всё / Find a failure’s cause without rewriting everything [расширен, политика + отдельный перенос]
+12. До первой правки: ветка, исходный diff и точка возврата / Before editing: a branch, baseline diff, and recovery point [сохранён после проверки; код]
+13. Проверка результата: тесты, diff и честный отчёт / Verify the result: tests, diff, and an honest report [сохранён после проверки; политика/конфигурация]
+14. Как найти причину ошибки и не переписать всё / Find a failure’s cause without rewriting everything [сохранён после проверки; политика/конфигурация]
 
 ## Контракты инструментов и передача работы
 
-14. Контракт инструмента: вход, выход и побочные эффекты / Tool contracts: inputs, outputs, and side effects [расширен, политика + отдельный перенос]
-15. MCP без магии: обнаружить инструмент и проверить права / MCP without magic: discover a tool and review access [новый, исполняемый JavaScript]
-16. Инструмент упал: повторить, уточнить или остановиться / A tool failed: retry, clarify, or stop? [новый, исполняемый JavaScript]
-17. Потоковый ответ и кнопка «Стоп» / Streaming responses and a working Stop button [новый, исполняемый JavaScript]
-18. Передача задачи: что должен знать следующий исполнитель / Handoffs: what the next worker needs [расширен, политика + отдельный перенос]
+15. Контракт инструмента: вход, выход и побочные эффекты / Tool contracts: inputs, outputs, and side effects [углублён; политика/конфигурация]
+16. Function calling: от запроса модели до результата инструмента / Function calling: from a model request to a tool result [новый урок; код]
+17. MCP на практике: сервер, клиент и вызов инструмента / MCP in practice: server, client, and tool execution [углублён; код]
+18. Инструмент упал: повторить, уточнить или остановиться / A tool failed: retry, clarify, or stop? [сохранён после проверки; код]
+19. Потоковый ответ и кнопка «Стоп» / Streaming responses and a working Stop button [сохранён после проверки; код]
+20. Передача задачи: что должен знать следующий исполнитель / Handoffs: what the next worker needs [сохранён после проверки; политика/конфигурация]
 
 ## Качество, стоимость и диагностика запусков
 
-19. Бюджет запуска: деньги, время и число вызовов / Run budgets: money, time, and calls [расширен, политика + отдельный перенос]
-20. Набор проверок: обычные, пограничные и опасные случаи / An evaluation set: normal, boundary, and unsafe cases [расширен, политика + отдельный перенос]
-21. Не только accuracy: пропуски, ложные тревоги и цена ошибки / Beyond accuracy: misses, false alarms, and error cost [новый, исполняемый JavaScript]
-22. Разобрать запуск по следам, а не по последнему ответу / Inspect a run through its trace, not its final answer [новый, исполняемый JavaScript]
+21. Бюджет запуска: деньги, время и число вызовов / Run budgets: money, time, and calls [сохранён после проверки; политика/конфигурация]
+22. Набор проверок: обычные, пограничные и опасные случаи / An evaluation set: normal, boundary, and unsafe cases [сохранён после проверки; политика/конфигурация]
+23. Не только accuracy: пропуски, ложные тревоги и цена ошибки / Beyond accuracy: misses, false alarms, and error cost [сохранён после проверки; код]
+24. Разобрать запуск по следам, а не по последнему ответу / Inspect a run through its trace, not its final answer [сохранён после проверки; код]
 
 ## Несколько ролей без хаоса
 
-23. Роли команды: планировщик, исполнитель и ревьюер / Team roles: planner, worker, and reviewer [расширен, политика + отдельный перенос]
-24. Параллельная работа без конфликтов файлов / Parallel work without file conflicts [расширен, политика + отдельный перенос]
+25. Роли команды: планировщик, исполнитель и ревьюер / Team roles: planner, worker, and reviewer [сохранён после проверки; политика/конфигурация]
+26. Параллельная работа без конфликтов файлов / Parallel work without file conflicts [сохранён после проверки; политика/конфигурация]
 
 ## Оркестратор: проект базового трека
 
-25. Ревью и доработка: когда повторить, а когда остановиться / Review and repair: when to retry and when to stop [расширен, политика + отдельный перенос]
-26. Проект: оркестратор с проверкой и остановкой / Project: an orchestrator with checks and stop conditions [расширен, политика + отдельный перенос]
+27. Ревью и доработка: когда повторить, а когда остановиться / Review and repair: when to retry and when to stop [сохранён после проверки; политика/конфигурация]
+28. Проект: оркестратор с проверкой и остановкой / Project: an orchestrator with checks and stop conditions [углублён; политика/конфигурация]
 
 ## Своя агентная ОС на примере .agents
 
-27. Своя .agents: роли, навыки, профили и знания / Your .agents: roles, skills, profiles, and knowledge [расширен, политика + отдельный перенос]
-28. Локальный роутер и память: где на самом деле идут данные / Local routing and memory: where data really goes [расширен, политика + отдельный перенос]
+29. Своя .agents: роли, навыки, профили и знания / Your .agents: roles, skills, profiles, and knowledge [углублён; политика/конфигурация]
+30. Память агента: что сохранять, когда пересматривать и удалять / Agent memory: what to keep, revalidate, and delete [новый урок; код]
+31. Локальный роутер и память: где на самом деле идут данные / Local routing and memory: where data really goes [углублён; политика/конфигурация]
 
 ## Модели на собственном ПК
 
-29. Выбор локальной модели под задачу и железо / Choose a local model for the task and hardware [расширен, политика + отдельный перенос]
-30. Запуск на ПК: healthcheck и первый настоящий ответ / Run on your PC: healthcheck and a real first answer [расширен, политика + отдельный перенос]
-31. Управлять генерацией: длина, temperature и формат запроса / Control generation: length, temperature, and request shape [новый, исполняемый JavaScript]
-32. Почему локальная модель тормозит: память и замеры / Why local inference is slow: memory and fair measurements [новый, исполняемый JavaScript]
+32. Выбор локальной модели под задачу и железо / Choose a local model for the task and hardware [углублён; политика/конфигурация]
+33. Запуск на ПК: healthcheck и первый настоящий ответ / Run on your PC: healthcheck and a real first answer [углублён; политика/конфигурация]
+34. Управлять генерацией: длина, temperature и формат запроса / Control generation: length, temperature, and request shape [сохранён после проверки; код]
+35. Почему локальная модель тормозит: память и замеры / Why local inference is slow: memory and fair measurements [сохранён после проверки; код]
 
 ## Адаптация под задачу и данные
 
-33. Промпт, RAG или дообучение: выбрать по причине ошибки / Prompt, RAG, or fine-tuning: choose by the failure [расширен, политика + отдельный перенос]
-34. Данные для обучения: разметка, права и независимый тест / Training data: labeling, rights, and an independent test [расширен, политика + отдельный перенос]
+36. Промпт, RAG или дообучение: выбрать по причине ошибки / Prompt, RAG, or fine-tuning: choose by the failure [углублён; политика/конфигурация]
+37. Данные для обучения: разметка, права и независимый тест / Training data: labeling, rights, and an independent test [углублён; политика/конфигурация]
 
 ## RAG: ответы по своим документам
 
-35. Подготовить документы для RAG: фрагменты и источники / Prepare RAG documents: chunks and source references [новый, исполняемый JavaScript]
-36. Найти нужное: baseline поиска, embeddings и права доступа / Find the passage: search baselines, embeddings, and access [новый, исполняемый JavaScript]
-37. Ответить по источникам — или честно отказаться / Answer from evidence, or say what is missing [новый, исполняемый JavaScript]
+38. Подготовить документы для RAG: фрагменты и источники / Prepare RAG documents: chunks and source references [углублён; код]
+39. Найти нужное: baseline поиска, embeddings и права доступа / Find the passage: search baselines, embeddings, and access [углублён; код]
+40. Embeddings на числах: cosine similarity и совместимость индекса / Embeddings by the numbers: cosine similarity and index compatibility [новый урок; код]
+41. Ответить по источникам — или честно отказаться / Answer from evidence, or say what is missing [углублён; код]
 
 ## Обучение и дообучение
 
-38. Обучить классификатор на CPU и сохранить веса / Train a CPU classifier and save its weights [расширен, политика + отдельный перенос]
-39. Модель учится или запоминает: читаем loss и validation / Learning or memorizing? Read loss and validation curves [новый, исполняемый JavaScript]
-40. Выбрать эксперимент и не подсмотреть в итоговый тест / Choose an experiment without peeking at the final test [новый, исполняемый JavaScript]
-41. LoRA и QLoRA: что дообучается и сколько это стоит / LoRA and QLoRA: what changes and what it costs [расширен, политика + отдельный перенос]
-42. Перед LoRA-запуском: данные, chat template и пробный batch / Before a LoRA run: data, chat templates, and one batch [новый, исполняемый JavaScript]
+42. Обучить классификатор на CPU и сохранить веса / Train a CPU classifier and save its weights [углублён; политика/конфигурация]
+43. Модель учится или запоминает: читаем loss и validation / Learning or memorizing? Read loss and validation curves [углублён; код]
+44. Выбрать эксперимент и не подсмотреть в итоговый тест / Choose an experiment without peeking at the final test [сохранён после проверки; код]
+45. Подготовить SFT-пример: роли, padding и маска loss / Build an SFT example: roles, padding, and the loss mask [новый урок; код]
+46. LoRA и QLoRA: что дообучается и сколько это стоит / LoRA and QLoRA: what changes and what it costs [углублён; политика/конфигурация]
+47. Перед LoRA-запуском: данные, chat template и пробный batch / Before a LoRA run: data, chat templates, and one batch [углублён; код]
 
 ## Локальный выпуск и итоговый проект
 
-43. Выпуск модели: экспорт, квантизация и откат / Release a model: export, quantization, and rollback [расширен, политика + отдельный перенос]
-44. Итоговый проект: локальная модель в рабочем процессе / Final project: a local model in a working process [расширен, политика + отдельный перенос]
+48. Выпуск модели: экспорт, квантизация и откат / Release a model: export, quantization, and rollback [углублён; политика/конфигурация]
+49. Локальный сервис модели: очередь, совместимость и безопасное переключение / Serve a local model: queues, compatibility, and safe switching [новый урок; код]
+50. Итоговый проект: локальная модель в рабочем процессе / Final project: a local model in a working process [углублён; политика/конфигурация]
 
-## Зачем эти изменения
+## Границы курса
 
-- Первый запуск вынесен из общих советов в проверяемую последовательность: клиент, модель, workspace, права, baseline.
-- Контекстное окно объясняется до сборки контекста; формат JSON и ошибки типов — до инструментов.
-- До первой правки появились Git-песочница и точка возврата. До оркестратора изучаются ошибки инструментов, отмена, метрики и трассы.
-- RAG разложен на подготовку корпуса, поиск с фильтрацией доступа и ссылочную проверку ответа. Лексический baseline не выдаётся за embeddings или семантическую гарантию.
-- Локальный runtime дополнен настройками генерации и честным замером скорости.
-- CPU-обучение дополнено чтением loss, выбором эксперимента на validation и отдельным LoRA-preflight.
-- В старых уроках добавлены разные разобранные случаи: поиск, фокус кнопки, iframe, документы, handoff, права. Названия описывают действие и результат, а не абстрактную «магическую» возможность.
-- RU и EN прошли редакторский проход: конкретные ситуации, короткие объяснения причин, без обещаний гарантированной продуктивности и без одинаковых рекламных вступлений. Стороннему сервису тексты не отправлялись.
-
-## Требования
-
-Терминал, JSON и простой Git diff; для 18 заданий с кодом — основы JavaScript. CODING_PRIMER.md даёт мост к функциям, объектам, массивам и тестам. React/Angular не требуются. Python 3.10+ нужен для CPU-проекта. GPU-маршрут дополнительный.
-
-## Что не выдаётся за завершённое
-
-Это прикладной курс по ассистентам и адаптации, не полный ML-degree. Нет проверки GPU-обучения на реальном оборудовании, live-MCP сертификации и настоящей генерации локальной LLM в рамках этого релиза. Автопроверка RAG проверяет алгоритм и ссылки, но не истинность произвольного текста.
-
-## Первичные технические источники
-
-- [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture)
-- [Ollama chat API](https://docs.ollama.com/api/chat)
-- [Ollama structured outputs](https://docs.ollama.com/capabilities/structured-outputs)
-- [TRL SFT Trainer](https://huggingface.co/docs/trl/sft_trainer)
-- [PEFT quantization](https://huggingface.co/docs/peft/developer_guides/quantization)
+Это прикладной курс по ассистентам, агентам и адаптации моделей под задачу, а не замена полноценной программе ML. Обучение LLM с нуля, распределённое обучение и production-кластер Kubernetes не заявлены как освоенные. GPU/LoRA, конкретный GUI-клиент и локальная LLM требуют отдельной проверки на подходящем оборудовании.

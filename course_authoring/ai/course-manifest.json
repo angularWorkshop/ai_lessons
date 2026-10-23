@@ -1856,13 +1856,11 @@
     ]
   ],
   "publication": {
-    "ready": false,
-    "blockers": [
-      "Completeness revision pending publication"
-    ],
+    "ready": true,
+    "blockers": [],
     "repository": "https://github.com/angularWorkshop/ai_lessons.git",
     "courseUrl": "https://courses.edutec.it.com/ai/home",
-    "release": "20261023-ai-depth-03",
+    "release": "20261023-ai-complete-04",
     "exercises": {
       "01-task-boundaries": {
         "id": "40b602f8-5718-410c-b840-5ff11feeadd0",
@@ -1876,7 +1874,7 @@
         "id": "c2534256-7246-45cc-95dc-1417c5df1bb9",
         "topicId": "eb024c85-e57d-4598-addd-653069d0eb24",
         "sectionId": "089f12e7-0180-4c83-ae01-ae15ee5d410c",
-        "order": 4,
+        "order": 5,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-02-exercise-01-task-brief",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-02-exercise-01-task-brief"
       },
@@ -1884,7 +1882,7 @@
         "id": "0a1c9bbf-d40a-4713-9570-af479b4d373f",
         "topicId": "802387a5-3cbd-4b95-8281-6dee7b5d34c7",
         "sectionId": "237f5bf1-4d91-4231-ba4d-738f5a7ff7ea",
-        "order": 5,
+        "order": 6,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-03-exercise-01-context-packet",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-03-exercise-01-context-packet"
       },
@@ -1892,7 +1890,7 @@
         "id": "64be897e-d3bd-4388-8e44-2ca66b27c9c1",
         "topicId": "e82f6993-ff2e-4509-8f50-affa926ae22e",
         "sectionId": "237f5bf1-4d91-4231-ba4d-738f5a7ff7ea",
-        "order": 6,
+        "order": 7,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-04-exercise-01-project-instructions",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-04-exercise-01-project-instructions"
       },
@@ -1900,7 +1898,7 @@
         "id": "86a91bcd-fdc0-45f1-8bc3-252c004d82c4",
         "topicId": "70674ea9-c470-4679-a7a6-bd8e9f6d82fb",
         "sectionId": "b59c527e-14ef-4bf4-a11b-b2ad36d6b3b3",
-        "order": 9,
+        "order": 10,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-05-exercise-01-tool-permissions",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-05-exercise-01-tool-permissions"
       },
@@ -1908,7 +1906,7 @@
         "id": "4b561a32-40ba-4537-ab38-335961e7d06d",
         "topicId": "48817790-fc25-426b-924e-e872fd95c163",
         "sectionId": "b59c527e-14ef-4bf4-a11b-b2ad36d6b3b3",
-        "order": 10,
+        "order": 11,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-06-exercise-01-untrusted-context",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-06-exercise-01-untrusted-context"
       },
@@ -1916,7 +1914,7 @@
         "id": "4a6251b1-03af-4748-82c6-53035dbedcdb",
         "topicId": "6c2ccb4d-1232-4cfb-a473-7ced94e0e921",
         "sectionId": "5a56acf3-c0cc-439b-b019-4ffc5893360b",
-        "order": 12,
+        "order": 13,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-07-exercise-01-verification-evidence",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-07-exercise-01-verification-evidence"
       },
@@ -1924,7 +1922,7 @@
         "id": "433638fe-81ef-4efe-9a78-2a12f92de0c7",
         "topicId": "2239fb61-d53e-48e9-9b8b-39fb5989a6fc",
         "sectionId": "5a56acf3-c0cc-439b-b019-4ffc5893360b",
-        "order": 13,
+        "order": 14,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-08-exercise-01-debugging",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-08-exercise-01-debugging"
       },
@@ -1932,7 +1930,7 @@
         "id": "4fac41ed-0ff0-46e9-b2ab-f0429227e5f4",
         "topicId": "96d25444-cfc9-4658-b2f3-3795d3ee66c8",
         "sectionId": "7fb74e5b-1f03-4ae3-96fc-d98f1dbc3b02",
-        "order": 14,
+        "order": 15,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-09-exercise-01-tool-contract",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-09-exercise-01-tool-contract"
       },
@@ -1940,7 +1938,7 @@
         "id": "f4963adf-bfd8-43e6-a2a4-e8423702fe8b",
         "topicId": "bc11ef2f-8c9f-4adf-8e51-d16c8124e72f",
         "sectionId": "7fb74e5b-1f03-4ae3-96fc-d98f1dbc3b02",
-        "order": 18,
+        "order": 20,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-10-exercise-01-handoff",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-10-exercise-01-handoff"
       },
@@ -1948,7 +1946,7 @@
         "id": "89bbdef8-ec45-462f-be06-a293eef289b2",
         "topicId": "0aa43b12-b3c7-4d77-95dd-1d4b21974671",
         "sectionId": "0e066b3d-7b93-41a8-b1fd-b5d1ba37d6ad",
-        "order": 19,
+        "order": 21,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-11-exercise-01-budget",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-11-exercise-01-budget"
       },
@@ -1956,7 +1954,7 @@
         "id": "be7461db-a00f-4114-8d88-7384e6b50313",
         "topicId": "9bb72615-64c2-4892-8a6c-8a8863570c1b",
         "sectionId": "0e066b3d-7b93-41a8-b1fd-b5d1ba37d6ad",
-        "order": 20,
+        "order": 22,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-12-exercise-01-evaluation",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-12-exercise-01-evaluation"
       },
@@ -1964,7 +1962,7 @@
         "id": "0201bc77-18a4-4c85-98a6-7df7cb2b8c64",
         "topicId": "f34f3dae-faf7-4f89-860b-e9122ac58558",
         "sectionId": "a06414c6-b6fa-4ce3-b8ec-ce93e8ef3a27",
-        "order": 23,
+        "order": 25,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-13-exercise-01-role-routing",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-13-exercise-01-role-routing"
       },
@@ -1972,7 +1970,7 @@
         "id": "57801f94-9fc1-4e27-a35c-1a94a04b0377",
         "topicId": "be2cf2b6-d75b-4a45-8e07-854653d8765f",
         "sectionId": "a06414c6-b6fa-4ce3-b8ec-ce93e8ef3a27",
-        "order": 24,
+        "order": 26,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-14-exercise-01-parallel-work",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-14-exercise-01-parallel-work"
       },
@@ -1980,7 +1978,7 @@
         "id": "9bb0ec6c-6b3f-4e9a-9ceb-f6de365c62c8",
         "topicId": "fe242a87-d455-4961-8b76-937de4d34863",
         "sectionId": "5a973bd0-3524-4c7c-a1de-039b18204528",
-        "order": 25,
+        "order": 27,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-15-exercise-01-review-loop",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-15-exercise-01-review-loop"
       },
@@ -1988,7 +1986,7 @@
         "id": "d81daced-5a00-45e7-937f-c959b406f592",
         "topicId": "d56342ca-b4ba-47fc-aac9-724271b6623d",
         "sectionId": "5a973bd0-3524-4c7c-a1de-039b18204528",
-        "order": 26,
+        "order": 28,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-16-exercise-01-orchestrator",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-16-exercise-01-orchestrator"
       },
@@ -1996,7 +1994,7 @@
         "id": "37aa3b2c-4c66-462f-b26d-175e0d0d8a2e",
         "topicId": "152c17e3-c756-4576-9acf-ace2fe724992",
         "sectionId": "8e61feea-b7fa-4f4c-938b-544ea4e57a66",
-        "order": 27,
+        "order": 29,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-17-exercise-01-agent-os",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-17-exercise-01-agent-os"
       },
@@ -2004,7 +2002,7 @@
         "id": "76431ef5-b829-4551-b110-52f31e993b79",
         "topicId": "6285a554-5f39-4910-a055-ce19dab5005f",
         "sectionId": "8e61feea-b7fa-4f4c-938b-544ea4e57a66",
-        "order": 28,
+        "order": 31,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-18-exercise-01-local-routing",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-18-exercise-01-local-routing"
       },
@@ -2012,7 +2010,7 @@
         "id": "8942b644-3fe0-4292-8420-1df91b31ff88",
         "topicId": "772c04a9-5b07-47d1-8d3b-4bd07eeab5ef",
         "sectionId": "4644b11f-5795-4a38-9b53-f3fc96db147f",
-        "order": 29,
+        "order": 32,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-19-exercise-01-model-capacity",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-19-exercise-01-model-capacity"
       },
@@ -2020,7 +2018,7 @@
         "id": "9d9b2abc-889c-45b5-b0c6-d17e0c19b74d",
         "topicId": "d092f29c-9823-45c1-8347-e4d7a26243b6",
         "sectionId": "4644b11f-5795-4a38-9b53-f3fc96db147f",
-        "order": 30,
+        "order": 33,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-20-exercise-01-local-endpoint",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-20-exercise-01-local-endpoint"
       },
@@ -2028,7 +2026,7 @@
         "id": "d27e8359-6907-4985-9786-89469d5cadf5",
         "topicId": "8788766c-26dc-4a78-a202-76f38ca8677b",
         "sectionId": "8935ae45-ea89-4f0a-aadb-0b22bdfbac4f",
-        "order": 33,
+        "order": 36,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-21-exercise-01-adaptation-choice",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-21-exercise-01-adaptation-choice"
       },
@@ -2036,7 +2034,7 @@
         "id": "ca1a7a4d-1140-441c-a8a5-c3bb8e6a7ecc",
         "topicId": "d0cca5f3-2900-4cc5-b273-fa3114c7b2ac",
         "sectionId": "8935ae45-ea89-4f0a-aadb-0b22bdfbac4f",
-        "order": 34,
+        "order": 37,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-22-exercise-01-dataset-splits",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-22-exercise-01-dataset-splits"
       },
@@ -2044,7 +2042,7 @@
         "id": "6af3798a-15bb-4dfc-b104-239914329210",
         "topicId": "4d4f127c-053a-494c-b399-34fcca8d747d",
         "sectionId": "884a0901-21d8-4da1-afe7-cebcd74cb60c",
-        "order": 38,
+        "order": 42,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-23-exercise-01-cpu-training",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-23-exercise-01-cpu-training"
       },
@@ -2052,7 +2050,7 @@
         "id": "9154eb67-bbaf-42bb-9064-c42f1b401ae8",
         "topicId": "8802f81b-278f-4141-a9fe-19d5545614e7",
         "sectionId": "884a0901-21d8-4da1-afe7-cebcd74cb60c",
-        "order": 41,
+        "order": 46,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-24-exercise-01-lora",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-24-exercise-01-lora"
       },
@@ -2060,7 +2058,7 @@
         "id": "ccffee5b-3d96-4e4b-b08f-93e5339aceaa",
         "topicId": "d50913c3-5570-4706-af58-ba9a94a4d329",
         "sectionId": "20c93873-f23f-477f-8bb1-2e5a8e96cafe",
-        "order": 43,
+        "order": 48,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-25-exercise-01-model-release",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-25-exercise-01-model-release"
       },
@@ -2068,7 +2066,7 @@
         "id": "2cd54693-423c-46bd-ba73-f7afe34d05b8",
         "topicId": "9e9d69f8-764b-40c9-a170-20f1c6e74cd8",
         "sectionId": "20c93873-f23f-477f-8bb1-2e5a8e96cafe",
-        "order": 44,
+        "order": 50,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-26-exercise-01-local-capstone",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-26-exercise-01-local-capstone"
       },
@@ -2076,7 +2074,7 @@
         "id": "b595fce7-3b50-46e7-b543-e456ecc4a05d",
         "topicId": "19cce7a2-e5a7-49a1-804b-f24addf1115d",
         "sectionId": "089f12e7-0180-4c83-ae01-ae15ee5d410c",
-        "order": 2,
+        "order": 4,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-27-exercise-01-context-window",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-27-exercise-01-context-window"
       },
@@ -2084,7 +2082,7 @@
         "id": "adc62ff6-3f81-491f-adea-1a3187c9d056",
         "topicId": "38ac5739-0f1a-4ff2-b869-3069ece6a176",
         "sectionId": "089f12e7-0180-4c83-ae01-ae15ee5d410c",
-        "order": 3,
+        "order": 2,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-28-exercise-01-client-preflight",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-28-exercise-01-client-preflight"
       },
@@ -2092,7 +2090,7 @@
         "id": "edfe4b96-1f23-4eab-841b-ae2f45b7c2ea",
         "topicId": "aaecc84c-0e7a-4373-beba-6509ae26b482",
         "sectionId": "237f5bf1-4d91-4231-ba4d-738f5a7ff7ea",
-        "order": 7,
+        "order": 8,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-29-exercise-01-example-selection",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-29-exercise-01-example-selection"
       },
@@ -2100,7 +2098,7 @@
         "id": "be1d49ef-9f63-486d-ad86-59c91f25b19a",
         "topicId": "37440215-015b-4c61-954e-e8a30ef579ed",
         "sectionId": "237f5bf1-4d91-4231-ba4d-738f5a7ff7ea",
-        "order": 8,
+        "order": 9,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-30-exercise-01-structured-results",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-30-exercise-01-structured-results"
       },
@@ -2108,7 +2106,7 @@
         "id": "ded07228-cd84-4d08-8570-da358f7db888",
         "topicId": "0bbc580f-12f9-4911-b13d-1b606c0220dc",
         "sectionId": "5a56acf3-c0cc-439b-b019-4ffc5893360b",
-        "order": 11,
+        "order": 12,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-31-exercise-01-git-checkpoint",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-31-exercise-01-git-checkpoint"
       },
@@ -2116,7 +2114,7 @@
         "id": "cc9e29ee-51df-4e19-a2df-4c6cf6a2f4bd",
         "topicId": "f4234d4a-1d21-48cc-91a3-f25422b57654",
         "sectionId": "7fb74e5b-1f03-4ae3-96fc-d98f1dbc3b02",
-        "order": 15,
+        "order": 17,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-32-exercise-01-mcp-discovery",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-32-exercise-01-mcp-discovery"
       },
@@ -2124,7 +2122,7 @@
         "id": "9bb7f402-cd7f-4c6c-8dd2-20d5d6f2175c",
         "topicId": "3fedc682-9880-450b-9b6e-805756c23c7d",
         "sectionId": "7fb74e5b-1f03-4ae3-96fc-d98f1dbc3b02",
-        "order": 16,
+        "order": 18,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-33-exercise-01-tool-retries",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-33-exercise-01-tool-retries"
       },
@@ -2132,7 +2130,7 @@
         "id": "d9f149fe-a512-4c0d-9611-8a4c80993158",
         "topicId": "2281913e-e4e8-4896-86f8-eca64c544afd",
         "sectionId": "7fb74e5b-1f03-4ae3-96fc-d98f1dbc3b02",
-        "order": 17,
+        "order": 19,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-34-exercise-01-cancellation",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-34-exercise-01-cancellation"
       },
@@ -2140,7 +2138,7 @@
         "id": "d601c7a4-b96f-4fb8-ae58-9b4383f4b31e",
         "topicId": "308c0af1-4214-489a-81e0-530f8c2772f3",
         "sectionId": "0e066b3d-7b93-41a8-b1fd-b5d1ba37d6ad",
-        "order": 21,
+        "order": 23,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-35-exercise-01-evaluation-metrics",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-35-exercise-01-evaluation-metrics"
       },
@@ -2148,7 +2146,7 @@
         "id": "b6d7d6eb-d6be-41a9-af8b-36022a7f3ec5",
         "topicId": "29b290b1-b604-44f4-8bdb-5c45e58449ec",
         "sectionId": "0e066b3d-7b93-41a8-b1fd-b5d1ba37d6ad",
-        "order": 22,
+        "order": 24,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-36-exercise-01-trace-summary",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-36-exercise-01-trace-summary"
       },
@@ -2156,7 +2154,7 @@
         "id": "5310894a-cd18-431f-9e5b-4f3096b59427",
         "topicId": "e8f8478a-7412-4391-a5d2-0acd4a7479c5",
         "sectionId": "4644b11f-5795-4a38-9b53-f3fc96db147f",
-        "order": 31,
+        "order": 34,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-40-exercise-01-generation-request",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-40-exercise-01-generation-request"
       },
@@ -2164,7 +2162,7 @@
         "id": "70edb6d1-cb1e-4917-9285-6e6039883af4",
         "topicId": "e014b13f-ea5f-465b-a622-262c178ad5c1",
         "sectionId": "4644b11f-5795-4a38-9b53-f3fc96db147f",
-        "order": 32,
+        "order": 35,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-41-exercise-01-inference-speed",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-41-exercise-01-inference-speed"
       },
@@ -2172,7 +2170,7 @@
         "id": "8d492d44-67ca-4b24-a457-edf6c9a614a3",
         "topicId": "9c8e0d66-5974-4325-b667-0683034736ff",
         "sectionId": "c50ea58b-9638-4588-aded-9f73006965dc",
-        "order": 35,
+        "order": 38,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-37-exercise-01-document-chunks",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-37-exercise-01-document-chunks"
       },
@@ -2180,7 +2178,7 @@
         "id": "4356b67a-740a-442a-95a4-2b61faa2a3d0",
         "topicId": "d6e25dc7-d547-4493-9425-11bcebd38576",
         "sectionId": "c50ea58b-9638-4588-aded-9f73006965dc",
-        "order": 36,
+        "order": 39,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-38-exercise-01-retrieval-ranking",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-38-exercise-01-retrieval-ranking"
       },
@@ -2188,7 +2186,7 @@
         "id": "f667608b-749b-4e8e-8015-23ff5ec85f01",
         "topicId": "b362b0f1-b000-4457-9fa8-08a1e322f9c8",
         "sectionId": "c50ea58b-9638-4588-aded-9f73006965dc",
-        "order": 37,
+        "order": 41,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-39-exercise-01-grounded-answer",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-39-exercise-01-grounded-answer"
       },
@@ -2196,7 +2194,7 @@
         "id": "9e5dafb2-525f-41f3-9b11-61fee96c27d8",
         "topicId": "ab0fdbb1-2f6f-400f-8e70-bd7e553e3679",
         "sectionId": "884a0901-21d8-4da1-afe7-cebcd74cb60c",
-        "order": 39,
+        "order": 43,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-42-exercise-01-learning-curves",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-42-exercise-01-learning-curves"
       },
@@ -2204,7 +2202,7 @@
         "id": "d01e3906-4e44-4a7a-a515-a0c17e265861",
         "topicId": "ba186ec8-f929-482f-b2c1-9f88b2f969cc",
         "sectionId": "884a0901-21d8-4da1-afe7-cebcd74cb60c",
-        "order": 40,
+        "order": 44,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-43-exercise-01-experiment-selection",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-43-exercise-01-experiment-selection"
       },
@@ -2212,31 +2210,55 @@
         "id": "831593f5-fa2e-4afe-87e4-f1d483237d06",
         "topicId": "bcff7707-a18e-483d-97f4-d75d72f151f3",
         "sectionId": "884a0901-21d8-4da1-afe7-cebcd74cb60c",
-        "order": 42,
+        "order": 47,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-44-exercise-01-adapter-preflight",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-44-exercise-01-adapter-preflight"
       },
       "45-model-mechanics": {
+        "id": "33383f41-2654-49af-aa1a-762d36312edd",
+        "topicId": "f5158e06-be37-429f-9f86-390492deb7fd",
+        "sectionId": "089f12e7-0180-4c83-ae01-ae15ee5d410c",
+        "order": 3,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-45-exercise-01-model-mechanics",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-45-exercise-01-model-mechanics"
       },
       "46-tool-call-loop": {
+        "id": "f5f0987b-cc15-4913-8db3-79559b0ee3be",
+        "topicId": "a583a827-cb7d-4ea1-9173-42d3862dc85d",
+        "sectionId": "7fb74e5b-1f03-4ae3-96fc-d98f1dbc3b02",
+        "order": 16,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-46-exercise-01-tool-call-loop",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-46-exercise-01-tool-call-loop"
       },
-      "47-vector-search": {
-        "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-47-exercise-01-vector-search",
-        "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-47-exercise-01-vector-search"
-      },
       "48-reviewed-memory": {
+        "id": "c316ce58-1c64-4c62-9b66-2739237178f3",
+        "topicId": "40226391-2131-4422-ae8e-35994710e5c8",
+        "sectionId": "8e61feea-b7fa-4f4c-938b-544ea4e57a66",
+        "order": 30,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-48-exercise-01-reviewed-memory",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-48-exercise-01-reviewed-memory"
       },
+      "47-vector-search": {
+        "id": "813961e3-e330-4606-b24f-8ab5b7c087c4",
+        "topicId": "31720f9f-6958-4539-9016-fb9f61d9b8a9",
+        "sectionId": "c50ea58b-9638-4588-aded-9f73006965dc",
+        "order": 40,
+        "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-47-exercise-01-vector-search",
+        "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-47-exercise-01-vector-search"
+      },
       "49-sft-labels": {
+        "id": "f0756d64-46fb-4c17-a6fb-f5aa81a1f4fd",
+        "topicId": "eb06ee11-aa7f-4c7d-9fee-0566c9585020",
+        "sectionId": "884a0901-21d8-4da1-afe7-cebcd74cb60c",
+        "order": 45,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-49-exercise-01-sft-labels",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-49-exercise-01-sft-labels"
       },
       "50-serving-rollout": {
+        "id": "1f7c25fe-567c-442c-9243-05932cae6e1b",
+        "topicId": "779714be-ba2a-405f-bdd3-24deea1c9144",
+        "sectionId": "20c93873-f23f-477f-8bb1-2e5a8e96cafe",
+        "order": 49,
         "exerciseRepositoryUrl": "https://github.com/angularWorkshop/ai_lessons/tree/lesson-topic-50-exercise-01-serving-rollout",
         "solutionUrl": "https://github.com/angularWorkshop/ai_lessons/tree/answer-topic-50-exercise-01-serving-rollout"
       }
@@ -2313,176 +2335,201 @@
       },
       "02-task-brief": {
         "id": "eb024c85-e57d-4598-addd-653069d0eb24",
-        "order": 4
+        "order": 5
       },
       "03-context-packet": {
         "id": "802387a5-3cbd-4b95-8281-6dee7b5d34c7",
-        "order": 5
+        "order": 6
       },
       "04-project-instructions": {
         "id": "e82f6993-ff2e-4509-8f50-affa926ae22e",
-        "order": 6
+        "order": 7
       },
       "05-tool-permissions": {
         "id": "70674ea9-c470-4679-a7a6-bd8e9f6d82fb",
-        "order": 9
+        "order": 10
       },
       "06-untrusted-context": {
         "id": "48817790-fc25-426b-924e-e872fd95c163",
-        "order": 10
+        "order": 11
       },
       "07-verification-evidence": {
         "id": "6c2ccb4d-1232-4cfb-a473-7ced94e0e921",
-        "order": 12
+        "order": 13
       },
       "08-debugging": {
         "id": "2239fb61-d53e-48e9-9b8b-39fb5989a6fc",
-        "order": 13
+        "order": 14
       },
       "09-tool-contract": {
         "id": "96d25444-cfc9-4658-b2f3-3795d3ee66c8",
-        "order": 14
+        "order": 15
       },
       "10-handoff": {
         "id": "bc11ef2f-8c9f-4adf-8e51-d16c8124e72f",
-        "order": 18
+        "order": 20
       },
       "11-budget": {
         "id": "0aa43b12-b3c7-4d77-95dd-1d4b21974671",
-        "order": 19
+        "order": 21
       },
       "12-evaluation": {
         "id": "9bb72615-64c2-4892-8a6c-8a8863570c1b",
-        "order": 20
+        "order": 22
       },
       "13-role-routing": {
         "id": "f34f3dae-faf7-4f89-860b-e9122ac58558",
-        "order": 23
+        "order": 25
       },
       "14-parallel-work": {
         "id": "be2cf2b6-d75b-4a45-8e07-854653d8765f",
-        "order": 24
+        "order": 26
       },
       "15-review-loop": {
         "id": "fe242a87-d455-4961-8b76-937de4d34863",
-        "order": 25
+        "order": 27
       },
       "16-orchestrator": {
         "id": "d56342ca-b4ba-47fc-aac9-724271b6623d",
-        "order": 26
+        "order": 28
       },
       "17-agent-os": {
         "id": "152c17e3-c756-4576-9acf-ace2fe724992",
-        "order": 27
+        "order": 29
       },
       "18-local-routing": {
         "id": "6285a554-5f39-4910-a055-ce19dab5005f",
-        "order": 28
+        "order": 31
       },
       "19-model-capacity": {
         "id": "772c04a9-5b07-47d1-8d3b-4bd07eeab5ef",
-        "order": 29
+        "order": 32
       },
       "20-local-endpoint": {
         "id": "d092f29c-9823-45c1-8347-e4d7a26243b6",
-        "order": 30
+        "order": 33
       },
       "21-adaptation-choice": {
         "id": "8788766c-26dc-4a78-a202-76f38ca8677b",
-        "order": 33
+        "order": 36
       },
       "22-dataset-splits": {
         "id": "d0cca5f3-2900-4cc5-b273-fa3114c7b2ac",
-        "order": 34
+        "order": 37
       },
       "23-cpu-training": {
         "id": "4d4f127c-053a-494c-b399-34fcca8d747d",
-        "order": 38
+        "order": 42
       },
       "24-lora": {
         "id": "8802f81b-278f-4141-a9fe-19d5545614e7",
-        "order": 41
+        "order": 46
       },
       "25-model-release": {
         "id": "d50913c3-5570-4706-af58-ba9a94a4d329",
-        "order": 43
+        "order": 48
       },
       "26-local-capstone": {
         "id": "9e9d69f8-764b-40c9-a170-20f1c6e74cd8",
-        "order": 44
+        "order": 50
       },
       "27-context-window": {
         "id": "19cce7a2-e5a7-49a1-804b-f24addf1115d",
-        "order": 2
+        "order": 4
       },
       "28-client-preflight": {
         "id": "38ac5739-0f1a-4ff2-b869-3069ece6a176",
-        "order": 3
+        "order": 2
       },
       "29-example-selection": {
         "id": "aaecc84c-0e7a-4373-beba-6509ae26b482",
-        "order": 7
+        "order": 8
       },
       "30-structured-results": {
         "id": "37440215-015b-4c61-954e-e8a30ef579ed",
-        "order": 8
+        "order": 9
       },
       "31-git-checkpoint": {
         "id": "0bbc580f-12f9-4911-b13d-1b606c0220dc",
-        "order": 11
+        "order": 12
       },
       "32-mcp-discovery": {
         "id": "f4234d4a-1d21-48cc-91a3-f25422b57654",
-        "order": 15
+        "order": 17
       },
       "33-tool-retries": {
         "id": "3fedc682-9880-450b-9b6e-805756c23c7d",
-        "order": 16
+        "order": 18
       },
       "34-cancellation": {
         "id": "2281913e-e4e8-4896-86f8-eca64c544afd",
-        "order": 17
+        "order": 19
       },
       "35-evaluation-metrics": {
         "id": "308c0af1-4214-489a-81e0-530f8c2772f3",
-        "order": 21
+        "order": 23
       },
       "36-trace-summary": {
         "id": "29b290b1-b604-44f4-8bdb-5c45e58449ec",
-        "order": 22
+        "order": 24
       },
       "40-generation-request": {
         "id": "e8f8478a-7412-4391-a5d2-0acd4a7479c5",
-        "order": 31
+        "order": 34
       },
       "41-inference-speed": {
         "id": "e014b13f-ea5f-465b-a622-262c178ad5c1",
-        "order": 32
+        "order": 35
       },
       "37-document-chunks": {
         "id": "9c8e0d66-5974-4325-b667-0683034736ff",
-        "order": 35
+        "order": 38
       },
       "38-retrieval-ranking": {
         "id": "d6e25dc7-d547-4493-9425-11bcebd38576",
-        "order": 36
+        "order": 39
       },
       "39-grounded-answer": {
         "id": "b362b0f1-b000-4457-9fa8-08a1e322f9c8",
-        "order": 37
+        "order": 41
       },
       "42-learning-curves": {
         "id": "ab0fdbb1-2f6f-400f-8e70-bd7e553e3679",
-        "order": 39
+        "order": 43
       },
       "43-experiment-selection": {
         "id": "ba186ec8-f929-482f-b2c1-9f88b2f969cc",
-        "order": 40
+        "order": 44
       },
       "44-adapter-preflight": {
         "id": "bcff7707-a18e-483d-97f4-d75d72f151f3",
-        "order": 42
+        "order": 47
+      },
+      "45-model-mechanics": {
+        "id": "f5158e06-be37-429f-9f86-390492deb7fd",
+        "order": 3
+      },
+      "46-tool-call-loop": {
+        "id": "a583a827-cb7d-4ea1-9173-42d3862dc85d",
+        "order": 16
+      },
+      "48-reviewed-memory": {
+        "id": "40226391-2131-4422-ae8e-35994710e5c8",
+        "order": 30
+      },
+      "47-vector-search": {
+        "id": "31720f9f-6958-4539-9016-fb9f61d9b8a9",
+        "order": 40
+      },
+      "49-sft-labels": {
+        "id": "eb06ee11-aa7f-4c7d-9fee-0566c9585020",
+        "order": 45
+      },
+      "50-serving-rollout": {
+        "id": "779714be-ba2a-405f-bdd3-24deea1c9144",
+        "order": 49
       }
-    }
+    },
+    "verifiedAt": "2026-10-23T16:26:01.328Z"
   }
 }
