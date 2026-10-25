@@ -1,0 +1,37 @@
+import { spawn } from 'node:child_process';
+import { watch } from 'node:fs';
+
+let running = false;
+let pending = false;
+let timer;
+
+function check() {
+  if (running) {
+    pending = true;
+    return;
+  }
+  running = true;
+  console.log('Проверяю задание...');
+  const env = { ...process.env };
+  // Внешний node --test не должен глушить эту проверку.
+  delete env.NODE_TEST_CONTEXT;
+  const child = spawn(process.execPath, ['--import', 'tsx', '--test', 'tests/llm.test.ts'], { stdio: 'inherit', env });
+  child.on('error', (error) => console.error(error.message));
+  child.on('close', (code) => {
+    console.log(code === 0 ? 'ASSIGNMENT STATUS: COMPLETED' : 'ASSIGNMENT STATUS: NOT COMPLETED');
+    running = false;
+    if (pending) {
+      pending = false;
+      check();
+    }
+  });
+}
+
+// Следим за папками, а не файлами: редакторы сохраняют через замену файла.
+for (const directory of ['src', 'tests']) {
+  watch(directory, () => {
+    clearTimeout(timer);
+    timer = setTimeout(check, 150);
+  });
+}
+check();
