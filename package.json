@@ -3,9 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --import tsx --test tests/llm.test.ts",
+    "test": "tsx --test tests/llm.test.ts",
     "start:dev": "node scripts/stackblitz-status.mjs",
-    "hello": "node --env-file=.env --import tsx src/hello.ts",
+    "hello": "tsx --env-file=.env src/hello.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
