@@ -41,7 +41,7 @@ const messages: Message[] = [
   { role: 'user', content: 'Что такое event loop?' },
 ];
 
-describe('Шаг 1. loadConfig', () => {
+describe('Шаг 1 / Step 1. loadConfig', () => {
   it('читает три переменные окружения', () => {
     const result = loadConfig({ LLM_BASE_URL: 'http://localhost:11434/v1', LLM_API_KEY: 'ollama', LLM_MODEL: 'qwen2.5:7b' });
     assert.deepEqual(result, { baseUrl: 'http://localhost:11434/v1', apiKey: 'ollama', model: 'qwen2.5:7b' });
@@ -62,7 +62,7 @@ describe('Шаг 1. loadConfig', () => {
   });
 });
 
-describe('Шаг 2. chat отправляет правильный запрос', () => {
+describe('Шаг 2 / Step 2. chat отправляет правильный запрос', () => {
   it('POST на <baseUrl>/chat/completions', async () => {
     const calls = stubFetch(200, completion('Привет'));
     await chat(config, messages);
@@ -93,7 +93,7 @@ describe('Шаг 2. chat отправляет правильный запрос'
   });
 });
 
-describe('Шаг 3. chat разбирает ответ', () => {
+describe('Шаг 3 / Step 3. chat разбирает ответ', () => {
   it('возвращает текст, finish_reason и usage', async () => {
     stubFetch(200, completion('Привет', 'stop', { prompt_tokens: 18, completion_tokens: 3 }));
     const result = await chat(config, messages);
@@ -116,7 +116,7 @@ describe('Шаг 3. chat разбирает ответ', () => {
   });
 });
 
-describe('Шаг 4. chat не прячет ошибки API', () => {
+describe('Шаг 4 / Step 4. chat не прячет ошибки API', () => {
   it('401: бросает ошибку со статусом и текстом от провайдера', async () => {
     stubFetch(401, { error: { message: 'Missing Authentication header', code: 401 } });
     await assert.rejects(chat(config, messages), (error: Error) => {
@@ -141,7 +141,7 @@ describe('Шаг 4. chat не прячет ошибки API', () => {
   });
 });
 
-describe('Шаг 5. estimateCost', () => {
+describe('Шаг 5 / Step 5. estimateCost', () => {
   const price = { inputPerMillion: 0.03, outputPerMillion: 0.13 };
 
   it('считает вход и выход по разным ценам', () => {
