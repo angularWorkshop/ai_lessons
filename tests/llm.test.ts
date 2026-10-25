@@ -43,8 +43,8 @@ const messages: Message[] = [
 
 describe('Шаг 1 / Step 1. loadConfig', () => {
   it('читает три переменные окружения', () => {
-    const result = loadConfig({ LLM_BASE_URL: 'http://localhost:11434/v1', LLM_API_KEY: 'ollama', LLM_MODEL: 'qwen2.5:7b' });
-    assert.deepEqual(result, { baseUrl: 'http://localhost:11434/v1', apiKey: 'ollama', model: 'qwen2.5:7b' });
+    const result = loadConfig({ LLM_BASE_URL: 'https://api.edutec.it.com/llm/v1', LLM_API_KEY: 'edt_test', LLM_MODEL: 'qwen/qwen3.7-flash' });
+    assert.deepEqual(result, { baseUrl: 'https://api.edutec.it.com/llm/v1', apiKey: 'edt_test', model: 'qwen/qwen3.7-flash' });
   });
 
   it('убирает слеш в конце адреса', () => {
