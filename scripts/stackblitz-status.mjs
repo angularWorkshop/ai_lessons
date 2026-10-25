@@ -1,5 +1,5 @@
 import { spawn } from 'node:child_process';
-import { watch } from 'node:fs';
+import { watch, writeFileSync } from 'node:fs';
 
 let running = false;
 let pending = false;
@@ -35,5 +35,7 @@ for (const directory of ['src', 'tests']) {
     timer = setTimeout(check, 150);
   });
 }
+// Метка для платформы: WebContainer запущен, можно класть в проект .env с ключом к модели.
+writeFileSync('.edutec-ready', '');
 console.log(`Node ${process.version}`);
 check();
