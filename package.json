@@ -1,0 +1,27 @@
+{
+  "name": "edutec-ai-02-chat-history",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test tests/llm.test.ts tests/session.test.ts",
+    "start:dev": "node scripts/stackblitz-status.mjs",
+    "prefirst": "node scripts/check-env.mjs",
+    "first": "tsx --env-file=.env src/first-request.ts",
+    "prehello": "node scripts/check-env.mjs",
+    "hello": "tsx --env-file=.env src/hello.ts",
+    "prechat": "node scripts/check-env.mjs",
+    "chat": "tsx --env-file=.env src/chat.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "stackblitz": {
+    "startCommand": "npm run start:dev"
+  }
+}
