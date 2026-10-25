@@ -17,7 +17,13 @@
     "prechat": "node scripts/check-env.mjs",
     "chat": "tsx --env-file=.env src/chat.ts",
     "pretool-call": "node scripts/check-env.mjs",
-    "tool-call": "tsx --env-file=.env src/tool-call.ts"
+    "tool-call": "tsx --env-file=.env src/tool-call.ts",
+    "preprompt": "node scripts/check-env.mjs",
+    "prompt": "tsx --env-file=.env src/prompt-demo.ts",
+    "prejson": "node scripts/check-env.mjs",
+    "json": "tsx --env-file=.env src/json-demo.ts",
+    "preeval": "node scripts/check-env.mjs",
+    "eval": "tsx --env-file=.env src/eval-demo.ts"
   },
   "devDependencies": {
     "@types/node": "22.20.5",
@@ -29,5 +35,8 @@
   },
   "stackblitz": {
     "startCommand": "npm run start:dev"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
   }
 }

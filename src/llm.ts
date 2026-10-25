@@ -52,7 +52,18 @@ export interface ChatOptions {
   tools?: ToolSpec[];
   /** auto — модель решает сама, none — только текст, required — обязательно вызвать инструмент. */
   toolChoice?: 'auto' | 'none' | 'required';
+  /** Формат ответа: обычный текст, любой JSON или JSON по схеме. Не задан — поле не отправляется. */
+  responseFormat?: ResponseFormat;
 }
+
+// Поле response_format из Chat Completions.
+export type ResponseFormat =
+  | { type: 'text' }
+  | { type: 'json_object' }
+  | {
+      type: 'json_schema';
+      json_schema: { name: string; schema: Record<string, unknown>; strict?: boolean; description?: string };
+    };
 
 export interface Usage {
   input: number;
@@ -207,6 +218,8 @@ async function chatOnce(config: LlmConfig, messages: Message[], options: ChatOpt
         // Шаг 1: без инструментов тело запроса такое же, как раньше.
         ...(options.tools?.length ? { tools: options.tools } : {}),
         ...(options.toolChoice ? { tool_choice: options.toolChoice } : {}),
+        // undefined JSON.stringify пропустит: старые запросы не меняются.
+        response_format: options.responseFormat,
       }),
       signal,
     });
@@ -361,6 +374,8 @@ async function openStream(config: LlmConfig, messages: Message[], options: ChatO
         messages,
         temperature: options.temperature ?? DEFAULT_TEMPERATURE,
         max_tokens: options.maxTokens ?? DEFAULT_MAX_TOKENS,
+        // undefined JSON.stringify пропустит: старые запросы не меняются.
+        response_format: options.responseFormat,
         stream: true,
         // Без этого OpenAI не пришлёт usage в стриме. Наш шлюз добавляет его сам, но мы не полагаемся.
         stream_options: { include_usage: true },
