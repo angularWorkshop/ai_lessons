@@ -5,7 +5,9 @@
   "scripts": {
     "test": "tsx --test tests/llm.test.ts",
     "start:dev": "node scripts/stackblitz-status.mjs",
+    "prefirst": "node scripts/check-env.mjs",
     "first": "tsx --env-file=.env src/first-request.ts",
+    "prehello": "node scripts/check-env.mjs",
     "hello": "tsx --env-file=.env src/hello.ts",
     "typecheck": "tsc --noEmit"
   },
