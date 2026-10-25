@@ -15,7 +15,8 @@ function check() {
   const env = { ...process.env };
   // Внешний node --test не должен глушить эту проверку.
   delete env.NODE_TEST_CONTEXT;
-  const child = spawn(process.execPath, ['--import', 'tsx', '--test', 'tests/llm.test.ts'], { stdio: 'inherit', env });
+  // CLI tsx сам подбирает флаги под версию Node, поэтому не зовём node --import напрямую.
+  const child = spawn(process.execPath, ['node_modules/tsx/dist/cli.mjs', '--test', 'tests/llm.test.ts'], { stdio: 'inherit', env });
   child.on('error', (error) => console.error(error.message));
   child.on('close', (code) => {
     console.log(code === 0 ? 'ASSIGNMENT STATUS: COMPLETED' : 'ASSIGNMENT STATUS: NOT COMPLETED');
@@ -34,4 +35,5 @@ for (const directory of ['src', 'tests']) {
     timer = setTimeout(check, 150);
   });
 }
+console.log(`Node ${process.version}`);
 check();
