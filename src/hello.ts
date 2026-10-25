@@ -1,9 +1,8 @@
 // Запуск на настоящей модели: npm run hello
-// Перед первым запуском: cp .env.example .env и заполни .env.
+// Адрес, ключ и модель платформа уже положила в .env.
 import { chat, estimateCost, loadConfig, type Message } from './llm.ts';
 
 // Цены qwen/qwen3.7-flash в долларах за миллион токенов.
-// Для Ollama поставь 0 и 0: локальная модель бесплатная.
 const PRICE = { inputPerMillion: 0.03, outputPerMillion: 0.13 };
 
 const messages: Message[] = [
