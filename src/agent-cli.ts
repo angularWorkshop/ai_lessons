@@ -1,0 +1,24 @@
+// Агент в терминале: npm run agent "задача"
+import { Agent } from './agent.ts';
+import { calculator, currentTime } from './demo-tools.ts';
+import { loadConfig } from './llm.ts';
+import { printEvent } from './print-event.ts';
+import { llmProvider } from './provider.ts';
+import { Toolbox } from './tools.ts';
+
+const SYSTEM = `Ты — агент, который решает задачи с помощью инструментов.
+Текущее время узнавай только через get_current_time, любые вычисления делай только через calculate.
+Когда всё узнал, ответь коротко и по-русски.`;
+
+const task = process.argv.slice(2).join(' ') || 'Сколько минут осталось до полуночи в Токио? Какая это доля суток в процентах?';
+console.log(`задача> ${task}`);
+
+const agent = new Agent({
+  provider: llmProvider(loadConfig()),
+  toolbox: new Toolbox({ maxResultChars: 2000 }).register(currentTime).register(calculator),
+  system: SYSTEM,
+  onEvent: printEvent,
+});
+
+const run = await agent.run(task);
+console.log(`шагов: ${run.steps}, токенов: ${run.usage.input} → ${run.usage.output}, сообщений в истории: ${run.messages.length}`);
