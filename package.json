@@ -21,7 +21,13 @@
     "pretools": "node scripts/check-env.mjs",
     "tools": "tsx --env-file=.env src/tools-demo.ts",
     "pretool-errors": "node scripts/check-env.mjs",
-    "tool-errors": "tsx --env-file=.env src/tool-errors.ts"
+    "tool-errors": "tsx --env-file=.env src/tool-errors.ts",
+    "preprompt": "node scripts/check-env.mjs",
+    "prompt": "tsx --env-file=.env src/prompt-demo.ts",
+    "prejson": "node scripts/check-env.mjs",
+    "json": "tsx --env-file=.env src/json-demo.ts",
+    "preeval": "node scripts/check-env.mjs",
+    "eval": "tsx --env-file=.env src/eval-demo.ts"
   },
   "devDependencies": {
     "@types/node": "22.20.5",
