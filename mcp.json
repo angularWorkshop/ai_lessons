@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "project": {
+      "command": "node",
+      "args": ["node_modules/tsx/dist/cli.mjs", "src/mcp/serve.ts", "."]
+    }
+  }
+}
