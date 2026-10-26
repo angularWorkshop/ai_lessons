@@ -8,8 +8,11 @@ export class Conversation {
   #messages: Message[] = [];
   #usage: Usage = { input: 0, output: 0 };
 
-  constructor(options: Omit<AgentOptions, 'signal'>) {
+  // Тема 12.3: restored — история и расход из журнала сессии, чтобы продолжить разговор после перезапуска.
+  constructor(options: Omit<AgentOptions, 'signal'>, restored: { messages?: readonly Message[]; usage?: Usage } = {}) {
     this.#options = options;
+    this.#messages = [...(restored.messages ?? [])];
+    this.#usage = { ...(restored.usage ?? this.#usage) };
   }
 
   /** История без system: все задачи разговора и всё, что агент сделал. */
