@@ -15,6 +15,8 @@ export interface Tool<A = any> {
   description: string;
   /** Аргументы. Из схемы получается JSON Schema для модели, ею же проверяем то, что модель прислала. */
   schema: z.ZodType<A>;
+  /** Готовая JSON Schema аргументов для модели. Задана — уходит модели вместо перевода schema (тема 11.3: инструменты MCP). */
+  parameters?: Record<string, unknown>;
   /** Исполнение. Результат — строка: она уйдёт модели сообщением с ролью tool. */
   run(args: A, ctx: ToolContext): Promise<string>;
 }
@@ -72,7 +74,7 @@ export class Toolbox {
     // Схему переводим сразу. Если она не переводится в JSON Schema, узнаем при старте, а не посреди задачи.
     const spec: ToolSpec = {
       type: 'function',
-      function: { name: tool.name, description: tool.description, parameters: toParameters(tool.name, tool.schema) },
+      function: { name: tool.name, description: tool.description, parameters: tool.parameters ?? toParameters(tool.name, tool.schema) },
     };
     this.#tools.set(tool.name, { tool, spec });
     return this;
