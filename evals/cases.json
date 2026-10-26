@@ -1,0 +1,110 @@
+[
+  {
+    "id": "refund-5-days",
+    "question": "Оплатил Плюс на сайте 5 дней назад и передумал. Можно ещё вернуть деньги и до какого срока?",
+    "expect": "answer",
+    "sources": ["billing/refund.md"],
+    "mustInclude": ["14"]
+  },
+  {
+    "id": "plus-yearly-price",
+    "question": "Сколько стоит Плюс, если платить сразу за год?",
+    "expect": "answer",
+    "sources": ["billing/plans.md"],
+    "mustInclude": ["2990"]
+  },
+  {
+    "id": "cancel-app-store",
+    "question": "Купил подписку через App Store. Как её отменить?",
+    "expect": "answer",
+    "sources": ["billing/cancel.md"],
+    "mustInclude": ["iPhone"]
+  },
+  {
+    "id": "reset-link-expired",
+    "question": "Ссылка из письма для сброса пароля не открывается, пишет что устарела. Что делать?",
+    "expect": "answer",
+    "sources": ["account/password.md"],
+    "mustInclude": ["час"]
+  },
+  {
+    "id": "2fa-backup-codes",
+    "question": "Потерял телефон с аутентификатором, но резервные коды у меня записаны. Как войти?",
+    "expect": "answer",
+    "sources": ["account/two-factor.md"],
+    "mustInclude": ["резервн"]
+  },
+  {
+    "id": "export-formats",
+    "question": "В каких форматах можно выгрузить все мои заметки?",
+    "expect": "answer",
+    "sources": ["data/export.md"],
+    "mustInclude": ["Markdown", "PDF", "HTML"]
+  },
+  {
+    "id": "offline-free",
+    "question": "У меня бесплатный тариф. Все заметки будут доступны в метро без интернета?",
+    "expect": "answer",
+    "sources": ["sync/offline.md", "billing/plans.md"],
+    "mustInclude": ["50"]
+  },
+  {
+    "id": "import-evernote",
+    "question": "Хочу перенести заметки из Evernote. Как это сделать?",
+    "expect": "answer",
+    "sources": ["data/import.md"],
+    "mustInclude": ["enex"]
+  },
+  {
+    "id": "restore-deleted",
+    "question": "Вчера случайно удалил аккаунт. Его ещё можно вернуть?",
+    "expect": "answer",
+    "sources": ["account/delete.md"],
+    "mustInclude": ["30"]
+  },
+  {
+    "id": "google-calendar",
+    "question": "Есть ли у вас интеграция с Google Calendar?",
+    "expect": "refuse"
+  },
+  {
+    "id": "apple-watch",
+    "question": "Когда выйдет приложение для Apple Watch?",
+    "expect": "refuse"
+  },
+  {
+    "id": "weather",
+    "question": "Какая погода завтра в Москве?",
+    "expect": "refuse"
+  },
+  {
+    "id": "hacked",
+    "question": "Кто-то сменил пароль и почту в моём аккаунте, я не могу войти!",
+    "expect": "ticket",
+    "priority": "urgent"
+  },
+  {
+    "id": "double-charge",
+    "question": "С карты списали 299 ₽ два раза за этот месяц. Верните лишнее.",
+    "expect": "ticket",
+    "priority": "normal"
+  },
+  {
+    "id": "2fa-no-codes",
+    "question": "Потерял телефон, а резервных кодов у меня нет. Как теперь войти в аккаунт?",
+    "expect": "ticket",
+    "priority": "normal"
+  },
+  {
+    "id": "refund-after-outage",
+    "question": "Оплатил год месяц назад, а синхронизация у вас не работала две недели из-за сбоя. Хочу вернуть деньги.",
+    "expect": "ticket",
+    "priority": "normal"
+  },
+  {
+    "id": "human",
+    "question": "Позовите живого человека, бот мне не помогает.",
+    "expect": "ticket",
+    "priority": "normal"
+  }
+]
