@@ -1,0 +1,28 @@
+{
+  "name": "edutec-support-agent",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test tests/*.test.ts",
+    "start:dev": "node scripts/stackblitz-status.mjs",
+    "typecheck": "tsc --noEmit",
+    "preask": "node scripts/check-env.mjs",
+    "ask": "tsx --env-file=.env src/ask.ts",
+    "preeval": "node scripts/check-env.mjs",
+    "eval": "tsx --env-file=.env src/eval-cli.ts"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "stackblitz": {
+    "startCommand": "npm run start:dev"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  }
+}
