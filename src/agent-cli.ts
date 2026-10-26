@@ -1,46 +1,64 @@
-// Агент в терминале: npm run agent "задача"
-import { Agent } from './agent.ts';
+// Агент в терминале.
+//   npm run agent                         разговор: задачи, /команды, Esc — остановить задачу
+//   npm run agent "задача"                разговор, начиная с задачи
+//   npm run agent -- -p "задача" --json   headless: одна задача без человека, JSON в stdout (тема 6.3)
+// Тема 11.3: к своим инструментам добавляются инструменты MCP-серверов из mcp.json.
+import { Conversation } from './conversation.ts';
 import { calculator, currentTime } from './demo-tools.ts';
+import { parseCli, runHeadless, USAGE, USAGE_EXIT_CODE, UsageError, type CliMode } from './headless.ts';
 import { loadConfig } from './llm.ts';
 import { startMcpServers } from './mcp/agent-tools.ts';
 import { loadMcpConfig } from './mcp/config.ts';
-import { printEvent } from './print-event.ts';
+import { createPrinter } from './printer.ts';
 import { llmProvider } from './provider.ts';
+import { runRepl } from './repl.ts';
+import { wait } from './slow-tools.ts';
 import { Toolbox } from './tools.ts';
 
 const SYSTEM = `Ты — агент, который решает задачи с помощью инструментов.
 Текущее время узнавай только через get_current_time, любые вычисления делай только через calculate.
 Когда всё узнал, ответь коротко и по-русски.`;
 
-const task = process.argv.slice(2).join(' ') || 'Сколько минут осталось до полуночи в Токио? Какая это доля суток в процентах?';
-console.log(`задача> ${task}`);
+let cli: CliMode;
+try {
+  cli = parseCli(process.argv.slice(2));
+} catch (error) {
+  if (!(error instanceof UsageError)) {
+    throw error;
+  }
+  console.error(`${error.message}\n\n${USAGE}`);
+  process.exit(USAGE_EXIT_CODE);
+}
 
-// Ctrl+C останавливает агента, а не убивает процесс: run вернётся с aborted и целой историей.
-const controller = new AbortController();
-process.once('SIGINT', () => {
-  console.log('\nCtrl+C — останавливаю агента...');
-  controller.abort();
-});
+const provider = llmProvider(loadConfig());
+const toolbox = new Toolbox({ maxResultChars: 2000 }).register(currentTime).register(calculator).register(wait);
 
-const toolbox = new Toolbox({ maxResultChars: 2000 }).register(currentTime).register(calculator);
 // Тема 11.3: инструменты MCP-серверов из mcp.json. Нет файла — агент работает только со своими.
+// Служебные строки — в stderr: в headless stdout занят JSON-результатом.
 const mcp = await startMcpServers(toolbox, await loadMcpConfig());
 for (const { error } of mcp.failed) {
   console.error(`${error}. Работаем без него.`);
 }
-console.log(`инструменты> ${toolbox.specs().map((spec) => spec.function.name).join(', ')}`);
+console.error(`инструменты> ${toolbox.specs().map((spec) => spec.function.name).join(', ')}`);
 
-const agent = new Agent({
-  provider: llmProvider(loadConfig()),
-  toolbox,
-  system: SYSTEM,
-  signal: controller.signal,
-  onEvent: printEvent,
-});
-
-// run не бросает, но серверы закрываем при любом исходе: done, error, aborted.
-const run = await agent.run(task).finally(() => mcp.close());
-if (run.stopReason === 'error') {
-  console.error(run.answer);
+// Серверы — дочерние процессы: закрываем их при любом исходе.
+try {
+  if (cli.mode === 'headless') {
+    // Человека нет, Esc нажать некому. Остановить могут сигналом: Ctrl+C — SIGINT, CI по таймауту — SIGTERM.
+    const controller = new AbortController();
+    process.once('SIGINT', () => controller.abort());
+    process.once('SIGTERM', () => controller.abort());
+    process.exitCode = await runHeadless({
+      agent: { provider, toolbox, system: SYSTEM, signal: controller.signal },
+      task: cli.task,
+      json: cli.json,
+      stdout: process.stdout,
+      stderr: process.stderr,
+    });
+  } else {
+    const conversation = new Conversation({ provider, toolbox, system: SYSTEM, onEvent: createPrinter(), stream: true });
+    await runRepl(conversation, cli.task);
+  }
+} finally {
+  await mcp.close();
 }
-console.log(`шагов: ${run.steps}, токенов: ${run.usage.input} → ${run.usage.output}, сообщений в истории: ${run.messages.length}`);
