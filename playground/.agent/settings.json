@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "mode": "ask",
+    "allow": ["run_command(npm test)"],
+    "deny": ["edit_file(tests/**)"]
+  },
+  "limits": { "maxSteps": 30 }
+}
