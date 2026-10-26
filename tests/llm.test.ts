@@ -97,7 +97,15 @@ describe('Шаг 3 / Step 3. chat разбирает ответ', () => {
   it('возвращает текст, finish_reason и usage', async () => {
     stubFetch(200, completion('Привет', 'stop', { prompt_tokens: 18, completion_tokens: 3 }));
     const result = await chat(config, messages);
-    assert.deepEqual(result, { text: 'Привет', finishReason: 'stop', truncated: false, usage: { input: 18, output: 3 } });
+    // С темы 3.1 в результате есть ещё toolCalls и message — ответ, готовый лечь в историю.
+    assert.deepEqual(result, {
+      text: 'Привет',
+      finishReason: 'stop',
+      truncated: false,
+      usage: { input: 18, output: 3 },
+      toolCalls: [],
+      message: { role: 'assistant', content: 'Привет' },
+    });
   });
 
   it('finish_reason "length" — ответ обрезан', async () => {
