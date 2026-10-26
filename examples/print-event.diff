@@ -1,0 +1,14 @@
+diff --git a/src/print-event.ts b/src/print-event.ts
+index 3f2a1c4..8b7d9e0 100644
+--- a/src/print-event.ts
++++ b/src/print-event.ts
+@@ -3,7 +3,8 @@ import type { AgentEvent } from './agent.ts';
+ 
+ // Результат инструмента бывает длинным. В терминал — первая строка и не больше 120 символов.
+ function short(text: string): string {
+-  const line = text.split('\n')[0];
++  // Результат может начинаться с пустой строки — тогда показываем первую непустую.
++  const line = text.split('\n').find((part) => part.trim() !== '') ?? '';
+   return line.length > 120 || text.includes('\n') ? `${line.slice(0, 120)}…` : line;
+ }
+ 
