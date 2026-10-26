@@ -1,6 +1,7 @@
 // Клиент к LLM в формате Chat Completions.
 // С этого файла начинается наш агент: дальше по курсу он будет только расти.
 import { setTimeout as delay } from 'node:timers/promises';
+import { ToolCallBuffer, type ToolCallDelta } from './tool-call-deltas.ts';
 
 // Сообщение истории. С темы 3.1 их четыре вида: у ответа модели может не быть текста,
 // зато быть вызовы инструментов, а результат инструмента приходит с ролью tool.
@@ -48,12 +49,26 @@ export interface ChatOptions {
   retries?: number;
   /** Пауза между попытками. Тесты подставляют свою, чтобы не ждать по-настоящему. */
   sleep?: (ms: number, signal?: AbortSignal) => Promise<void>;
-  /** Инструменты, которые модель может вызвать. chatStream их пока не отправляет: это секция 6. */
+  /** Инструменты, которые модель может вызвать. С ними и chatStream возвращает ChatResult с toolCalls. */
   tools?: ToolSpec[];
   /** auto — модель решает сама, none — только текст, required — обязательно вызвать инструмент. */
   toolChoice?: 'auto' | 'none' | 'required';
   /** Формат ответа: обычный текст, любой JSON или JSON по схеме. Не задан — поле не отправляется. */
   responseFormat?: ResponseFormat;
+  /** Тема 7.5: рассуждения перед ответом. Не задано — поле не отправляется, модель отвечает как раньше. */
+  reasoning?: ReasoningOptions;
+}
+
+// Объект reasoning в формате OpenRouter. Шлюз передаёт его модели как есть.
+export interface ReasoningOptions {
+  /** true — рассуждать с усилием по умолчанию. */
+  enabled?: boolean;
+  /** Сколько думать. Модель сама решает, сколько токенов это значит. */
+  effort?: 'minimal' | 'low' | 'medium' | 'high';
+  /** Предел токенов на рассуждения. Понимают не все модели. */
+  max_tokens?: number;
+  /** true — рассуждать, но текст рассуждений не присылать. Токены всё равно оплачиваются. */
+  exclude?: boolean;
 }
 
 // Поле response_format из Chat Completions.
@@ -68,9 +83,11 @@ export type ResponseFormat =
 export interface Usage {
   input: number;
   output: number;
+  /** Тема 7.5: сколько из output ушло на рассуждения. Есть, только если модель рассуждала. */
+  reasoning?: number;
 }
 
-// Ответ текстом. Столько возвращает chatStream: вызовы инструментов в стриме будут в секции 6.
+// Ответ текстом. Столько возвращает chatStream без tools — как в теме 1.4.
 export interface TextResult {
   text: string;
   finishReason: string;
@@ -79,6 +96,8 @@ export interface TextResult {
 }
 
 export interface ChatResult extends TextResult {
+  /** Тема 7.5: текст рассуждений, если модель их прислала. В историю он не попадает. */
+  reasoning?: string;
   /** Что модель попросила вызвать. Пустой массив — инструменты не нужны, ответ в text. */
   toolCalls: ToolCall[];
   /** Ответ модели, готовый лечь в историю как есть: вместе с tool_calls, если они были. */
@@ -115,19 +134,21 @@ export class LlmError extends Error {
 interface ChatCompletionResponse {
   choices: {
     // В каждом tool_call шлюз присылает ещё и index. Нам он не нужен, и в историю мы его не кладём.
-    message: { role: 'assistant'; content: string | null; tool_calls?: AssistantToolCall[] };
+    message: { role: 'assistant'; content: string | null; tool_calls?: AssistantToolCall[]; reasoning?: string | null };
     finish_reason: string;
   }[];
   usage?: {
     prompt_tokens: number;
     completion_tokens: number;
+    completion_tokens_details?: { reasoning_tokens?: number };
   };
 }
 
 // Один кусочек стрима (chat.completion.chunk). Последний, с usage, может прийти с пустым choices.
 interface ChatCompletionChunk {
   choices: {
-    delta: { content?: string | null };
+    // С темы 6.1: вызовы инструментов тоже приходят по кусочкам.
+    delta: { content?: string | null; tool_calls?: ToolCallDelta[] };
     finish_reason: string | null;
   }[];
   usage?: {
@@ -220,6 +241,7 @@ async function chatOnce(config: LlmConfig, messages: Message[], options: ChatOpt
         ...(options.toolChoice ? { tool_choice: options.toolChoice } : {}),
         // undefined JSON.stringify пропустит: старые запросы не меняются.
         response_format: options.responseFormat,
+        reasoning: options.reasoning,
       }),
       signal,
     });
@@ -241,6 +263,10 @@ async function chatOnce(config: LlmConfig, messages: Message[], options: ChatOpt
     arguments: call.function.arguments,
   }));
 
+  // Тема 7.5: рассуждения — часть output, но знать их долю нужно отдельно. Нет рассуждений — нет и полей.
+  const reasoningTokens = data.usage?.completion_tokens_details?.reasoning_tokens ?? 0;
+  const reasoning = choice.message.reasoning;
+
   return {
     text,
     finishReason: choice.finish_reason,
@@ -248,9 +274,11 @@ async function chatOnce(config: LlmConfig, messages: Message[], options: ChatOpt
     usage: {
       input: data.usage?.prompt_tokens ?? 0,
       output: data.usage?.completion_tokens ?? 0,
+      ...(reasoningTokens > 0 ? { reasoning: reasoningTokens } : {}),
     },
     toolCalls,
     message: assistantMessage(choice.message.content, toolCalls),
+    ...(reasoning ? { reasoning } : {}),
   };
 }
 
@@ -374,8 +402,12 @@ async function openStream(config: LlmConfig, messages: Message[], options: ChatO
         messages,
         temperature: options.temperature ?? DEFAULT_TEMPERATURE,
         max_tokens: options.maxTokens ?? DEFAULT_MAX_TOKENS,
+        // Шаг 2 (6.1): инструменты — как в chatOnce. Без них тело запроса прежнее.
+        ...(options.tools?.length ? { tools: options.tools } : {}),
+        ...(options.toolChoice ? { tool_choice: options.toolChoice } : {}),
         // undefined JSON.stringify пропустит: старые запросы не меняются.
         response_format: options.responseFormat,
+        reasoning: options.reasoning,
         stream: true,
         // Без этого OpenAI не пришлёт usage в стриме. Наш шлюз добавляет его сам, но мы не полагаемся.
         stream_options: { include_usage: true },
@@ -396,13 +428,20 @@ async function openStream(config: LlmConfig, messages: Message[], options: ChatO
   }
 }
 
-// Шаги 3–4
+// Шаги 3–4. С tools в опциях возвращает ChatResult, как chat; без них — прежний TextResult.
+export function chatStream(
+  config: LlmConfig,
+  messages: Message[],
+  options: ChatOptions & { tools: ToolSpec[] },
+  onDelta: (text: string) => void,
+): Promise<ChatResult>;
+export function chatStream(config: LlmConfig, messages: Message[], options: ChatOptions, onDelta: (text: string) => void): Promise<TextResult>;
 export async function chatStream(
   config: LlmConfig,
   messages: Message[],
   options: ChatOptions,
   onDelta: (text: string) => void,
-): Promise<TextResult> {
+): Promise<TextResult | ChatResult> {
   const timeoutMs = options.timeoutMs ?? DEFAULT_TIMEOUT_MS;
   // Повторяем только открытие: после первого кусочка повтор напечатал бы текст второй раз.
   const { body, idle } = await withRetries(options, () => openStream(config, messages, options, timeoutMs));
@@ -414,6 +453,7 @@ export async function chatStream(
   let finishReason = '';
   let usage: Usage = { input: 0, output: 0 };
   let done = false;
+  const calls = new ToolCallBuffer();
 
   try {
     while (!done) {
@@ -447,6 +487,10 @@ export async function chatStream(
           text += delta;
           onDelta(delta);
         }
+        // Шаг 2 (6.1): кусочки вызовов — в буфер. В чанках с вызовами content приходит null.
+        if (choice?.delta?.tool_calls) {
+          calls.push(choice.delta.tool_calls);
+        }
         if (choice?.finish_reason) {
           finishReason = choice.finish_reason;
         }
@@ -464,5 +508,11 @@ export async function chatStream(
     // Шлюз закрывает соединение, если провайдер упал посреди ответа. Без [DONE] ответ неполный.
     throw new LlmError('Стрим оборвался до data: [DONE]', { code: 'stream_interrupted', retryable: true });
   }
-  return { text, finishReason, truncated: finishReason === 'length', usage };
+  const result: TextResult = { text, finishReason, truncated: finishReason === 'length', usage };
+  if (!options.tools) {
+    return result;
+  }
+  // Шаг 2 (6.1): тот же ChatResult, что у chat. Текста перед вызовами нет — content: null, как в ответе без стрима.
+  const toolCalls = calls.calls();
+  return { ...result, toolCalls, message: assistantMessage(toolCalls.length > 0 && text === '' ? null : text, toolCalls) };
 }
