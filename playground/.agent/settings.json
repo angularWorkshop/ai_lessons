@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "mode": "ask",
+    "allow": ["run_command(npm test)"],
+    "deny": ["edit_file(tests/**)"]
+  },
+  "limits": { "maxSteps": 30 },
+  "hooks": {
+    "PreToolUse": [{ "matcher": "edit_file", "module": ".agent/hooks/no-generated.mjs" }],
+    "PostToolUse": [
+      { "matcher": "edit_file", "module": ".agent/hooks/check-edit.mjs" },
+      { "matcher": "run_command", "module": ".agent/hooks/log-commands.mjs" }
+    ]
+  }
+}
