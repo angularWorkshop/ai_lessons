@@ -16,7 +16,8 @@ export function printEvent(event: AgentEvent): void {
       if (event.message.content) {
         console.log(`модель> ${event.message.content}`);
       }
-      console.log(`   (${event.usage.input} → ${event.usage.output} токенов)`);
+      // Тема 8.2: сколько входа пришло из кеша, если провайдер это сообщил.
+      console.log(`   (${event.usage.input} → ${event.usage.output} токенов${event.usage.cached ? `, из кеша ${event.usage.cached}` : ''})`);
       break;
     case 'tool_call':
       console.log(`→ ${event.call.name}(${event.call.arguments})`);
