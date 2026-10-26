@@ -1,0 +1,53 @@
+{
+  "name": "edutec-ai-agent",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test tests/*.test.ts",
+    "start:dev": "node scripts/stackblitz-status.mjs",
+    "prefirst": "node scripts/check-env.mjs",
+    "first": "tsx --env-file=.env src/first-request.ts",
+    "prehello": "node scripts/check-env.mjs",
+    "hello": "tsx --env-file=.env src/hello.ts",
+    "prectrl-c": "node scripts/check-env.mjs",
+    "ctrl-c": "tsx --env-file=.env src/ctrl-c.ts",
+    "prestream": "node scripts/check-env.mjs",
+    "stream": "tsx --env-file=.env src/stream.ts",
+    "typecheck": "tsc --noEmit",
+    "prechat": "node scripts/check-env.mjs",
+    "chat": "tsx --env-file=.env src/chat.ts",
+    "pretool-call": "node scripts/check-env.mjs",
+    "tool-call": "tsx --env-file=.env src/tool-call.ts",
+    "pretools": "node scripts/check-env.mjs",
+    "tools": "tsx --env-file=.env src/tools-demo.ts",
+    "pretool-errors": "node scripts/check-env.mjs",
+    "tool-errors": "tsx --env-file=.env src/tool-errors.ts",
+    "preagent": "node scripts/check-env.mjs",
+    "agent": "tsx --env-file=.env src/agent-cli.ts",
+    "prelimits": "node scripts/check-env.mjs",
+    "limits": "tsx --env-file=.env src/limits-demo.ts",
+    "preprompt": "node scripts/check-env.mjs",
+    "prompt": "tsx --env-file=.env src/prompt-demo.ts",
+    "prejson": "node scripts/check-env.mjs",
+    "json": "tsx --env-file=.env src/json-demo.ts",
+    "preeval": "node scripts/check-env.mjs",
+    "eval": "tsx --env-file=.env src/eval-demo.ts",
+    "check-skills": "tsx src/skills/check-skills.ts",
+    "preskill-agent": "node scripts/check-env.mjs",
+    "skill-agent": "tsx --env-file=.env src/skills/skill-agent.ts"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "stackblitz": {
+    "startCommand": "npm run start:dev"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  }
+}
