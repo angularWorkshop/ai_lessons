@@ -1,7 +1,7 @@
 // Разговор с агентом в терминале: приглашение, слэш-команды, задачи и их прерывание по Esc или Ctrl+C.
 import { stdin, stdout } from 'node:process';
 import * as readline from 'node:readline/promises';
-import { runCommand } from './commands.ts';
+import { runCommand, type CommandResult } from './commands.ts';
 import type { Conversation } from './conversation.ts';
 import { listenForInterrupt } from './keys.ts';
 
@@ -42,7 +42,12 @@ async function runTask(conversation: Conversation, task: string): Promise<void> 
   }
 }
 
-export async function runRepl(conversation: Conversation, firstTask?: string): Promise<void> {
+/** Тема 12.6: свои команды. Не задано — команды из commands.ts, как раньше. */
+export interface ReplOptions {
+  command?: (line: string) => CommandResult | undefined | Promise<CommandResult | undefined>;
+}
+
+export async function runRepl(conversation: Conversation, firstTask?: string, options: ReplOptions = {}): Promise<void> {
   console.log('Агент. /help — команды, Esc или Ctrl+C — остановить задачу, /exit или Ctrl+D — выход.');
   if (firstTask) {
     console.log(`\nты> ${firstTask}`);
@@ -54,7 +59,7 @@ export async function runRepl(conversation: Conversation, firstTask?: string): P
       return;
     }
     // Команды обрабатывает программа. Модель их не видит, и токены на них не тратятся.
-    const command = runCommand(line, conversation);
+    const command = options.command ? await options.command(line) : runCommand(line, conversation);
     if (command) {
       console.log(command.output);
       if (command.exit) {
