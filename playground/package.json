@@ -1,0 +1,8 @@
+{
+  "name": "playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test tests/cart.test.ts"
+  }
+}
