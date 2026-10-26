@@ -1,0 +1,6 @@
+node_modules
+.env
+.edutec-ready
+# .agent/settings.json — общие настройки проекта, их коммитят. Остальное в .agent — личное.
+.agent/settings.local.json
+.agent/memory.json
