@@ -1,7 +1,8 @@
 // Цикл агента: спросить модель → исполнить её вызовы → вернуть результаты → спросить снова.
 // Агент заканчивает, когда модель отвечает текстом без tool_calls или когда его останавливает лимит.
 import { mapLimit } from './concurrency.ts';
-import type { ChatResult, Message, ToolCall, Usage } from './llm.ts';
+import { INTERRUPTED_RESULT, untilAborted } from './interrupt.ts';
+import type { ChatOptions, ChatResult, Message, ToolCall, Usage } from './llm.ts';
 import type { Provider } from './provider.ts';
 import type { Toolbox, ToolResult } from './tools.ts';
 
@@ -19,9 +20,11 @@ export type StopReason = 'done' | 'max_steps' | 'budget' | 'repeated_call' | 'tr
  * так что результаты приходят в порядке готовности. Для одного вызова tool_call всегда раньше его tool_result.
  * Вызов, который агент не стал исполнять (лимит, отмена), получает только tool_result с isError.
  * В самом конце — stop, ровно один раз.
+ * Со stream: true между step и assistant идут text_delta — кусочки текста по мере генерации.
  */
 export type AgentEvent =
   | { type: 'step'; step: number }
+  | { type: 'text_delta'; text: string }
   | { type: 'assistant'; message: Extract<Message, { role: 'assistant' }>; usage: Usage }
   | { type: 'tool_call'; call: ToolCall }
   | { type: 'tool_result'; call: ToolCall; result: ToolResult }
@@ -32,6 +35,12 @@ export interface AgentLimits {
   maxSteps?: number;
   /** Бюджет токенов на задачу: вход + выход всех запросов. Не путай с ChatOptions.maxTokens — это предел одного ответа. */
   maxTokens?: number;
+}
+
+/** Что агент сообщает prepareMessages: какой это шаг и как узнать об отмене. */
+export interface PrepareInfo {
+  step: number;
+  signal?: AbortSignal;
 }
 
 export interface AgentOptions {
@@ -45,6 +54,13 @@ export interface AgentOptions {
   /** Единственный способ смотреть на агента снаружи: терминал, трейс, хуки. */
   onEvent?: (event: AgentEvent) => void;
   temperature?: number;
+  /** Просить ответ стримом и отдавать текст событиями text_delta. Нужен provider.stream, иначе — обычный complete. */
+  stream?: boolean;
+  /**
+   * Секция 7: что увидит модель на этом шаге. Получает копию истории без system перед каждым запросом
+   * и возвращает сообщения, которые уйдут модели вместо неё. История агента от этого не меняется.
+   */
+  prepareMessages?: (messages: Message[], info: PrepareInfo) => Message[] | Promise<Message[]>;
 }
 
 export interface AgentRun {
@@ -108,7 +124,7 @@ export class Agent {
   }
 
   async run(task: string, history: Message[] = []): Promise<AgentRun> {
-    const { provider, toolbox, system, limits = {}, signal, temperature } = this.#options;
+    const { provider, toolbox, system, limits = {}, signal, temperature, prepareMessages } = this.#options;
     const maxSteps = limits.maxSteps ?? DEFAULT_MAX_STEPS;
     const maxTokens = limits.maxTokens ?? Infinity;
     const tools = toolbox.specs();
@@ -146,7 +162,9 @@ export class Agent {
 
       let result: ChatResult;
       try {
-        result = await provider.complete([{ role: 'system', content: system }, ...messages], {
+        // Тема 7.1: без prepareMessages модель видит историю как есть. Ошибка внутри — как ошибка провайдера.
+        const outgoing = prepareMessages ? await prepareMessages([...messages], { step: steps, signal }) : messages;
+        result = await this.#ask([{ role: 'system', content: system }, ...outgoing], {
           // Описания инструментов остаются: в истории есть их вызовы. toolChoice: 'none' запрещает новые.
           tools,
           ...(last && tools.length > 0 ? { toolChoice: 'none' as const } : {}),
@@ -198,6 +216,15 @@ export class Agent {
     }
   }
 
+  // Шаг 4 (6.1): один запрос к модели. Со stream текст уходит наружу по кусочкам, пока модель его пишет.
+  #ask(messages: Message[], options: ChatOptions): Promise<ChatResult> {
+    const { provider, stream } = this.#options;
+    if (stream && provider.stream) {
+      return provider.stream(messages, options, (text) => this.#emit({ type: 'text_delta', text }));
+    }
+    return provider.complete(messages, options);
+  }
+
   // Один вызов. Не бросает: иначе Promise.all внутри mapLimit потерял бы результаты остальных вызовов.
   async #execute(call: ToolCall): Promise<ToolResult> {
     const { toolbox, signal } = this.#options;
@@ -211,7 +238,8 @@ export class Agent {
     this.#emit({ type: 'tool_call', call });
     let result: ToolResult;
     try {
-      result = await toolbox.execute(call, { signal });
+      // Шаг 2 (6.2): после отмены не ждём инструмент, который не слушает signal.
+      result = await untilAborted(toolbox.execute(call, { signal }), signal, () => ({ ...INTERRUPTED_RESULT }));
     } catch (error) {
       // Наш Toolbox не бросает, но реестр можно подменить: в секции 11 появятся инструменты из MCP.
       result = { content: `Ошибка: ${call.name} не выполнился: ${error instanceof Error ? error.message : String(error)}`, isError: true };
