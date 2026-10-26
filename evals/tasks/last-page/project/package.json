@@ -1,0 +1,8 @@
+{
+  "name": "last-page",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
